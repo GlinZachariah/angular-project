@@ -1,0 +1,15 @@
+#footer {
+    margin-top: 100px;
+    display: flex;
+    padding: 25px;
+}
+
+#footer .row {
+    margin: auto;
+}
+
+#footer-content {
+    font-size: 18px;
+    margin: auto;
+    vertical-align: middle;
+}
