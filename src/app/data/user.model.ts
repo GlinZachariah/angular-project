@@ -8,6 +8,11 @@ export interface signInUser {
   auth: signIn;
 }
 
+export interface signUpUser {
+  credential: signInUser;
+  fullname: string;
+}
+
 export class signUpUserForm {
   fullname: string;
   role: string;
@@ -15,7 +20,4 @@ export class signUpUserForm {
   password: string;
 }
 
-export interface signUpUser {
-  credential: signInUser;
-  fullname: string;
-}
+
