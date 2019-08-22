@@ -5,7 +5,7 @@ export interface signIn{
 
 export interface signInUser{
     role:string;
-    credential :signIn;
+    auth :signIn;
 }
 
 export interface signUpUser{

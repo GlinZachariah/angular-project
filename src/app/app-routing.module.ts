@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SigninComponent } from './signin/signin.component';
 import { MentorSignupComponent } from './mentor-signup/mentor-signup.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'signup/user',
     component:UserSignupComponent
+  },
+  {
+    path:'user/:username',
+    component: ProfileComponent
   }
 ];
 
