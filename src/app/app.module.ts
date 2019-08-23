@@ -13,6 +13,8 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { MentorSignupComponent } from './mentor-signup/mentor-signup.component';
 import { UserModule } from './user/user.module';
 import { MentorModule } from './mentor/mentor.module';
+import { SearchComponent } from './search/search.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MentorModule } from './mentor/mentor.module';
     NavbarComponent,
     SigninComponent,
     UserSignupComponent,
-    MentorSignupComponent
+    MentorSignupComponent,
+    SearchComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

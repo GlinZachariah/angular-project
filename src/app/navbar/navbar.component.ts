@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  Logout(){
+  Logout() {
     this.isUserLoggedIn = false;
     this.UserRole = null;
     console.log("Logout process");

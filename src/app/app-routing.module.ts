@@ -5,6 +5,7 @@ import { MentorSignupComponent } from './mentor-signup/mentor-signup.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { HomeComponent } from './mentor/home/home.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'mentor/:username',
     component: HomeComponent
+  },
+  {
+    path: 'trainings/browse',
+    component : SearchComponent
   }
 ];
 
