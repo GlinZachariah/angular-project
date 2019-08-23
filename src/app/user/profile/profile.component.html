@@ -28,23 +28,23 @@
 
               <div class="row">
                 <div class="col-lg-5 ml-auto mr-auto">
-                  <!-- <form>
+                   <form>
 
                     <div class="form-group">
                       <label for="full-name" class="theme-color-5">Change Full Name</label>
-                      <input type="text" class="form-control" id="full-name" placeholder="Enter New Full Name"
+                      <input type="text" class="form-control" id="full-name" [(ngModel)]="loggedUser" name="loggedUser" placeholder="Enter New Full Name"
                         autocomplete="off">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1" class="theme-color-5">Change Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1"
+                      <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="loggedPwd" name="loggedPwd"
                         placeholder="Enter New Password" />
                     </div>
 
                     <button type="submit" class="btn theme-bgcolor-2 text-white mt-2">
                       Save
                     </button>
-                  </form> -->
+                  </form> 
                 </div>
               </div>
 

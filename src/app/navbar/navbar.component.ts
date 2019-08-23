@@ -14,12 +14,6 @@ export class NavbarComponent implements OnInit {
   defaultSection: boolean;
   UserRole;
   constructor(private route: Router, private checkAuth: AuthService) {
-    // if(this.checkAuth.isLoggedIn){
-    //   this.isUserLoggedIn = true;
-    //   this.UserRole = this.checkAuth.LoggedInRole;
-    // }else{
-    //   this.isUserLoggedIn=false;
-    // }
     this.checkAuth.isUserLoggedIn.subscribe(value => {
       if (value) {
         this.isUserLoggedIn = true;
@@ -34,6 +28,7 @@ export class NavbarComponent implements OnInit {
     this.isUserLoggedIn = false;
     this.UserRole = null;
     console.log("Logout process");
+    this.checkAuth.isLoggedIn= false;
     this.checkAuth.isUserLoggedIn.next(false);
   }
   ngOnInit() {}

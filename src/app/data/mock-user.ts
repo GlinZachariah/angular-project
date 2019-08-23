@@ -6,8 +6,8 @@ export const USER: signUpUser[] = [
     credential: {
       role: 'mentor',
       auth: {
-        username: 'tonystark',
-        password: 'loveu3000'
+        username: 'l',
+        password: 'l'
       }
     }
   },
@@ -28,6 +28,26 @@ export const USER: signUpUser[] = [
       auth: {
         username: 'kiran',
         password: 'loveu3000'
+      }
+    }
+  },
+  {
+    fullname: 'thomas zac',
+    credential: {
+      role: 'mentor',
+      auth: {
+        username: 'm',
+        password: 'm'
+      }
+    }
+  },
+  {
+    fullname: 'thomas mathew',
+    credential: {
+      role: 'user',
+      auth: {
+        username: 'n',
+        password: 'n'
       }
     }
   }

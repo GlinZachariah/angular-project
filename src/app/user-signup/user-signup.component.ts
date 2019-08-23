@@ -20,12 +20,12 @@ export class UserSignupComponent implements OnInit {
       username:'',
       password:'',
       fullname:'',
-      role:''
+      role:'user'
     });
   }
 
   createUser(loginData:signUpUserForm) {
-    console.log(loginData);
+    //console.log(loginData);
     this.signUpService.createUserAccount(loginData);
   }
 

@@ -21,5 +21,8 @@ export class SignupService {
     };
 
     USER.push(this.signUpUserObj);
+    USER.forEach(user => {
+      console.log(user.fullname+" : "+user.credential.role);
+    });
   }
 }

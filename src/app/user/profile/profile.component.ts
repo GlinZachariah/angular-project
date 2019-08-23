@@ -7,11 +7,13 @@ import { AuthService } from "../../services/auth.service";
 })
 export class ProfileComponent implements OnInit {
   loggedUser;
+  loggedPwd;
   constructor(
     private authService:AuthService
   ) {
     if(authService.isLoggedIn){
       this.loggedUser = authService.LoggedInUsername;
+      this.loggedPwd = authService.LoggedInPwd;
     }
   }
 

@@ -25,9 +25,12 @@ export class SigninComponent implements OnInit {
 
   checkUser(formData:signIn){
       this.data = formData;
-      console.warn("CheckUser Function");
       this.authService.performAuth(this.data,this.route);
-      this.authService.isUserLoggedIn.next(true);
+     // console.warn("Logged IsUserLoggedIn :: "+this.authService.isLoggedIn);
+    //  console.warn("Logged USER :: "+this.authService.LoggedInRole);
+      if(this.authService.LoggedInRole != undefined && this.authService.isLoggedIn){
+        this.authService.isUserLoggedIn.next(true);
+      }
       this.formDataValue.reset();
   }
 

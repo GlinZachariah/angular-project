@@ -52,9 +52,9 @@ export class MentorSignupComponent implements OnInit {
    signUpMentor(signUpData,materialTypeData){
     console.warn(signUpData);
     this.mentorCreateData = {
-      username:signUpData.username,
       fullname:signUpData.fullname,
       role:'mentor',
+      username:signUpData.username,
       password :signUpData.password
     }
     this.signUpService.createUserAccount(this.mentorCreateData);
