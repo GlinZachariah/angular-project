@@ -12,6 +12,8 @@ import { SigninComponent } from './signin/signin.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { MentorSignupComponent } from './mentor-signup/mentor-signup.component';
 import { UserModule } from './user/user.module';
+import { MentorModule } from './mentor/mentor.module';
+import { HomeComponent } from './mentor/home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { UserModule } from './user/user.module';
     NavbarComponent,
     SigninComponent,
     UserSignupComponent,
-    MentorSignupComponent
+    MentorSignupComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    UserModule
+    UserModule,
+    MentorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { signUpUser, signUpUserForm } from "../data/user.model";
-import { USER } from "../data/mock-user";
+import { Injectable } from '@angular/core';
+import { signUpUser, signUpUserForm } from '../data/user.model';
+import { USER } from '../data/mock-user';
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class SignupService {
   signUpUserObj: signUpUser;
