@@ -1,3 +1,5 @@
+import { Route, Router } from '@angular/router';
+
 export var Skills: string[] = [
     "Git", "Angular", "Core Java", "Python", "Spring"
 ];

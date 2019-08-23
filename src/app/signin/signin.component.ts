@@ -27,6 +27,7 @@ export class SigninComponent implements OnInit {
       this.data = formData;
       console.warn("CheckUser Function");
       this.authService.performAuth(this.data,this.route);
+      this.authService.isUserLoggedIn.next(true);
       this.formDataValue.reset();
   }
 

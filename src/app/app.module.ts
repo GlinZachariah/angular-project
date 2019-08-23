@@ -13,7 +13,6 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { MentorSignupComponent } from './mentor-signup/mentor-signup.component';
 import { UserModule } from './user/user.module';
 import { MentorModule } from './mentor/mentor.module';
-import { HomeComponent } from './mentor/home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { HomeComponent } from './mentor/home/home.component';
     NavbarComponent,
     SigninComponent,
     UserSignupComponent,
-    MentorSignupComponent,
-    HomeComponent
+    MentorSignupComponent
   ],
   imports: [
     BrowserModule,
