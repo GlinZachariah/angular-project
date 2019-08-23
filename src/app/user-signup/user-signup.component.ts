@@ -20,7 +20,7 @@ export class UserSignupComponent implements OnInit {
       username:'',
       password:'',
       fullname:'',
-      role:'user'
+      role:''
     });
   }
 

@@ -14,13 +14,11 @@
                 
 
 
-
-
-                        <form [formGroup]="formMentor">
+                        <form [formGroup]="formMentor" (ngSubmit)="signUpMentor(formMentor.value,materialType.value)">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" placeholder="Enter email" formControlName="username" />
+                                    aria-describedby="emailHelp" placeholder="Enter email" formControlName="username" autocomplete="off" />
                                 <small id="emailHelp" class="form-text text-muted">Email address will be your
                                     username.</small>
 
@@ -32,21 +30,21 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect2">Select Skills</label>
-                                <select multiple class="form-control" id="exampleFormControlSelect2" >
-                                    <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill">{{mentorSkill}}</option>
+                                <select multiple class="form-control" id="exampleFormControlSelect2" formControlName='mentorSkillControl' >
+                                    <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill" >{{mentorSkill}}</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="select-time-zone">Time Zone</label>
-                                <select class="form-control " id="select-time-zone"  >
-                                    <option [value]="timeZone.offset" *ngFor="let timeZone of timeZones">{{timeZone.text}}</option>
+                                <select class="form-control " id="select-time-zone" formControlName="timeZoneControl" >
+                                    <option [value]="timeZone.text" *ngFor="let timeZone of timeZones">{{timeZone.text}}</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleFormControlSelect3">Time Slot (Preferred*)</label>
-                                <select class="form-control" id="exampleFormControlSelect3">
+                                <select class="form-control" id="exampleFormControlSelect3" formControlName="timeSlotControl">
                                     <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.value">{{timeSlot.text}}</option>
                                     
                                 </select>
@@ -84,15 +82,6 @@
 
                             <button type="submit" class="btn theme-bgcolor-2 text-white mt-2">Submit</button>
                         </form>
-                      
-
-
-
-
-
-
-
-
 
 
 
