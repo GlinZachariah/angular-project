@@ -11,6 +11,7 @@ export class AuthService {
   isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLoggedIn: boolean;
   LoggedInUsername: string;
+  LoggedInFullname:string;
   LoggedInRole: string;
   LoggedInPwd:string;
   testUsername: string;
@@ -28,14 +29,15 @@ export class AuthService {
     USER.forEach(user => {
       this.testUsername = user.credential.auth.username;
       this.testPassword = user.credential.auth.password;
-      console.log('Login Sucess :: '+user.fullname+ '::'+user.credential.role);
+      console.log('Login Sucess :: '+user.fullname+ '::'+user.credential.role+' :: '+this.testUsername+' :: '+this.testPassword);
       if (!this.isLoggedIn) {
         if (
           this.testPassword === loginData.password &&
           this.testUsername === loginData.username 
         ) {
           console.warn("LOGGED IN SUCEESS");
-          this.LoggedInUsername = user.fullname;
+          this.LoggedInUsername = user.credential.auth.username;
+          this.LoggedInFullname = user.fullname;
           this.LoggedInRole = user.credential.role;
           this.LoggedInPwd = loginData.password;
           this.isLoggedIn = true;
