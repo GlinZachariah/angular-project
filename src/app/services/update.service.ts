@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { USER } from '../data/mock-user';
-
+import { COMPLETED } from "../data/mock-user";
+import { TrainingCompleted } from '../data/user.model';
 @Injectable({
   providedIn: 'root'
 })
 export class UpdateService {
   username:string;
   password:string;
-  constructor() { }
+  resultData:TrainingCompleted[]
+  constructor() {
+    this.resultData=[];
+   }
 
   updateProfile(fname,oldpwd,name,pwd,userId){
 
@@ -23,14 +27,15 @@ export class UpdateService {
     // console.warn("Update Profile");
   }
 
+  getTrainingsCompleted(user){
 
-  createCardDetails(){
-
+    COMPLETED.forEach(users => {
+      if(users.username == user){
+        this.resultData.push(users);
+      }
+    });
+    return this.resultData;
   }
 
-  updateCardDetails(){
 
-  }
-
-  
 }

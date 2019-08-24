@@ -1,4 +1,7 @@
 import { signUpUser } from './user.model';
+import { TrainingCompleted } from "./user.model";
+import { DatePipe } from '@angular/common';
+
 
 export const USER: signUpUser[] = [
   {
@@ -50,5 +53,45 @@ export const USER: signUpUser[] = [
         password: 'n'
       }
     }
+  }
+];
+
+
+export const COMPLETED:TrainingCompleted[]=[
+  {
+    coursedetail:{
+      courseid:'CS101',
+      coursename:'Angular Basics',
+      technology:'Angular',
+      trainername:'thomas zac',
+      charges:5000
+    },
+    username: 'n',
+    timeslotvalue:'8',
+    startdate: ''  //TODO Date
+  },
+  {
+    coursedetail:{
+      courseid:'CS102',
+      coursename:'Git Basics',
+      technology:'Git',
+      trainername:'thomas zac',
+      charges:7000
+    },
+    username: 'n',
+    timeslotvalue:'8',
+    startdate: ''  //TODO Date
+  },
+  {
+    coursedetail:{
+      courseid:'CS103',
+      coursename:'Core Java',
+      technology:'Git',
+      trainername:'thomas zac',
+      charges:7000
+    },
+    username: 'n',
+    timeslotvalue:'8',
+    startdate: ''  //TODO Date
   }
 ];

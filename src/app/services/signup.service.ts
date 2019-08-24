@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { signUpUser, signUpUserForm } from '../data/user.model';
-import { USER } from '../data/mock-user';
+import { Injectable } from "@angular/core";
+import { signUpUser, signUpUserForm } from "../data/user.model";
+import { USER } from "../data/mock-user";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class SignupService {
   signUpUserObj: signUpUser;
@@ -22,7 +22,7 @@ export class SignupService {
 
     USER.push(this.signUpUserObj);
     USER.forEach(user => {
-      console.log(user.fullname+" : "+user.credential.role);
+      console.log(user.fullname + " : " + user.credential.role);
     });
   }
 }

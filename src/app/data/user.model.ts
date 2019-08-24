@@ -1,3 +1,5 @@
+import { DatePipe } from '@angular/common';
+
 export interface signIn {
   username: string;
   password: string;
@@ -20,31 +22,28 @@ export class signUpUserForm {
   password: string;
 }
 
-
-export interface CourseDetails{
-  courseid:string;
-  coursename:string;
-  trainername:string;
-  technology:string;
-  charges:number;
+export interface CourseDetails {
+  courseid: string;
+  coursename: string;
+  trainername: string;
+  technology: string;
+  charges: number;
 }
 
-export interface TrainingProgress{
-  coursedetail : CourseDetails
+export interface TrainingProgress {
+  coursedetail: CourseDetails;
+  username: string;
+  progress: number;
+  rating: number;
+  status: string;
+  paymentstatus: string;
+  timeslotvalue: string;
+  startdate: string; //TODOD datatype of start date
+}
+
+export interface TrainingCompleted {
+  coursedetail: CourseDetails;
   username:string;
-  progress:number;
-  rating:number;
-  status:string;
-  paymentstatus:string;
-  timeslot:string;
-  startdate:string;   //TODOD datatype of start date
+  timeslotvalue: string;
+  startdate: string; //TODOD datatype of start date
 }
-
-export interface TrainingCompleted{
-  coursedetail:CourseDetails;
-  timeslot:string;
-  startdate: string;  //TODOD datatype of start date
-}
-
-
-
