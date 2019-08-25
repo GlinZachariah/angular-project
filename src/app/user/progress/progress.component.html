@@ -19,13 +19,12 @@
                                 <div class="card-body ml-0 progress-panel ">
                                     <h4>{{data.coursedetail.coursename}}</h4>
                                     <h5>{{data.coursedetail.trainername}}
-                                        <span class="progress-status">
-                                            <span class="theme-color-2 ">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
-                                                <i class="fa fa-star-o"></i>
+        
+                                        <span class="progress-status theme-color-2" >
+                                            <span *ngFor="let star of rating" (click)="data.rating = updateRating(data.rating)">
+                                                <span *ngIf="star<=data.rating && data.rating!=0; then Block1 else Block2"></span>
+                                                <ng-template #Block1><i class="fa fa-star" ></i></ng-template>
+                                                <ng-template #Block2><i class="fa fa-star-o" ></i></ng-template>
                                             </span>
                                         </span></h5>
                                     <h6>{{data.coursedetail.technology}} <span class="progress-status">
@@ -66,9 +65,7 @@
                                         </span></h6>
                                 </div>
                                 <div class="card-footer row flex progress-panel-footer">
-                                    <span class="progress-status">
-                                        <button class=" btn theme-bgcolor-2 text-white ">Delete Proposal</button>
-                                    </span>
+
 
                                 </div>
                             </div>

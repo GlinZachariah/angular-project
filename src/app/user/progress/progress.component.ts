@@ -11,10 +11,12 @@ import { TrainingProgress } from 'src/app/data/user.model';
 export class ProgressComponent implements OnInit {
   loggedUser:string;
   traingingProgressData:TrainingProgress[];
+  rating:number[];
   constructor(
     private updateService:UpdateService,
     private authService :AuthService
   ) {
+    this.rating = [1,2,3,4,5];
     if(this.authService.isLoggedIn){
       this.traingingProgressData = this.updateService.getUserTrainingsInProgress(this.authService.LoggedInUsername);
       console.log("PROGRESS ============================="+this.traingingProgressData);
@@ -22,6 +24,12 @@ export class ProgressComponent implements OnInit {
         console.log(element);
       });
     }
+   }
+
+   updateRating(rating){
+     rating+=1;
+     rating=rating%6;
+     return rating;
    }
 
   ngOnInit() {
