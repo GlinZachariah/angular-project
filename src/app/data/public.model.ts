@@ -3,6 +3,18 @@ import { Route, Router } from '@angular/router';
 export var Skills: string[] = [
     "Git", "Angular", "Core Java", "Python", "Spring"
 ];
+
+export var PaymentStatus :string[]=[
+    "pending","paid","na"
+];
+
+export var TrainingStatus:string[]=[
+    "on going","proposal pending","approved","rejected"
+];
+
+export var CourseRating:number[]=[
+    0,1,2,3,4,5
+];
 export interface TimseSlot {
     value: number;
     text: string;

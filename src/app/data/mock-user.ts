@@ -1,6 +1,6 @@
-import { signUpUser } from './user.model';
+import { signUpUser, TrainingProgress } from './user.model';
 import { TrainingCompleted } from "./user.model";
-import { DatePipe } from '@angular/common';
+
 
 
 export const USER: signUpUser[] = [
@@ -67,7 +67,7 @@ export const COMPLETED:TrainingCompleted[]=[
       charges:5000
     },
     username: 'n',
-    timeslotvalue:'8',
+    timeslot: 8,
     startdate: ''  //TODO Date
   },
   {
@@ -79,7 +79,7 @@ export const COMPLETED:TrainingCompleted[]=[
       charges:7000
     },
     username: 'n',
-    timeslotvalue:'8',
+    timeslot: 8,
     startdate: ''  //TODO Date
   },
   {
@@ -91,7 +91,79 @@ export const COMPLETED:TrainingCompleted[]=[
       charges:7000
     },
     username: 'n',
-    timeslotvalue:'8',
+    timeslot: 8,
     startdate: ''  //TODO Date
   }
 ];
+
+
+export const USERPROGRESS: TrainingProgress[]=[
+  {
+    coursedetail:{
+      courseid:'CS103',
+      coursename:'Core Java',
+      technology:'Git',
+      trainername:'thomas zac',
+      charges:7000
+    },
+    paymentstatus:'paid',
+    progress:25,
+    rating:2,
+    startdate:'',
+    status:'on going',
+    timeslot:8,
+    username:'n'
+
+  },
+  {
+    coursedetail:{
+      courseid:'CS103',
+      coursename:'Python Fundamentals',
+      technology:'Python',
+      trainername:'thomas zac',
+      charges:7000
+    },
+    paymentstatus:'na',
+    progress:25,
+    rating:0,
+    startdate:'',
+    status:'rejected',
+    timeslot:8,
+    username:'n'
+
+  },
+  {
+    coursedetail:{
+      courseid:'CS103',
+      coursename:'Spring Basics of MVC',
+      technology:'Spring',
+      trainername:'thomas zac',
+      charges:7000
+    },
+    paymentstatus:'na',
+    progress:25,
+    rating:0,
+    startdate:'',
+    status:'proposal pending',
+    timeslot:8,
+    username:'n'
+
+  },
+  {
+    coursedetail:{
+      courseid:'CS103',
+      coursename:'Angular Intermediate',
+      technology:'Angular',
+      trainername:'thomas zac',
+      charges:7000
+    },
+    paymentstatus:'pending',
+    progress:25,
+    rating:0,
+    startdate:'',
+    status:'approved',
+    timeslot:8,
+    username:'n'
+
+  }
+]

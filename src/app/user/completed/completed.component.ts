@@ -11,14 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
 export class CompletedComponent implements OnInit {
   trainingCompletedData:TrainingCompleted[];
   loggedUser:string;
-  count=0;
   constructor(
     private updateService:UpdateService,
     private authService :AuthService
   ) {
-    this.count+=1;
-    if(this.authService.isLoggedIn && this.count == 1){
+    if(this.authService.isLoggedIn){
       this.trainingCompletedData = this.updateService.getTrainingsCompleted(this.authService.LoggedInUsername);
+      console.log(this.trainingCompletedData);
     }
   }
 

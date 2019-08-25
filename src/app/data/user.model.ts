@@ -37,13 +37,13 @@ export interface TrainingProgress {
   rating: number;
   status: string;
   paymentstatus: string;
-  timeslotvalue: string;
+  timeslot: number;
   startdate: string; //TODOD datatype of start date
 }
 
 export interface TrainingCompleted {
   coursedetail: CourseDetails;
   username:string;
-  timeslotvalue: string;
+  timeslot: number;
   startdate: string; //TODOD datatype of start date
 }
