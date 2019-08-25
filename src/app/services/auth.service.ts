@@ -25,11 +25,11 @@ export class AuthService {
   }
 
   performAuth(loginData: signIn, route: Router) {
-    console.log("performAuth Function");
+    // console.log("performAuth Function");
     USER.forEach(user => {
       this.testUsername = user.credential.auth.username;
       this.testPassword = user.credential.auth.password;
-      console.log('Login Sucess :: '+user.fullname+ '::'+user.credential.role+' :: '+this.testUsername+' :: '+this.testPassword);
+      // console.log('Login Sucess :: '+user.fullname+ '::'+user.credential.role+' :: '+this.testUsername+' :: '+this.testPassword);
       if (!this.isLoggedIn) {
         if (
           this.testPassword === loginData.password &&

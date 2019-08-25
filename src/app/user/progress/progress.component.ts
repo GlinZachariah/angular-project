@@ -32,6 +32,17 @@ export class ProgressComponent implements OnInit {
      return rating;
    }
 
+   changeProgress(e) {
+    return e.target.value;
+   }
+
+   saveData(data,progress,rating){
+     console.log(data);
+     console.log(progress);
+     console.log(rating);
+   }
+
+
   ngOnInit() {
   }
 

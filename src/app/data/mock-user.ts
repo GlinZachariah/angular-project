@@ -107,7 +107,7 @@ export const USERPROGRESS: TrainingProgress[]=[
       charges:7000
     },
     paymentstatus:'paid',
-    progress:25,
+    progress:75,
     rating:3,
     startdate:'',
     status:'on going',
