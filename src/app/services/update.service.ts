@@ -48,5 +48,29 @@ export class UpdateService {
     return this.resultDataTrainingProgress;
   }
 
+  updateCourseProgress(username,data,progress,rating){
+    USERPROGRESS.forEach(user => {
+      if(user.username == username && user.coursedetail.courseid == data.coursedetail.courseid){
+          user.progress = progress;
+          user.rating = rating;
+        }
+
+    });
+  }
+
+  updateCoursePayment(username,data){
+    USERPROGRESS.forEach(user => {
+      if(user.username == username && user.coursedetail.courseid == data){
+        console.warn("usercourseid:: "+ user.coursedetail.courseid);
+        console.warn("data:: "+ data);
+          user.paymentstatus='paid'
+          user.status ='on going';
+          console.warn("Executed !!!!!!!!!!!!!!!");
+        }
+    });
+  }
+
+
+
 
 }

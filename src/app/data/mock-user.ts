@@ -84,7 +84,7 @@ export const COMPLETED:TrainingCompleted[]=[
   },
   {
     coursedetail:{
-      courseid:'CS103',
+      courseid:'CS101',
       coursename:'Core Java',
       technology:'Git',
       trainername:'thomas zac',
@@ -100,7 +100,7 @@ export const COMPLETED:TrainingCompleted[]=[
 export const USERPROGRESS: TrainingProgress[]=[
   {
     coursedetail:{
-      courseid:'CS103',
+      courseid:'CS101',
       coursename:'Core Java',
       technology:'Git',
       trainername:'thomas zac',
@@ -117,14 +117,14 @@ export const USERPROGRESS: TrainingProgress[]=[
   },
   {
     coursedetail:{
-      courseid:'CS103',
+      courseid:'CS102',
       coursename:'Python Fundamentals',
       technology:'Python',
       trainername:'thomas zac',
       charges:7000
     },
     paymentstatus:'na',
-    progress:25,
+    progress:0,
     rating:0,
     startdate:'',
     status:'rejected',
@@ -141,7 +141,7 @@ export const USERPROGRESS: TrainingProgress[]=[
       charges:7000
     },
     paymentstatus:'na',
-    progress:25,
+    progress:0,
     rating:0,
     startdate:'',
     status:'proposal pending',
@@ -151,14 +151,14 @@ export const USERPROGRESS: TrainingProgress[]=[
   },
   {
     coursedetail:{
-      courseid:'CS103',
+      courseid:'CS104',
       coursename:'Angular Intermediate',
       technology:'Angular',
       trainername:'thomas zac',
       charges:7000
     },
     paymentstatus:'pending',
-    progress:25,
+    progress:0,
     rating:0,
     startdate:'',
     status:'approved',

@@ -19,10 +19,7 @@ export class ProgressComponent implements OnInit {
     this.rating = [1,2,3,4,5];
     if(this.authService.isLoggedIn){
       this.traingingProgressData = this.updateService.getUserTrainingsInProgress(this.authService.LoggedInUsername);
-      console.log("PROGRESS ============================="+this.traingingProgressData);
-      this.traingingProgressData.forEach(element => {
-        console.log(element);
-      });
+      
     }
    }
 
@@ -37,11 +34,20 @@ export class ProgressComponent implements OnInit {
    }
 
    saveData(data,progress,rating){
-     console.log(data);
-     console.log(progress);
-     console.log(rating);
+    //  console.log(data);
+    //  console.log(progress);
+    //  console.log(rating);
+    if(progress<100){
+      this.updateService.updateCourseProgress(this.authService.LoggedInUsername,data,progress,rating);
+    }
+     
    }
 
+   updatePayment(data){
+     console.log(data);
+     console.log("+++++++++++++++++++++++++");
+     this.updateService.updateCoursePayment(this.authService.LoggedInUsername,data);
+   }
 
   ngOnInit() {
   }
