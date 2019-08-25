@@ -10,7 +10,6 @@ export class UpdateService {
   password:string;
   resultData:TrainingCompleted[]
   constructor() {
-    this.resultData=[];
    }
 
   updateProfile(fname,oldpwd,name,pwd,userId){
@@ -28,7 +27,7 @@ export class UpdateService {
   }
 
   getTrainingsCompleted(user){
-
+    this.resultData=[];
     COMPLETED.forEach(users => {
       if(users.username == user){
         this.resultData.push(users);

@@ -11,19 +11,19 @@ import { AuthService } from 'src/app/services/auth.service';
 export class CompletedComponent implements OnInit {
   trainingCompletedData:TrainingCompleted[];
   loggedUser:string;
+  count=0;
   constructor(
     private updateService:UpdateService,
     private authService :AuthService
   ) {
-    if(authService.isLoggedIn){
-      this.trainingCompletedData = this.updateService.getTrainingsCompleted(authService.LoggedInUsername);
+    this.count+=1;
+    if(this.authService.isLoggedIn && this.count == 1){
+      this.trainingCompletedData = this.updateService.getTrainingsCompleted(this.authService.LoggedInUsername);
     }
-
-    // console.log(this.trainingCompletedData);
-    // console.log(this.trainingCompletedData[0]);
   }
 
   ngOnInit() {
+    
   }
 
 }
