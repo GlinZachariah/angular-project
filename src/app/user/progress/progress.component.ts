@@ -34,19 +34,23 @@ export class ProgressComponent implements OnInit {
    }
 
    saveData(data,progress,rating){
-    //  console.log(data);
-    //  console.log(progress);
-    //  console.log(rating);
     if(progress<100){
-      this.updateService.updateCourseProgress(this.authService.LoggedInUsername,data,progress,rating);
+      this.updateService.updateCourseProgress(this.authService.LoggedInUsername,data.coursedetail.courseid,progress,rating);
+    }else{
+      this.updateService.addCompletedTraining(data);
+      this.updateService.deleteCourseProgress(this.authService.LoggedInUsername,data.coursedetail.courseid);
     }
      
    }
 
    updatePayment(data){
-     console.log(data);
-     console.log("+++++++++++++++++++++++++");
+    //  console.log(data);
+    //  console.log("+++++++++++++++++++++++++");
      this.updateService.updateCoursePayment(this.authService.LoggedInUsername,data);
+   }
+
+   deleteCourse(courseid){
+     this.updateService.deleteCourseProgress(this.authService.LoggedInUsername,courseid);
    }
 
   ngOnInit() {

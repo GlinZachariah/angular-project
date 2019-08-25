@@ -48,9 +48,9 @@ export class UpdateService {
     return this.resultDataTrainingProgress;
   }
 
-  updateCourseProgress(username,data,progress,rating){
+  updateCourseProgress(username,courseid,progress,rating){
     USERPROGRESS.forEach(user => {
-      if(user.username == username && user.coursedetail.courseid == data.coursedetail.courseid){
+      if(user.username == username && user.coursedetail.courseid ==courseid){
           user.progress = progress;
           user.rating = rating;
         }
@@ -58,16 +58,42 @@ export class UpdateService {
     });
   }
 
-  updateCoursePayment(username,data){
+  updateCoursePayment(username,courseid){
     USERPROGRESS.forEach(user => {
-      if(user.username == username && user.coursedetail.courseid == data){
+      if(user.username == username && user.coursedetail.courseid == courseid){
         console.warn("usercourseid:: "+ user.coursedetail.courseid);
-        console.warn("data:: "+ data);
+        console.warn("courseid:: "+ courseid);
           user.paymentstatus='paid'
           user.status ='on going';
           console.warn("Executed !!!!!!!!!!!!!!!");
         }
     });
+  }
+
+  deleteCourseProgress(username,courseid){
+    for(var i=0;i< USERPROGRESS.length;i++){
+      if(USERPROGRESS[i].username == username && USERPROGRESS[i].coursedetail.courseid == courseid){
+        USERPROGRESS.splice(i,1);
+        break;
+      }
+    }
+  }
+
+  addCompletedTraining(data){
+    let custData =  {
+      coursedetail:{
+        courseid: data.coursedetail.courseid,
+        coursename:data.coursedetail.coursename,
+        technology:data.coursedetail.technology,
+        trainername:data.coursedetail.trainername,
+        charges:data.coursedetail.charges
+      },
+      username: data.username,
+      timeslot: data.timeslot,
+      startdate: data.startdate  //TODO Date
+    }
+
+    COMPLETED.push(custData);
   }
 
 
