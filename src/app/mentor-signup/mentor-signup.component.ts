@@ -3,7 +3,6 @@ import { FormGroup,FormBuilder, FormControl } from "@angular/forms";
 import { SignupService } from "../services/signup.service";
 import {TIMESLOT,Skills} from "../data/public.model";
 import {TIMEZONE} from "../data/timezone";
-import { USER } from "../data/mock-user";
 import { signUpUserForm } from '../data/user.model';
 
 @Component({
@@ -15,7 +14,6 @@ export class MentorSignupComponent implements OnInit {
   formMentor;
   materialTypes:string[];
   materialType:FormGroup;
-
   mentorSkills =Skills;
   timeZones = TIMEZONE;
   timeSlots =TIMESLOT;
@@ -51,6 +49,7 @@ export class MentorSignupComponent implements OnInit {
 
    signUpMentor(signUpData,materialTypeData){
     console.warn(signUpData);
+    // TODO PENDING
     this.mentorCreateData = {
       fullname:signUpData.fullname,
       role:'mentor',
@@ -58,7 +57,7 @@ export class MentorSignupComponent implements OnInit {
       password :signUpData.password
     }
     this.signUpService.createUserAccount(this.mentorCreateData);
-    console.warn(materialTypeData);
+    this.signUpService.createMentorAccount(this.mentorCreateData,signUpData,materialTypeData);
    }
 
   ngOnInit() {
