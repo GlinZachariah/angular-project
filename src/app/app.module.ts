@@ -15,6 +15,7 @@ import { UserModule } from './user/user.module';
 import { MentorModule } from './mentor/mentor.module';
 import { SearchComponent } from './search/search.component';
 import { ResultComponent } from './result/result.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ResultComponent } from './result/result.component';
     ReactiveFormsModule,
     AppRoutingModule,
     UserModule,
-    MentorModule
+    MentorModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

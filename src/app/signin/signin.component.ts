@@ -17,10 +17,10 @@ export class SigninComponent implements OnInit {
     private authService:AuthService,
     private route:Router
   ) {
-    this.formDataValue = this.formBuilder.group({
-      username:'',
-      password : ''
-    });
+    // this.formDataValue = this.formBuilder.group({
+    //   // username:'',
+    //   // password : ''
+    // });
   }
 
   checkUser(formData:signIn){

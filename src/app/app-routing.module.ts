@@ -8,6 +8,7 @@ import { HomeComponent } from './mentor/home/home.component';
 import { SearchComponent } from './search/search.component';
 import { ProgressComponent } from './user/progress/progress.component';
 import { CompletedComponent } from './user/completed/completed.component';
+import { LoginComponent } from './admin/login/login.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path:'user/trainings/completed',
     component:CompletedComponent
+  },
+  {
+    path:'admin/signin',
+    component:LoginComponent
   }
 ];
 
