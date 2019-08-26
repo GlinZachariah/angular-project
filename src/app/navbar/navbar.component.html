@@ -89,3 +89,24 @@
     </li>
   </ul>
 </div>
+
+
+<div *ngIf="isUserLoggedIn && UserRole == 'admin'">
+  <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['admin','permission']">Edit Permission </a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['admin','payments']">Payments </a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['admin','reports']">Display Reports </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['admin','commission']">Commission</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['admin','signin']" (click)="Logout()">Logout</a>
+    </li>
+  </ul>
+</div>

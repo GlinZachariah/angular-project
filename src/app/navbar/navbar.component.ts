@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 import { AuthService } from "../services/auth.service";
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: "app-navbar",
@@ -9,19 +10,32 @@ import { AuthService } from "../services/auth.service";
 })
 export class NavbarComponent implements OnInit {
   isUserLoggedIn: boolean;
-  userSection: boolean;
-  mentorSection: boolean;
-  defaultSection: boolean;
+  // userSection: boolean;
+  // mentorSection: boolean;
+  // defaultSection: boolean;
+  isAdminLoggedIn:boolean;
   UserRole;
-  constructor(private route: Router, private checkAuth: AuthService) {
+  constructor(private route: Router, private checkAuth: AuthService,private adminAuth :AdminService) {
     this.checkAuth.isUserLoggedIn.subscribe(value => {
       if (value) {
+        // console.log("User tab check");
         this.isUserLoggedIn = true;
         this.UserRole = this.checkAuth.LoggedInRole;
       } else {
         this.isUserLoggedIn = false;
       }
     });
+    if(!this.isUserLoggedIn){
+      // console.log("Admin tab check");
+      this.adminAuth.isAdminLogged.subscribe(value =>{
+        if(value){
+          // console.log("Admin tab created");
+          this.UserRole='admin';
+          this.isUserLoggedIn = true;
+        }
+      });
+    }
+    
   }
 
   Logout() {

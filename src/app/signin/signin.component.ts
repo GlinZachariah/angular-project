@@ -17,21 +17,21 @@ export class SigninComponent implements OnInit {
     private authService:AuthService,
     private route:Router
   ) {
-    // this.formDataValue = this.formBuilder.group({
-    //   // username:'',
-    //   // password : ''
-    // });
+    this.formDataValue = this.formBuilder.group({
+      username:'',
+      password : ''
+    });
   }
 
   checkUser(formData:signIn){
-      this.data = formData;
-      this.authService.performAuth(this.data,this.route);
-     // console.warn("Logged IsUserLoggedIn :: "+this.authService.isLoggedIn);
-    //  console.warn("Logged USER :: "+this.authService.LoggedInRole);
-      if(this.authService.LoggedInRole != undefined && this.authService.isLoggedIn){
-        this.authService.isUserLoggedIn.next(true);
-      }
-      this.formDataValue.reset();
+    this.data = formData;
+    this.authService.performAuth(this.data,this.route);
+   // console.warn("Logged IsUserLoggedIn :: "+this.authService.isLoggedIn);
+  //  console.warn("Logged USER :: "+this.authService.LoggedInRole);
+    if(this.authService.LoggedInRole != undefined && this.authService.isLoggedIn){
+      this.authService.isUserLoggedIn.next(true);
+    }
+    this.formDataValue.reset();
   }
 
   ngOnInit() {

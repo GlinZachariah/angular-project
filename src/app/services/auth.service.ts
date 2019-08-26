@@ -16,9 +16,9 @@ export class AuthService {
   LoggedInPwd:string;
   testUsername: string;
   testPassword: string;
-  userBlock:boolean;
-  mentorBlock:boolean;
-  defaultBlock:boolean;
+  // userBlock:boolean;
+  // mentorBlock:boolean;
+  // defaultBlock:boolean;
   userChecked:boolean;
   constructor() {
     this.isLoggedIn = false;
@@ -46,21 +46,28 @@ export class AuthService {
     });
     if (this.isLoggedIn && this.LoggedInRole == 'user') {
       route.navigate([this.LoggedInRole, 'profile']);
-      this.userBlock =true;
-      this.mentorBlock =false;
-      this.defaultBlock =false;
+      // this.userBlock =true;
+      // this.mentorBlock =false;
+      // this.defaultBlock =false;
     } else if (this.isLoggedIn && this.LoggedInRole == 'mentor') {
       route.navigate([this.LoggedInRole, 'home']);
-      this.userBlock =false;
-      this.mentorBlock =true;
-      this.defaultBlock =false;
+      // this.userBlock =false;
+      // this.mentorBlock =true;
+      // this.defaultBlock =false;
     } else{
-      console.log('Login Failed');
-      this.userBlock =false;
-      this.mentorBlock =false;
-      this.defaultBlock =true;
+      console.log('Login Failed =>>');
+      // this.userBlock =false;
+      // this.mentorBlock =false;
+      // this.defaultBlock =true;
     }
   }
+
+  // performAdminAuth(status,route){
+  //   route.navigate(['admin','permission']);
+  //   // this.userBlock =true;
+  //   // this.mentorBlock =false;
+  //   // this.defaultBlock =false;
+  // }
 
 
 }
