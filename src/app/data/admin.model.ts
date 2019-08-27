@@ -10,3 +10,11 @@ export class Permission{
     accountStatus:string;
     userIdx:number;
 }
+
+
+export class Report{
+  username:string;
+  courseid:string;
+  progress:number;
+  cost:number;
+}

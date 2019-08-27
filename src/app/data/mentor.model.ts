@@ -16,4 +16,14 @@ export interface Mentor{
     experience:number;
 }
 
+export interface Payment{
+    timestamp:string,
+    username:string,
+    courseid:string,
+    trainername:string,
+    paymentamount:number,
+    commission:number
+}
+
+
 

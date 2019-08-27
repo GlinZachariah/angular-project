@@ -10,6 +10,9 @@ import { ProgressComponent } from './user/progress/progress.component';
 import { CompletedComponent } from './user/completed/completed.component';
 import { LoginComponent } from './admin/login/login.component';
 import { PermissionComponent } from './admin/permission/permission.component';
+import { PaymentsComponent } from './admin/payments/payments.component';
+import { ReportsComponent } from './admin/reports/reports.component';
+import { CommissionComponent } from './admin/commission/commission.component';
 
 const routes: Routes = [
   {
@@ -59,6 +62,18 @@ const routes: Routes = [
   {
     path:'admin/permission',
     component:PermissionComponent
+  },
+  {
+    path:'admin/payments',
+    component:PaymentsComponent
+  },
+  {
+    path:'admin/reports',
+    component:ReportsComponent
+  },
+  {
+    path:'admin/commission',
+    component:CommissionComponent
   }
 ];
 

@@ -1,5 +1,6 @@
 import { signUpUser, TrainingProgress } from './user.model';
 import { TrainingCompleted } from "./user.model";
+import { Payment } from './mentor.model';
 
 
 
@@ -68,7 +69,7 @@ export const COMPLETED:TrainingCompleted[]=[
       courseid:'CS101',
       coursename:'Angular Basics',
       technology:'Angular',
-      trainername:'thomas zac',
+      trainername:'l',
       charges:5000
     },
     username: 'n',
@@ -80,7 +81,7 @@ export const COMPLETED:TrainingCompleted[]=[
       courseid:'CS102',
       coursename:'Git Basics',
       technology:'Git',
-      trainername:'thomas zac',
+      trainername:'l',
       charges:7000
     },
     username: 'n',
@@ -92,7 +93,7 @@ export const COMPLETED:TrainingCompleted[]=[
       courseid:'CS101',
       coursename:'Core Java',
       technology:'Git',
-      trainername:'thomas zac',
+      trainername:'l',
       charges:7000
     },
     username: 'n',
@@ -108,11 +109,11 @@ export const USERPROGRESS: TrainingProgress[]=[
       courseid:'CS101',
       coursename:'Core Java',
       technology:'Git',
-      trainername:'thomas zac',
+      trainername:'l',
       charges:7000
     },
     paymentstatus:'paid',
-    progress:75,
+    progress:0.75,
     rating:3,
     startdate:'',
     status:'on going',
@@ -125,7 +126,7 @@ export const USERPROGRESS: TrainingProgress[]=[
       courseid:'CS102',
       coursename:'Python Fundamentals',
       technology:'Python',
-      trainername:'thomas zac',
+      trainername:'l',
       charges:7000
     },
     paymentstatus:'na',
@@ -159,7 +160,7 @@ export const USERPROGRESS: TrainingProgress[]=[
       courseid:'CS104',
       coursename:'Angular Intermediate',
       technology:'Angular',
-      trainername:'thomas zac',
+      trainername:'l',
       charges:7000
     },
     paymentstatus:'pending',
@@ -172,3 +173,22 @@ export const USERPROGRESS: TrainingProgress[]=[
 
   }
 ]
+
+export const PAYMENTLOG: Payment[]=[
+  {
+    timestamp:new Date('2018-01-02').toDateString(),
+    username:'n',
+    courseid:'CS102',
+    trainername:'thomas zac',
+    paymentamount:5000,
+    commission:0.20
+  },
+  {
+    timestamp:new Date('2018-06-10').toDateString(),
+    username:'n',
+    courseid:'CS104',
+    trainername:'thomas zac',
+    paymentamount:7000,
+    commission:0.15
+  }
+];
