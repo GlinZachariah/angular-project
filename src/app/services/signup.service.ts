@@ -15,6 +15,7 @@ export class SignupService {
     this.signUpUserObj = {
       fullname: loginData.fullname,
       credential: {
+        accountStatus:'unlocked',
         role: loginData.role,
         auth: {
           username: loginData.username,

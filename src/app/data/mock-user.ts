@@ -7,6 +7,7 @@ export const USER: signUpUser[] = [
   {
     fullname: 'glin zac',
     credential: {
+      accountStatus:'unlocked',
       role: 'mentor',
       auth: {
         username: 'l',
@@ -17,6 +18,7 @@ export const USER: signUpUser[] = [
   {
     fullname: 'karun jossy',
     credential: {
+      accountStatus:'unlocked',
       role: 'user',
       auth: {
         username: 'karun',
@@ -27,6 +29,7 @@ export const USER: signUpUser[] = [
   {
     fullname: 'kiran jose',
     credential: {
+      accountStatus:'unlocked',
       role: 'user',
       auth: {
         username: 'kiran',
@@ -37,6 +40,7 @@ export const USER: signUpUser[] = [
   {
     fullname: 'thomas zac',
     credential: {
+      accountStatus:'unlocked',
       role: 'mentor',
       auth: {
         username: 'm',
@@ -47,6 +51,7 @@ export const USER: signUpUser[] = [
   {
     fullname: 'thomas mathew',
     credential: {
+      accountStatus:'unlocked',
       role: 'user',
       auth: {
         username: 'n',

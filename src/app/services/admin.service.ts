@@ -21,7 +21,6 @@ export class AdminService {
     }else{
       this.isAdminLogged.next(false);
     }
-    
     return this.adminLoggedIn;
   }
 }

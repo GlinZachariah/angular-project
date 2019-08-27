@@ -33,7 +33,8 @@ export class AuthService {
       if (!this.isLoggedIn) {
         if (
           this.testPassword === loginData.password &&
-          this.testUsername === loginData.username 
+          this.testUsername === loginData.username &&
+          user.credential.accountStatus == 'unlocked'
         ) {
           console.warn("LOGGED IN SUCEESS");
           this.LoggedInUsername = user.credential.auth.username;

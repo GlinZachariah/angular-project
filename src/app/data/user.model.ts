@@ -8,6 +8,7 @@ export interface signIn {
 export interface signInUser {
   role: string;
   auth: signIn;
+  accountStatus:string;
 }
 
 export interface signUpUser {
