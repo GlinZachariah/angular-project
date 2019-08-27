@@ -13,7 +13,7 @@
             {{user.fullname}}
           </div>
           <div class="col-lg-4 col-md-4 col-sm-10">
-            <button class="btn theme-bgcolor-2 text-white search-item-btn" >{{user.accountStatus|uppercase}}</button>
+            <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="user.accountStatus = updatePermission(user)" >{{user.accountStatus|uppercase}}</button>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
             {{user.fullname}}
           </div>
           <div class="col-lg-4 col-md-4 col-sm-10">
-            <button class="btn theme-bgcolor-2 text-white search-item-btn">{{user.accountStatus|uppercase}}</button>
+            <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="user.accountStatus = updatePermission(user)">{{user.accountStatus|uppercase}}</button>
           </div>
         </div>
       </div>

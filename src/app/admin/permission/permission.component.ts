@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/services/admin.service';
 
 import { USER } from 'src/app/data/mock-user';
 import { Permission } from 'src/app/data/admin.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-permission',
@@ -12,24 +13,26 @@ import { Permission } from 'src/app/data/admin.model';
 export class PermissionComponent implements OnInit {
   UserData:Permission[]=[];
   MentorData:Permission[]=[];
+  custIndx;
   data:Permission;
   role:string;
   constructor(
-    private adminAuth:AdminService
+    private adminService:AdminService,
+    private route:Router
   ) {
     // console.log("==============>"+this.UserData);
-    if(this.adminAuth.adminLoggedIn){
+    if(this.adminService.adminLoggedIn){
+      this.custIndx =0;
       USER.forEach(user => {
         this.role = user.credential.role;
         this.data={
           accountStatus:user.credential.accountStatus,
           username:user.credential.auth.username,
-          fullname:user.fullname
+          fullname:user.fullname,
+          userIdx:this.custIndx
         }
+        this.custIndx+=1;
         if(this.role == 'user'){
-          // console.log("USER DATA");
-          // console.log(this.data);
-          // console.log(this.UserData);
           this.UserData.push(this.data);
         }else{
           // console.log("MENTOR DATA");
@@ -41,7 +44,11 @@ export class PermissionComponent implements OnInit {
     }
    }
 
-  
+   updatePermission(data){
+    return this.adminService.updateUserPermission(data,this.route);
+   }
+
+
 
   ngOnInit() {
   }

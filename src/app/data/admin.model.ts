@@ -8,4 +8,5 @@ export class Permission{
     username:string;
     fullname:string;
     accountStatus:string;
+    userIdx:number;
 }

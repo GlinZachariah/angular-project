@@ -13,3 +13,9 @@
     margin: auto;
     vertical-align: middle;
 }
+
+#admin{
+  right: 0;
+  bottom: 0;
+  color:#000000;
+}

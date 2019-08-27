@@ -742,7 +742,7 @@ export const TIMEZONE:TimeZone[]=[
         "Europe/Uzhgorod",
         "Europe/Vilnius",
         "Europe/Zaporozhye"
-  
+
       ]
     },
     {
