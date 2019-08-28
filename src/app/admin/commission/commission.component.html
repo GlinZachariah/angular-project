@@ -18,14 +18,14 @@
       <div class="col-lg-2 col-md-2 col-sm-10">
         Current Commission: {{course.commission| percent}}
       </div>
-
-      <div class="col-lg-2 col-md-2 col-sm-10">
-        <input type="number" min="0" max="100" placeholder="New Percent" >
+      <form [formGroup]="updateCommission" (ngSubmit)="course.commission = newCommission(course.courseid,updateCommission.value.newcoursecomm)">
+      <div class="col-lg-2 col-md-2 col-sm-10" >
+        <input type="number" min="0" max="100" placeholder="New Percent" formControlName="newcoursecomm">
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
         <button type="submit" class="btn theme-bgcolor-2 text-white mt-2" >Save</button>
       </div>
-
+    </form>
     </div>
   </div>
   <!-- Content Ends -->

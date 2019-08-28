@@ -87,4 +87,14 @@ export class AdminService {
     return COURSES;
   }
 
+  updateCourseCommission(courseid,newCommissionValue){
+    var newRate =newCommissionValue/100;
+    for(var idx=0;idx<COURSES.length;idx++){
+      if(COURSES[idx].courseid == courseid ){
+        COURSES[idx].commission = newRate;
+      }
+    }
+    return newRate;
+  }
+
 }
