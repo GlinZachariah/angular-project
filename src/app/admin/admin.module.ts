@@ -6,6 +6,7 @@ import { PermissionComponent } from './permission/permission.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ReportsComponent } from './reports/reports.component';
 import { CommissionComponent } from './commission/commission.component';
+import { EdittechComponent } from './edittech/edittech.component';
 
 
 
@@ -15,7 +16,8 @@ import { CommissionComponent } from './commission/commission.component';
     PermissionComponent,
     PaymentsComponent,
     ReportsComponent,
-    CommissionComponent
+    CommissionComponent,
+    EdittechComponent
   ],
   imports: [
     CommonModule,

@@ -13,6 +13,7 @@ import { PermissionComponent } from './admin/permission/permission.component';
 import { PaymentsComponent } from './admin/payments/payments.component';
 import { ReportsComponent } from './admin/reports/reports.component';
 import { CommissionComponent } from './admin/commission/commission.component';
+import { EdittechComponent } from './admin/edittech/edittech.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
   {
     path:'admin/commission',
     component:CommissionComponent
+  },
+  {
+    path:'admin/technology',
+    component:EdittechComponent
   }
 ];
 

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { USER, PAYMENTLOG, COMPLETED, USERPROGRESS } from '../data/mock-user';
 import { MENTORS, COURSES } from '../data/mock-mentor';
 import { Report } from '../data/admin.model';
+import { Skills } from '../data/public.model';
 
 
 @Injectable({
@@ -95,6 +96,10 @@ export class AdminService {
       }
     }
     return newRate;
+  }
+
+  getTechnologies(){
+    return Skills;
   }
 
 }
