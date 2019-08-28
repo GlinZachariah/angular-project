@@ -29,6 +29,7 @@ export interface CourseDetails {
   trainername: string;
   technology: string;
   charges: number;
+  commission:number;
 }
 
 export interface TrainingProgress {

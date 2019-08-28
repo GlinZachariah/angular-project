@@ -3,7 +3,7 @@ import { ADMIN } from '../data/mock-admin';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 import { USER, PAYMENTLOG, COMPLETED, USERPROGRESS } from '../data/mock-user';
-import { MENTORS } from '../data/mock-mentor';
+import { MENTORS, COURSES } from '../data/mock-mentor';
 import { Report } from '../data/admin.model';
 
 
@@ -81,6 +81,10 @@ export class AdminService {
       }
     });
     return resultData;
+  }
+
+  getCurrentCourse(){
+    return COURSES;
   }
 
 }

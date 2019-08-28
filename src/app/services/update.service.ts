@@ -86,7 +86,8 @@ export class UpdateService {
         coursename:data.coursedetail.coursename,
         technology:data.coursedetail.technology,
         trainername:data.coursedetail.trainername,
-        charges:data.coursedetail.charges
+        charges:data.coursedetail.charges,
+        commission:0.1
       },
       username: data.username,
       timeslot: data.timeslot,

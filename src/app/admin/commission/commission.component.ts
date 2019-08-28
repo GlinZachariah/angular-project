@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-commission',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./commission.component.css']
 })
 export class CommissionComponent implements OnInit {
-
-  constructor() { }
+  currentCourses;
+  constructor(
+    private adminService:AdminService
+  ) {
+    this.currentCourses=this.adminService.getCurrentCourse();
+  }
 
   ngOnInit() {
   }

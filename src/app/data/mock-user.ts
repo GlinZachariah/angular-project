@@ -70,7 +70,8 @@ export const COMPLETED:TrainingCompleted[]=[
       coursename:'Angular Basics',
       technology:'Angular',
       trainername:'l',
-      charges:5000
+      charges:5000,
+      commission:0.1
     },
     username: 'n',
     timeslot: 8,
@@ -82,7 +83,8 @@ export const COMPLETED:TrainingCompleted[]=[
       coursename:'Git Basics',
       technology:'Git',
       trainername:'l',
-      charges:7000
+      charges:7000,
+      commission:0.1
     },
     username: 'n',
     timeslot: 8,
@@ -94,7 +96,8 @@ export const COMPLETED:TrainingCompleted[]=[
       coursename:'Core Java',
       technology:'Git',
       trainername:'l',
-      charges:7000
+      charges:7000,
+      commission:0.2
     },
     username: 'n',
     timeslot: 8,
@@ -110,7 +113,8 @@ export const USERPROGRESS: TrainingProgress[]=[
       coursename:'Core Java',
       technology:'Git',
       trainername:'l',
-      charges:7000
+      charges:7000,
+      commission:0.1
     },
     paymentstatus:'paid',
     progress:0.75,
@@ -127,7 +131,8 @@ export const USERPROGRESS: TrainingProgress[]=[
       coursename:'Python Fundamentals',
       technology:'Python',
       trainername:'l',
-      charges:7000
+      charges:7000,
+      commission:0.3
     },
     paymentstatus:'na',
     progress:0,
@@ -144,7 +149,8 @@ export const USERPROGRESS: TrainingProgress[]=[
       coursename:'Spring Basics of MVC',
       technology:'Spring',
       trainername:'thomas zac',
-      charges:7000
+      charges:7000,
+      commission:0.2
     },
     paymentstatus:'na',
     progress:0,
@@ -161,7 +167,8 @@ export const USERPROGRESS: TrainingProgress[]=[
       coursename:'Angular Intermediate',
       technology:'Angular',
       trainername:'l',
-      charges:7000
+      charges:7000,
+      commission:0.2
     },
     paymentstatus:'pending',
     progress:0,
