@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
     private formBuilder:FormBuilder,
     private adminService:AdminService,
     private route:Router,
-    private authService:AuthService
   ) {
     this.signInData = this.formBuilder.group({
         username :'',
@@ -25,7 +24,14 @@ export class LoginComponent implements OnInit {
   }
 
   checkAdmin(data){
-    this.isLoggedIn = this.adminService.performAuth(data.username,data.password,this.route);
+    this.adminService.performAuth(data.username,data.password,this.route).subscribe(data=>{
+      if(data[0].auth == true){
+          this.adminService.adminLoggedIn = true;
+          this.route.navigate(['admin', 'permission']);
+          this.adminService.isAdminLogged.next(true);
+          this.isLoggedIn = true;
+      }
+    });
     this.signInData.reset();
   }
 

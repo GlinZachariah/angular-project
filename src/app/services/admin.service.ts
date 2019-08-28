@@ -6,6 +6,7 @@ import { USER, PAYMENTLOG, COMPLETED, USERPROGRESS } from '../data/mock-user';
 import { MENTORS, COURSES } from '../data/mock-mentor';
 import { Report } from '../data/admin.model';
 import { Skills } from '../data/public.model';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -15,18 +16,13 @@ export class AdminService {
   adminLoggedIn:boolean =false;
   isAdminLogged:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   dataGen:Report;
-  constructor() { }
+  constructor(
+    private http:HttpClient
+  ) { }
 
   performAuth(username,password,route){
-    if(username == ADMIN.username && password == ADMIN.password){
-      this.adminLoggedIn = true;
-      route.navigate(['admin', 'permission']);
-      this.isAdminLogged.next(true);
-
-    }else{
-      this.isAdminLogged.next(false);
-    }
-    return this.adminLoggedIn;
+    //TODO send POST to performAuth and return the status
+    return this.http.get("assets/admin.json");
   }
 
 
@@ -85,21 +81,24 @@ export class AdminService {
   }
 
   getCurrentCourse(){
-    return COURSES;
+    return this.http.get("assets/currentCourses.json");
   }
 
   updateCourseCommission(courseid,newCommissionValue){
-    var newRate =newCommissionValue/100;
-    for(var idx=0;idx<COURSES.length;idx++){
-      if(COURSES[idx].courseid == courseid ){
-        COURSES[idx].commission = newRate;
-      }
-    }
-    return newRate;
+    //TODO send POST request to updateCourseCommission based on courseid and new value;
+    return (newCommissionValue/100);
   }
 
   getTechnologies(){
-    return Skills;
+    return this.http.get("assets/technologies.json");
+  }
+
+  addTech(data){
+     //TODO send POST request to addTech based on courseid and new value;
+  }
+
+  deleteTech(data){
+     //TODO send POST request to deleteTech based on courseid and new value;
   }
 
 }

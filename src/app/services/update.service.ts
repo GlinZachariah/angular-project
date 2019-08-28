@@ -34,6 +34,10 @@ export class UpdateService {
     //TODO send HTTP post request to  by username and return status
   }
 
+  searchTrainings(formData){
+
+  }
+
   updateCoursePayment(username,courseid){
     USERPROGRESS.forEach(user => {
       if(user.username == username && user.coursedetail.courseid == courseid){

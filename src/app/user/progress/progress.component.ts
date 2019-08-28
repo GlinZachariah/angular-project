@@ -42,19 +42,19 @@ export class ProgressComponent implements OnInit {
     }else{
       // TODO subscribe to Service to see result of addCompletedTraining
       this.updateService.addCompletedTraining(data);
-      // TODO subscribe to Service to see result of addCompletedTraining
+      // TODO subscribe to Service to see result of deleteCourseProgress
       this.updateService.deleteCourseProgress(this.authService.LoggedInUsername,data.coursedetail.courseid);
     }
 
    }
 
    updatePayment(data){
-    //  console.log(data);
-    //  console.log("+++++++++++++++++++++++++");
+    // TODO subscribe to Service to see result of updateCoursePayment
      this.updateService.updateCoursePayment(this.authService.LoggedInUsername,data);
    }
 
    deleteCourse(courseid){
+     // TODO subscribe to Service to see result of deleteCourseProgress
      this.updateService.deleteCourseProgress(this.authService.LoggedInUsername,courseid);
    }
 

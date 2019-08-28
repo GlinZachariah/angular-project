@@ -6,35 +6,37 @@
         <p class="lead">Search for all Available courses</p>
         <hr class="my-3" />
 
-        <!-- <form>
+        <form [formGroup]="SearchForm" (ngSubmit)="SearchTrainer(SearchForm.value)">
           <div class="form-group ">
-            <label for="search-input" class="ml-2">Search Course</label><br />
-            <input type="text" placeholder="Search Course" id="search-input" class="ml-2" />
+            <label for="search-input" class="ml-2">Search Technology</label><br />
+            <input type="text" placeholder="Search Technology" id="search-input" formControlName="SearchTech" class="form-control " />
           </div>
           <div class="form-group ">
             <label for="from-input" class="ml-2">Date</label><br />
-            <input type="date" id="from-input" class="ml-2" />
+            <input type="date" id="from-input" class="form-control " formControlName="SearchDate" />
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect3">Time Slot (Preferred*)</label>
-            <select class="form-control" id="exampleFormControlSelect3">
-              <option>8:00 AM - 10:00 AM</option>
-              <option>9:00 AM - 11:00 AM</option>
-              <option>10:00 AM - 12:00 NOON</option>
-              <option>11:00 AM - 1:00 PM</option>
-              <option>12:00 NOON - 2:00 PM</option>
-              <option>1:00 PM - 3:00 PM</option>
-              <option>2:00 PM - 4:00 PM</option>
-              <option>3:00 PM - 5:00 PM</option>
-              <option>4:00 PM - 6:00 PM</option>
+            <select class="form-control " id="exampleFormControlSelect3"  formControlName="SearchTimeSlot">
+              <option value="8">8:00 AM - 10:00 AM</option>
+              <option value="9">9:00 AM - 11:00 AM</option>
+              <option value="10">10:00 AM - 12:00 NOON</option>
+              <option value="11">11:00 AM - 1:00 PM</option>
+              <option value="12">12:00 NOON - 2:00 PM</option>
+              <option value="1">1:00 PM - 3:00 PM</option>
+              <option value="2">2:00 PM - 4:00 PM</option>
+              <option value="3">3:00 PM - 5:00 PM</option>
+              <option value="4">4:00 PM - 6:00 PM</option>
             </select>
 
           </div>
-        </form> -->
 
-        <p class="lead">
-          <a class="btn theme-bgcolor-2 text-white btn-lg ml-3" href="#" role="button">Search</a>
-        </p>
+          <div >
+            <button class="btn theme-bgcolor-2 text-white btn-lg" href="#" type="submit">Search</button>
+          </div>
+        </form>
+
+        
       </div>
     </div>
 

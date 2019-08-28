@@ -6,19 +6,21 @@
 
       <div class="conatiner ">
         <div class="row result-item theme-bgcolor-3 p-2 text-white">
-          <div class="col-lg-6 col-md-4 col-sm-10">
-            <input type="text" placeholder="Enter New Technology">
+          <form [formGroup]="technologyForm" (ngSubmit)="addTechnology(technologyForm.value)">
+          <div class="col-lg-6 col-md-4 col-sm-10 m-auto">
+            <input type="text" placeholder="Enter New Technology" formControlName="newTechnology">
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-10">
-            <button class="btn theme-bgcolor-2 text-white search-item-btn">Add</button>
+          <div class="col-lg-4 col-md-4 col-sm-10 m-auto">
+            <button class="btn theme-bgcolor-2 text-white search-item-btn" type="submit">Add</button>
           </div>
+        </form>
         </div>
         <div class="row result-item theme-bgcolor-3 p-2 text-white" *ngFor="let tech of technologyList">
           <div class="col-lg-6 col-md-4 col-sm-10">
-            {{tech}}
+            {{tech.name}}
           </div>
           <div class="col-lg-4 col-md-4 col-sm-10">
-            <button class="btn theme-bgcolor-2 text-white search-item-btn">Delete</button>
+            <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="deleteTechnology(tech.name)">Delete</button>
           </div>
         </div>
       </div>

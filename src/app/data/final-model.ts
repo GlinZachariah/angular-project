@@ -38,3 +38,7 @@ export interface TrainingCompleted {
   timeslot: number;
   startdate: string; //TODOD datatype of start date
 }
+
+export interface Technology{
+  name:string;
+}
