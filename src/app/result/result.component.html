@@ -1,7 +1,7 @@
 
 
-<div *ngFor="let result of results;let Idx =index" >
-    <div data-toggle="modal" [attr.data-target]="'#exampleModalCenter'+Idx">
+<div *ngFor="let result of results;let Idx =index"  >
+    <div data-toggle="modal" [attr.data-target]="'#exampleModalCenter'+Idx" [id]='Idx'>
         <div class="row result-item theme-bgcolor-3 p-3 text-white">
           <div class="col-lg-3 col-md-3 col-sm-10">
             <img src="../../assets/course-img.PNG" class="result-item-img" alt="trainer-image">
@@ -36,7 +36,7 @@
               <h6>Years of Exp : {{result.experience}}</h6>
               <div class="p-2">
                 Skills <br>
-                <span class="badge theme-bgcolor-2  text-white m-2 p-2" *ngFor="let skills of result.trainerSkills">{{skills.name}}</span>
+                <span class="badge theme-bgcolor-2  text-white m-1 p-2" *ngFor="let skills of result.trainerSkills">{{skills.name}}</span>
               </div>
 
               <div class="p-2">
@@ -47,7 +47,7 @@
 
             </div>
             <div class="modal-footer">
-              <input type="button" class="btn theme-bgcolor-2 text-white" value="Propose Training">
+              <input type="button" class="btn theme-bgcolor-2 text-white" value="Propose Training"  (click)="proposeTraining(Idx,result)">
             </div>
           </div>
         </div>
