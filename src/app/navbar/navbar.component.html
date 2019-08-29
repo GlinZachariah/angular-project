@@ -1,1 +1,116 @@
-<p>navbar works!</p>
+
+<div *ngIf="isUserLoggedIn && UserRole == 'user'">
+  <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['user','profile']">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['user','trainings','browse']">Search Trainings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['user','trainings','completed']">Completed Trainings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['user','trainings','progress']">In Progress</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Notifications
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <p class="dropdown-item theme-color-5">Congragulations Successfully Registered!<span
+            class="badge theme-bgcolor-2 text-white ml-1">New</span></p>
+        <div class="dropdown-divider"></div>
+        <p class="dropdown-item theme-color-5">Browse Courses, Join and Learn. Happy Coding!! <span
+            class="badge theme-bgcolor-2 text-white ml-1">New</span></p>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/']" (click)="Logout()">Logout</a>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="isUserLoggedIn && UserRole == 'mentor'">
+  <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['mentor','home']">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['mentor','profile']">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['mentor','editskill']">Edit Skills</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['mentor','viewHistory']">View History</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['mentor','progress']">In Progress</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/']" (click)="Logout()">Logout</a>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!isUserLoggedIn">
+  <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+    <li class="nav-item active">
+      <a class="nav-link" [routerLink]="['signin']">Sign In </a>
+    </li>
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Register
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item theme-color-5" [routerLink]="['signup','user']"
+          >User Sign Up</a
+        >
+        <a class="dropdown-item theme-color-5" [routerLink]="['signup','mentor']"
+          >Mentor Sign Up<span class="badge theme-bgcolor-2 text-white ml-1"
+            >New</span
+          ></a
+        >
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['trainings','browse']">Browse Trainings</a>
+    </li>
+  </ul>
+</div>
+
+
+<div *ngIf="isUserLoggedIn && UserRole == 'admin'">
+  <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['admin','permission']">Edit Permission </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['admin','technology']">Edit Technology </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['admin','payments']">Payments </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['admin','reports']">Display Reports </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['admin','commission']">Commission</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['admin','signin']" (click)="Logout()">Logout</a>
+    </li>
+  </ul>
+</div>
+
