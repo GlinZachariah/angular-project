@@ -13,6 +13,17 @@ export class AdminService {
 
   performAuth(username, password, route) {
     //TODO send POST to performAuth and return the status
-    return this.http.get('assets/admin.json');
+    let obs;
+    obs = this.http.get('assets/admin.json');
+    obs.subscribe(data => {
+      if (data[0].auth == true) {
+        this.adminLoggedIn = true;
+        route.navigate(['admin', 'permission']);
+        this.isAdminLogged.next(true);
+      } else {
+        this.adminLoggedIn = false;
+      }
+    });
+    return this.adminLoggedIn;
   }
 }

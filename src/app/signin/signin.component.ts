@@ -26,6 +26,7 @@ export class SigninComponent implements OnInit {
 
   checkUser(formData: signIn) {
     this.authService.performAuth(formData, this.route);
+    this.formDataValue.reset();
   }
 
   ngOnInit() {}
