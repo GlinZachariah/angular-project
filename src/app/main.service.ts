@@ -70,5 +70,10 @@ export class MainService {
     //  TODO send mentorCreateData via HTTP POST and return status; add to createUserAccount table also
   }
 
+  searchTrainings(formData){
+    //  TODO send mentorCreateData via HTTP POST and return status;
+    return this.http.get("assets/search-result.json");
+  }
+
 
 }

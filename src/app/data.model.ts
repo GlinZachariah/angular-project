@@ -36,3 +36,23 @@ export interface TimseSlot {
 export interface Technology{
   name:string;
 }
+
+
+export interface CourseMaterial{
+  video:boolean;
+  blog:boolean;
+  ppt:boolean;
+  demo:boolean;
+}
+
+export interface SearchTrainingResult{
+  courseId:string;
+  courseName:string;
+  trainerName:string;
+  totalTrainee: number;
+  trainerSkills: Technology[];
+  courseType:CourseMaterial;
+  experience:number;
+  trainerCharges:number;
+  serviceCharges:number;
+}

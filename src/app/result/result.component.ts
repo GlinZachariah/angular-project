@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
+import { SearchTrainingResult } from '../data.model';
 
 @Component({
   selector: 'app-result',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-
+  @Input() resultData: SearchTrainingResult[];
+  results;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    this.results = changes['resultData'].currentValue;
   }
 
 }

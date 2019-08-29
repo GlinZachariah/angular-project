@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   SearchForm;
   timeSlots = TIMESLOT;
   mentorSkills: Technology[];
+  searchResult;
   constructor(
     private formBuilder: FormBuilder,
     private searchService: MainService
@@ -28,7 +29,10 @@ export class SearchComponent implements OnInit {
    }
 
    SearchTrainer(formData){
-      // this.updateService.searchTrainings(formData);
+      this.searchService.searchTrainings(formData).subscribe((data)=>{
+        this.searchResult =data;
+        console.log(data);
+      });
    }
 
   ngOnInit() {
