@@ -6,7 +6,6 @@ import { MentorSignupComponent } from './mentor-signup/mentor-signup.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { HomeComponent } from './mentor/home/home.component';
-import { SearchComponent } from './search/search.component';
 import { ProgressComponent } from './user/progress/progress.component';
 import { CompletedComponent } from './user/completed/completed.component';
 import { LoginComponent } from './admin/login/login.component';
@@ -15,6 +14,7 @@ import { PaymentsComponent } from './admin/payments/payments.component';
 import { ReportsComponent } from './admin/reports/reports.component';
 import { CommissionComponent } from './admin/commission/commission.component';
 import { EdittechComponent } from './admin/edittech/edittech.component';
+import { SearchComponent } from './search/search.component';
 
 
 const routes: Routes = [
