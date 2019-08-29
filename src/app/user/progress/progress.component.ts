@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { UpdateService } from 'src/app/services/update.service';
-import { TrainingProgress } from 'src/app/data/user.model';
+import { TrainingProgress } from 'src/app/data/final-model';
 
 @Component({
   selector: 'app-progress',
@@ -18,8 +18,10 @@ export class ProgressComponent implements OnInit {
   ) {
     this.rating = [1,2,3,4,5];
     if(this.authService.isLoggedIn){
-      this.traingingProgressData = this.updateService.getUserTrainingsInProgress(this.authService.LoggedInUsername);
-      
+     this.updateService.getUserTrainingsInProgress(this.authService.LoggedInUsername).subscribe((data:TrainingProgress[])=>{
+      this.traingingProgressData=data;
+     });
+
     }
    }
 
@@ -35,12 +37,15 @@ export class ProgressComponent implements OnInit {
 
    saveData(data,progress,rating){
     if(progress<100){
+      // TODO subscribe to Service to see result of updateCourseProgress
       this.updateService.updateCourseProgress(this.authService.LoggedInUsername,data.coursedetail.courseid,progress,rating);
     }else{
+      // TODO subscribe to Service to see result of addCompletedTraining
       this.updateService.addCompletedTraining(data);
+      // TODO subscribe to Service to see result of addCompletedTraining
       this.updateService.deleteCourseProgress(this.authService.LoggedInUsername,data.coursedetail.courseid);
     }
-     
+
    }
 
    updatePayment(data){

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { USER, USERPROGRESS } from '../data/mock-user';
 import { COMPLETED } from "../data/mock-user";
 import { TrainingCompleted, TrainingProgress } from '../data/user.model';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,52 +11,27 @@ export class UpdateService {
   password:string;
   resultDataTrainingCompleted:TrainingCompleted[];
   resultDataTrainingProgress:TrainingProgress[];
-  constructor() {
+  constructor(
+    private http:HttpClient
+  ) {
    }
 
   updateProfile(fname,oldpwd,name,pwd,userId){
-
-    USER.forEach(user => {
-      this.username = user.credential.auth.username;
-      this.password = user.credential.auth.password;
-      if(userId == this.username && oldpwd == this.password ){
-        user.credential.auth.username=name;
-        user.credential.auth.password =pwd;
-        user.fullname = fname;
-      }
-    });
-    // console.warn("Update Profile");
+    //TODO send HTTP post request to updateUserProfile and return status
   }
 
-  getTrainingsCompleted(usern):TrainingCompleted[]{
-    this.resultDataTrainingCompleted=[];
-    COMPLETED.forEach(users => {
-      if(users.username == usern){
-        this.resultDataTrainingCompleted.push(users);
-      }
-    });
-    return this.resultDataTrainingCompleted;
+  getTrainingsCompleted(usern){
+     //TODO send HTTP post request to getTrainingsCompleted by username and return status
+    return this.http.get('assets/completedTraining.json');
   }
 
-  getUserTrainingsInProgress(usern):TrainingProgress[]{
-    this.resultDataTrainingProgress=[];
-    USERPROGRESS.forEach(user => {
-      if(user.username == usern){
-        this.resultDataTrainingProgress.push(user);
-      }
-    });
-    // console.log(this.resultDataTrainingProgress);
-    return this.resultDataTrainingProgress;
+  getUserTrainingsInProgress(usern){
+    //TODO send HTTP post request to getTrainingsInProgress by username and return status
+    return this.http.get("assets/userProgressTraining.json");
   }
 
   updateCourseProgress(username,courseid,progress,rating){
-    USERPROGRESS.forEach(user => {
-      if(user.username == username && user.coursedetail.courseid ==courseid){
-          user.progress = progress;
-          user.rating = rating;
-        }
-
-    });
+    //TODO send HTTP post request to  by username and return status
   }
 
   updateCoursePayment(username,courseid){
@@ -87,11 +63,11 @@ export class UpdateService {
         technology:data.coursedetail.technology,
         trainername:data.coursedetail.trainername,
         charges:data.coursedetail.charges,
-        commission:0.1
+        commission:data.coursedetail.commission
       },
       username: data.username,
       timeslot: data.timeslot,
-      startdate: data.startdate  //TODO Date
+      startdate: data.startdate
     }
 
     COMPLETED.push(custData);

@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
   }
 
   updateProfile() {
+    //TODO subscribe the data and obtain the status
     this.updateUser.updateProfile(this.loggedUser,this.oldLoggedPwd,this.loggedUsername, this.loggedPwd,this.loggedUsername);
   }
 

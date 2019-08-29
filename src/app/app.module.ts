@@ -16,6 +16,7 @@ import { MentorModule } from './mentor/mentor.module';
 import { SearchComponent } from './search/search.component';
 import { ResultComponent } from './result/result.component';
 import { AdminModule } from './admin/admin.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AdminModule } from './admin/admin.module';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     UserModule,
     MentorModule,

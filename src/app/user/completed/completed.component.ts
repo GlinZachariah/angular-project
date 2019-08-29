@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateService } from 'src/app/services/update.service';
-import { TrainingCompleted } from 'src/app/data/user.model';
+import { TrainingCompleted } from 'src/app/data/final-model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -16,13 +16,14 @@ export class CompletedComponent implements OnInit {
     private authService :AuthService
   ) {
     if(this.authService.isLoggedIn){
-      this.trainingCompletedData = this.updateService.getTrainingsCompleted(this.authService.LoggedInUsername);
-      console.log(this.trainingCompletedData);
+      this.updateService.getTrainingsCompleted(this.authService.LoggedInUsername).subscribe((data:TrainingCompleted[]) =>{
+        this.trainingCompletedData = data;
+      });
     }
   }
 
   ngOnInit() {
-    
+
   }
 
 }

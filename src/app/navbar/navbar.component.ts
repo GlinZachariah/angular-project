@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
   UserRole;
   constructor(private route: Router, private checkAuth: AuthService,private adminAuth :AdminService) {
     this.checkAuth.isUserLoggedIn.subscribe(value => {
+      //  console.log("User tab check");
       if (value) {
         // console.log("User tab check");
         this.isUserLoggedIn = true;
@@ -35,7 +36,7 @@ export class NavbarComponent implements OnInit {
         }
       });
     }
-    
+
   }
 
   Logout() {
