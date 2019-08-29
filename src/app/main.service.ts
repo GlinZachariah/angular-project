@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Login } from './data.model';
+import { Login, signUpUserForm, Technology } from './data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,7 @@ export class MainService {
   LoggedInFullname: string;
   LoggedInRole: string;
   LoggedInPwd: string;
+  signUpUserObj: signUpUserForm;
   constructor(private http: HttpClient) {
     this.isLoggedIn = false;
   }
@@ -47,4 +48,27 @@ export class MainService {
       }
     });
   }
+
+  createUserAccount(loginData: signUpUserForm) {
+    this.signUpUserObj = {
+      fullname: loginData.fullname,
+      accountStatus: loginData.accountStatus,
+      role: loginData.role,
+      username: loginData.username,
+      password: loginData.password
+    };
+
+    //  TODO send signUpUSerObject via HTTP POST and return status;
+  }
+
+
+  getTechData(){
+    return  this.http.get('assets/technologies.json');
+  }
+
+  createMentorAccount(mentorCreateData,signUpData, materialTypeData){
+    //  TODO send mentorCreateData via HTTP POST and return status; add to createUserAccount table also
+  }
+
+
 }
