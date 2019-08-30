@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserForm } from 'src/app/data.model';
+import { AdminService } from '../admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-permission',
@@ -6,8 +9,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./permission.component.css']
 })
 export class PermissionComponent implements OnInit {
+  UserData: UserForm[]=[];
+  MentorData: UserForm[]=[];
+  custIndx;
+  data: UserForm;
+  role:string;
+  constructor(
+    private adminService:AdminService,
+    private route:Router
+  ) {
 
-  constructor() { }
+    if(this.adminService.adminLoggedIn){
+      this.adminService.getUserPermission().subscribe((dataItem:UserForm[])=>{
+        dataItem.forEach(user => {
+          if(user.role=='user'){
+            this.UserData.push(user);
+          }else{
+            this.MentorData.push(user);
+          }
+        });
+      });
+    }
+   }
+
+   updatePermission(data){
+    // TODO update with new permission value
+    this.adminService.updateUserPermission(data,this.route);
+   }
 
   ngOnInit() {
   }

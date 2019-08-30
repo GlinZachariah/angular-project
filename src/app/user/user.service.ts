@@ -42,10 +42,14 @@ export class UserService {
   }
 
   updateCoursePayment(username,courseid){
-   //TODO send HTTP post request to  by username and return status
+   //TODO send HTTP post request to updateCoursePayment by username and return status
   }
 
   deleteCourseProgress(username,courseid){
-  //TODO send HTTP post request to  by username and return status
+  //TODO send HTTP post request to deleteCourseProgress by username and return status
+  }
+
+  getCardDetails(){
+    //TODO send HTTP post request to getCardDetails  by username and return status
   }
 }

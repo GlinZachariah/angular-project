@@ -15,7 +15,13 @@ export interface signUpUserForm {
   username: string;
   password: string;
   accountStatus: string,
+}
 
+export interface UserForm {
+  fullname: string;
+  role: string;
+  username: string;
+  accountStatus: string,
 }
 
 export interface TimeZone {
@@ -82,4 +88,30 @@ export interface TrainingProgress {
   paymentstatus: string;
   timeslot: number;
   startdate: string; //TODOD datatype of start date
+}
+
+export interface Payment{
+    timestamp:string,
+    username:string,
+    courseid:string,
+    trainername:string,
+    paymentamount:number,
+    commission:number
+}
+
+export class Report{
+  username:string;
+  courseid:string;
+  progress:number;
+  cost:number;
+}
+
+export interface Mentor{
+  details : signUpUserForm;
+  skills :string[];
+  timezone:string;
+  timeslot: number;
+  materialType:CourseMaterial;
+  linkedInUrl:string;
+  experience:number;
 }

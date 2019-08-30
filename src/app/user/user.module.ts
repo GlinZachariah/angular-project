@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CompletedComponent } from './completed/completed.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProgressComponent } from './progress/progress.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [CompletedComponent, ProfileComponent, ProgressComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }

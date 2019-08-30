@@ -31,7 +31,6 @@ export class SearchComponent implements OnInit {
    SearchTrainer(formData){
       this.searchService.searchTrainings(formData).subscribe((data)=>{
         this.searchResult =data;
-        console.log(data);
       });
    }
 
