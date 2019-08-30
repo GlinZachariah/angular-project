@@ -15,6 +15,10 @@ import { ReportsComponent } from './admin/reports/reports.component';
 import { CommissionComponent } from './admin/commission/commission.component';
 import { EdittechComponent } from './admin/edittech/edittech.component';
 import { SearchComponent } from './search/search.component';
+import { MprofileComponent } from './mentor/mprofile/mprofile.component';
+import { EditskillsComponent } from './mentor/editskills/editskills.component';
+import { HistoryComponent } from './mentor/history/history.component';
+import { MprogressComponent } from './mentor/mprogress/mprogress.component';
 
 
 const routes: Routes = [
@@ -41,6 +45,22 @@ const routes: Routes = [
   {
     path: 'mentor/home',
     component: HomeComponent
+  },
+  {
+    path: 'mentor/profile',
+    component: MprofileComponent
+  },
+  {
+    path: 'mentor/editskill',
+    component: EditskillsComponent
+  },
+  {
+    path: 'mentor/viewHistory',
+    component: HistoryComponent
+  },
+  {
+    path: 'mentor/progress',
+    component: MprogressComponent
   },
   {
     path: 'trainings/browse',
