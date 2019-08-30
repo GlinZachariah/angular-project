@@ -1,1 +1,69 @@
-<p>completed works!</p>
+<div class="container content">
+    <!-- container content begin -->
+    <div id="content-box">
+      <div class="jumbotron">
+        <h1 class="display-6 theme-color-5">Completed Trainings</h1>
+        <hr class="my-3" />
+
+        <div *ngFor="let course of trainingCompletedData; let i= index" >
+        <div class="row" *ngIf="i% 3 == 0">
+          <div class="col-lg-3 col-sm-10 ml-auto mr-auto mt-4" *ngIf="i < trainingCompletedData.length" >
+            <div class="card">
+              <img src="../../../assets/course-img.PNG" class="card-img-top" alt="technology-name">
+              <div class="card-body">
+                <h4>{{trainingCompletedData[i].coursedetail.coursename}}</h4>
+                <h5>{{trainingCompletedData[i].coursedetail.trainername}}</h5>
+                <h6>{{trainingCompletedData[i].coursedetail.technology}}</h6>
+                <h6>{{trainingCompletedData[i].coursedetail.charges}}</h6>
+                <h6>{{trainingCompletedData[i].startdate}}</h6>
+
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-3 col-sm-10 ml-auto mr-auto mt-4" *ngIf="i + 1 < trainingCompletedData.length" >
+              <div class="card">
+                <img src="../../../assets/course-img.PNG" class="card-img-top" alt="technology-name">
+                <div class="card-body">
+                  <h4>{{trainingCompletedData[i+1].coursedetail.coursename}}</h4>
+                  <h5>{{trainingCompletedData[i+1].coursedetail.trainername}}</h5>
+                  <h6>{{trainingCompletedData[i+1].coursedetail.technology}}</h6>
+                  <h6>{{trainingCompletedData[i+1].coursedetail.charges}}</h6>
+                  <h6>{{trainingCompletedData[i+1].startdate}}</h6>
+
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-sm-10 ml-auto mr-auto mt-4" *ngIf="i + 2 < trainingCompletedData.length" >
+                <div class="card">
+                  <img src="../../../assets/course-img.PNG  " class="card-img-top" alt="technology-name">
+                  <div class="card-body">
+                    <h4>{{trainingCompletedData[i+2].coursedetail.coursename}}</h4>
+                    <h5>{{trainingCompletedData[i+2].coursedetail.trainername}}</h5>
+                    <h6>{{trainingCompletedData[i+2].coursedetail.technology}}</h6>
+                    <h6>{{trainingCompletedData[i+2].coursedetail.charges}}</h6>
+                    <h6>{{trainingCompletedData[i+2].startdate}}</h6>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+        </div >
+      </div>
+
+      </div>
+
+
+
+    </div>
+
+
+    <!-- container -content close -->
+  </div>
