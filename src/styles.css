@@ -3,6 +3,11 @@
   font-family: Roboto;
 }
 
+.nav-link.active{
+  background-color: #6D00BF;
+  border-radius: 0.25rem;
+}
+
 #site-title {
   font-size: 32px;
 }

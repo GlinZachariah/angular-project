@@ -1,17 +1,17 @@
 
 <div *ngIf="isUserLoggedIn && UserRole == 'user'">
   <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['user','profile']">Home</a>
+    <li class="nav-item" >
+      <a class="nav-link" [routerLink]="['user','profile']" routerLinkActive="active">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['user','trainings','browse']">Search Trainings</a>
+      <a class="nav-link" [routerLink]="['user','trainings','browse']" routerLinkActive="active">Search Trainings</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['user','trainings','completed']">Completed Trainings</a>
+      <a class="nav-link" [routerLink]="['user','trainings','completed']" routerLinkActive="active">Completed Trainings</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['user','trainings','progress']">In Progress</a>
+      <a class="nav-link" [routerLink]="['user','trainings','progress']" routerLinkActive="active">In Progress</a>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -35,19 +35,19 @@
 <div *ngIf="isUserLoggedIn && UserRole == 'mentor'">
   <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['mentor','home']">Home</a>
+      <a class="nav-link" [routerLink]="['mentor','home']" routerLinkActive="active">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['mentor','profile']">Profile</a>
+      <a class="nav-link" [routerLink]="['mentor','profile']" routerLinkActive="active">Profile</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['mentor','editskill']">Edit Skills</a>
+      <a class="nav-link" [routerLink]="['mentor','editskill']" routerLinkActive="active">Edit Skills</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['mentor','viewHistory']">View History</a>
+      <a class="nav-link" [routerLink]="['mentor','viewHistory']" routerLinkActive="active">View History</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['mentor','progress']">In Progress</a>
+      <a class="nav-link" [routerLink]="['mentor','progress']" routerLinkActive="active">In Progress</a>
     </li>
 
     <li class="nav-item">
@@ -59,7 +59,7 @@
 <div *ngIf="!isUserLoggedIn">
   <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
     <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['signin']">Sign In </a>
+      <a class="nav-link" [routerLink]="['signin']" routerLinkActive="active">Sign In </a>
     </li>
     <li class="nav-item dropdown">
       <a
@@ -85,7 +85,7 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['trainings','browse']">Browse Trainings</a>
+      <a class="nav-link" [routerLink]="['trainings','browse']" routerLinkActive="active">Browse Trainings</a>
     </li>
   </ul>
 </div>
@@ -94,19 +94,19 @@
 <div *ngIf="isUserLoggedIn && UserRole == 'admin'">
   <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-5">
     <li class="nav-item ">
-      <a class="nav-link" [routerLink]="['admin','permission']">Edit Permission </a>
+      <a class="nav-link" [routerLink]="['admin','permission']" routerLinkActive="active">Edit Permission </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" [routerLink]="['admin','technology']">Edit Technology </a>
+      <a class="nav-link" [routerLink]="['admin','technology']" routerLinkActive="active">Edit Technology </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" [routerLink]="['admin','payments']">Payments </a>
+      <a class="nav-link" [routerLink]="['admin','payments']" routerLinkActive="active">Payments </a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link" [routerLink]="['admin','reports']">Display Reports </a>
+      <a class="nav-link" [routerLink]="['admin','reports']" routerLinkActive="active">Display Reports </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['admin','commission']">Commission</a>
+      <a class="nav-link" [routerLink]="['admin','commission']" routerLinkActive="active">Commission</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['admin','signin']" (click)="Logout()">Logout</a>
