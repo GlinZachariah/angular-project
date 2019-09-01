@@ -4,56 +4,69 @@
 
   <hr class="my-4">
 
+    <div *ngFor="let data of mentorHistoryData">
 
-   <div class="row result-item theme-bgcolor-3 p-2 text-white">
-      <div class="col-lg-1 col-md-1 col-sm-10">
-          Time Stamp
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          User Name
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          Course Name
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          Course Status
-      </div>
-      <div class="col-lg-2 col-md-1 col-sm-10">
-          Time Slot
-      </div>
-      <div class="col-lg-1 col-md-1 col-sm-10">
-          Course Progress
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          <button class="btn theme-bgcolor-2 text-white search-item-btn">Withdraw Amount</button>
-      </div>
-  </div>
+            <div *ngIf="data.approvalStatus == 'approved'; then block1 else block2" ></div>
+            <ng-template #block1>
+                    <div class="row result-item theme-bgcolor-3 p-3 text-white" >
+                            <div class="col-lg-1 col-md-1 col-sm-10">
+                                {{data.timestamp}}
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-10">
+                                {{data.username}}
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-10">
+                                {{data.courseId}}
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-10">
+                                {{data.approvalStatus}}
+                            </div>
+                            <div class="col-lg-2 col-md-1 col-sm-10">
+                                {{data.timeslot | timeslot}}
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-10">
+                               Progress: {{data.courseProgress | percent}}
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-10">
+                                <button class="btn theme-bgcolor-2 text-white search-item-btn">Withdraw Amount <span class="badge badge-pill badge-warning">{{data.withdrawCount}}</span></button>
+                            </div>
+                        </div>
+            </ng-template>
+            <ng-template #block2>
+                    <div class="row result-item theme-bgcolor-3 p-2 text-white" #block2>
+                            <div class="col-lg-1 col-md-1 col-sm-10">
+                                    {{data.timestamp}}
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-10">
+                                    {{data.username}}
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-10">
+                                    {{data.courseId}}
+                                </div>
+                            <div class="col-lg-2 col-md-2 col-sm-10">
+                                <button class="btn btn-success text-white search-item-btn">Approve Course</button>
+                                <button class="btn btn-danger text-white search-item-btn">Decline Course</button>
+                            </div>
+                            <div class="col-lg-2 col-md-1 col-sm-10">
+                                    {{data.timeslot | timeslot}}
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-10">
+                                    {{data.courseProgress | percent}}
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-10">
+                                    <button class="btn theme-bgcolor-2 text-white search-item-btn" [disabled]="true">Withdraw Amount</button>
+                                </div>
+                        </div>
 
-   <div class="row result-item theme-bgcolor-3 p-2 text-white">
-      <div class="col-lg-1 col-md-1 col-sm-10">
-          Time Stamp
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          User Name
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          Course Name
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          <button class="btn btn-success text-white search-item-btn">Approve Course</button>
-          <button class="btn btn-danger text-white search-item-btn">Decline Course</button>
-      </div>
-      <div class="col-lg-2 col-md-1 col-sm-10">
-          Time Slot
-      </div>
-      <div class="col-lg-1 col-md-1 col-sm-10">
-          Course Progress
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-10">
-          <button class="btn theme-bgcolor-2 text-white search-item-btn" disabled>Withdraw Amount</button>
-      </div>
-  </div>
+            </ng-template>
+
+              
 
 
+
+
+
+
+    </div>
 </div>
 </div>

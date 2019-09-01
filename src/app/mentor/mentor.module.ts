@@ -8,11 +8,12 @@ import { HistoryComponent } from './history/history.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { CalendarComponent } from './calendar/calendar.component';
+import { TimeslotPipe } from './timeslot.pipe';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, EditskillsComponent, MprofileComponent, MprogressComponent, HistoryComponent, CalendarComponent],
+  declarations: [HomeComponent, EditskillsComponent, MprofileComponent, MprogressComponent, HistoryComponent, CalendarComponent, TimeslotPipe],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MentorService } from '../mentor.service';
+import { MentorHistory } from "../../data.model";
 
 @Component({
   selector: 'app-history',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-
-  constructor() { }
+   mentorHistoryData:MentorHistory[];
+  constructor(
+    private mentorService:MentorService
+  ) { 
+    this.mentorService.getCourseHistory().subscribe((data:MentorHistory[])=>{
+      this.mentorHistoryData = data;
+    })
+  }
 
   ngOnInit() {
   }

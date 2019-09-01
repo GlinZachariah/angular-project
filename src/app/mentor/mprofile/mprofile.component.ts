@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Technology, signUpUserForm } from 'src/app/data.model';
-import { TIMEZONE, TIMESLOT } from 'src/app/data';
-import { MainService } from 'src/app/main.service';
-
+import { Technology, signUpUserForm } from '../../data.model';
+import { TIMEZONE, TIMESLOT } from '../../data';
+import { MainService } from '../../main.service';
+import { MentorService } from "../mentor.service";
 @Component({
   selector: 'app-mprofile',
   templateUrl: './mprofile.component.html',
@@ -21,8 +21,11 @@ export class MprofileComponent implements OnInit {
 
    constructor(
     private mainService : MainService,
+    private mentorServie:MentorService,
     private formBuilder: FormBuilder
   ) {
+
+    
     this.formMentor = this.formBuilder.group({
       username: '',
       fullname: '',
@@ -40,6 +43,11 @@ export class MprofileComponent implements OnInit {
       ppt: new FormControl(),
       demo: new FormControl()
     });
+  }
+
+  saveMentorDetails(formData,materialType){
+    // TODO subscribe to the service to view the status of update
+    this.mentorServie.updateMentorDetails(formData,materialType);
   }
 
   ngOnInit() {

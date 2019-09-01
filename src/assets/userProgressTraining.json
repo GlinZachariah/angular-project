@@ -13,7 +13,7 @@
     "rating":3,
     "startdate":"",
     "status":"on going",
-    "timeslot":8,
+    "timeslot":"8",
     "username":"n"
 
   },
@@ -31,7 +31,7 @@
     "rating":0,
     "startdate":"",
     "status":"rejected",
-    "timeslot":8,
+    "timeslot":"8",
     "username":"n"
 
   },
@@ -49,7 +49,7 @@
     "rating":0,
     "startdate":"",
     "status":"proposal pending",
-    "timeslot":8,
+    "timeslot":"8",
     "username":"n"
 
   },
@@ -67,7 +67,7 @@
     "rating":0,
     "startdate":"",
     "status":"approved",
-    "timeslot":8,
+    "timeslot":"8",
     "username":"n"
 
   }

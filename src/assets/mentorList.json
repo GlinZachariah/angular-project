@@ -9,7 +9,7 @@
           "git","angular"
       ],
       "timezone":"(UTC-11:00) Coordinated Universal Time-11",
-      "timeslot":8,
+      "timeslot":"8",
       "materialType":{
           "video":false,
           "blog":false,
@@ -30,7 +30,7 @@
         "git","angular"
     ],
     "timezone":"(UTC-11:00) Coordinated Universal Time-11",
-    "timeslot":8,
+    "timeslot":"8",
     "materialType":{
         "video":false,
         "blog":false,

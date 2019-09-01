@@ -35,7 +35,7 @@ export interface TimeZone {
 
 
 export interface TimseSlot {
-  value: number;
+  value: string;
   text: string;
 }
 
@@ -66,7 +66,7 @@ export interface SearchTrainingResult{
 export interface TrainingCompleted {
   coursedetail: CourseDetails;
   username:string;
-  timeslot: number;
+  timeslot: string;
   startdate: string; //TODOD datatype of start date
 }
 
@@ -86,7 +86,7 @@ export interface TrainingProgress {
   rating: number;
   status: string;
   paymentstatus: string;
-  timeslot: number;
+  timeslot: string;
   startdate: string; //TODOD datatype of start date
 }
 
@@ -110,7 +110,7 @@ export interface Mentor{
   details : signUpUserForm;
   skills :string[];
   timezone:string;
-  timeslot: number;
+  timeslot: string;
   materialType:CourseMaterial;
   linkedInUrl:string;
   experience:number;
@@ -119,4 +119,15 @@ export interface Mentor{
 export interface AlertMessage{
   status:boolean;
   message:string;
+}
+
+export interface MentorHistory{
+  timestamp : string;
+  username :string;
+  courseId :string;
+  approvalStatus:string;
+  paymentStatus:string;
+  timeslot:string;
+  courseProgress:number;
+  withdrawCount:number;
 }

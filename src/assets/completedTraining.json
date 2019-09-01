@@ -9,7 +9,7 @@
       "commission":0.1
     },
     "username": "n",
-    "timeslot": 8,
+    "timeslot": "8",
     "startdate": ""
   },
   {
@@ -22,7 +22,7 @@
       "commission":0.1
     },
     "username": "n",
-    "timeslot": 8,
+    "timeslot": "8",
     "startdate": ""
   },
   {
@@ -35,7 +35,7 @@
       "commission":0.2
     },
     "username": "n",
-    "timeslot": 8,
+    "timeslot": "8",
     "startdate": ""
   }
 ]

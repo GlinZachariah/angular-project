@@ -10,7 +10,7 @@
 
 
 
-                      <form [formGroup]="formMentor" (ngSubmit)="signUpMentor(formMentor.value,materialType.value)">
+                      <form [formGroup]="formMentor" (ngSubmit)="saveMentorDetails(formMentor.value,materialType.value)">
                           <div class="form-group">
                               <label for="exampleInputEmail1">Email address</label>
                               <input type="email" class="form-control" id="exampleInputEmail1"
