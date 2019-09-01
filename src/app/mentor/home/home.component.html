@@ -27,44 +27,40 @@
                       <!-- Card Body begin -->
                       <div class="row">
                           <div class="col-lg-5 ml-auto mr-auto">
-                              <!-- <form>
-
+                              <form [formGroup]="addCouseForm" (ngSubmit)="addCourse(addCouseForm.value,materialType.value)">
+                                <div class="form-group">
+                                      <label for="course-name" class="theme-color-5">Course Id</label>
+                                      <input type="text" class="form-control" id="course-id"
+                                          placeholder="Enter Course Id" formControlName="courseId" autocomplete="off">
+                                  </div>
                                   <div class="form-group">
                                       <label for="course-name" class="theme-color-5">Course Name</label>
                                       <input type="text" class="form-control" id="course-name"
-                                          placeholder="Enter Course Name" autocomplete="off">
+                                          placeholder="Enter Course Name" formControlName="courseName" autocomplete="off">
                                   </div>
                                   <div class="form-group">
                                       <label for="course-inhrs" class="theme-color-5">Course Duration (in
                                           hrs)</label>
-                                      <input type="number" class="form-control" id="course-inhrs" min="20"
+                                      <input type="number" formControlName="courseDuration" class="form-control" id="course-inhrs" min="20"
                                           value="20" />
                                   </div>
                                   <div class="form-group">
                                       <label for="select-skill-list">Select Technology</label>
-                                      <select multiple class="form-control" id="select-skill-list">
-                                          <option value="Spring">Spring</option>
-                                          <option value="Angular">Angular</option>
-                                          <option value="Git">Git</option>
-                                          <option value="Core Java">Core Java</option>
-                                          <option value="Python">Python</option>
+                                      <select multiple class="form-control" id="select-skill-list" formControlName="courseTechnology">
+                                            <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill" >{{mentorSkill.name}}</option>
                                       </select>
                                   </div>
-                                  <div class="form-group" id="matrial-type">
-                                      <label class="theme-color-5">Material Type</label> <br>
-                                      <input type="checkbox" id="matrial-type-video"
-                                          class=" form-check-inline mr-2 ml-2">
-                                      <label for="matrial-type-video">Videos</label>
-                                      <input type="checkbox" id="matrial-type-blog"
-                                          class=" form-check-inline mr-2 ml-2">
-                                      <label for="matrial-type-blog">Blog</label>
-                                      <input type="checkbox" id="matrial-type-ppt"
-                                          class=" form-check-inline mr-2 ml-2">
-                                      <label for="matrial-type-ppt">PPTs</label>
-                                      <input type="checkbox" id="matrial-type-demo"
-                                          class=" form-check-inline mr-2 ml-2">
-                                      <label for="matrial-type-demo">Demos</label>
-                                  </div>
+                                  <div class="form-group" id="matrial-type" [formGroup]="materialType">
+                                        <label class="theme-color-5">Material Type</label> <br>
+                                        <input type="checkbox" id="matrial-type-video" formControlName="video" class=" form-check-inline mr-2 ml-2">
+                                        <label for="matrial-type-video">Videos</label>
+                                        <input type="checkbox" id="matrial-type-blog"formControlName="blog" class=" form-check-inline mr-2 ml-2">
+                                        <label for="matrial-type-blog">Blog</label>
+                                        <input type="checkbox" id="matrial-type-ppt" formControlName="ppt" class=" form-check-inline mr-2 ml-2">
+                                        <label for="matrial-type-ppt">PPTs</label>
+                                        <input type="checkbox" id="matrial-type-demo" formControlName="demo" class=" form-check-inline mr-2 ml-2">
+                                        <label for="matrial-type-demo">Demos</label>
+                                    </div>
                                   <div class="form-group ">
                                       <label for="course-cost" class="theme-color-5">Course Cost</label>
                                       <div class="input-group">
@@ -72,14 +68,14 @@
                                               <span class="input-group-text">&#8377;</span>
                                           </div>
                                           <input type="number" min="0" class="form-control" id="course-cost"
-                                              placeholder="Enter Expected Cost" autocomplete="off">
+                                              placeholder="Enter Proposed Cost" autocomplete="off" formControlName="courseCost">
                                       </div>
                                   </div>
 
                                   <button type="submit" class="btn theme-bgcolor-2 text-white mt-2">
                                       Add Course
                                   </button>
-                              </form> -->
+                              </form>
                           </div>
                       </div>
                       <!-- Card end  -->
@@ -111,11 +107,10 @@
                               Course Duration
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              Course Cost
+                              Course Technology
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              <button class="btn theme-bgcolor-2 text-white search-item-btn">Edit
-                                  Course</button>
+                              Course Cost
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
                               <button class="btn theme-bgcolor-2 text-white search-item-btn">Delete
@@ -131,151 +126,7 @@
 
           <!-- Calendar Event Timimg  -->
 
-          <div class="card">
-              <div class="card-header" id="headingTwo">
-                  <h5 class="mb-0">
-                      <button class="btn btn-link theme-color-5 collapsed" data-toggle="collapse"
-                          data-target="#collapseCalendar" aria-expanded="true"
-                          aria-controls="collapseCalendar">
-                          Add Calendar Event
-                      </button>
-                  </h5>
-              </div>
-
-              <div id="collapseCalendar" class="collapse" aria-labelledby="headingTwo"
-                  data-parent="#accordion">
-                  <div class="card-body">
-                      <!-- Card Body begin -->
-                      <div class="row">
-                          <div class="col-lg-5 ml-auto mr-auto">
-                              <!-- <form>
-
-                                  <div class="form-group">
-                                      <label for="from-date" class="theme-color-5">From date</label>
-                                      <input type="date" class="form-control" id="from-date">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleFormControlSelect3">Time Slot </label>
-                                      <select class="form-control" id="exampleFormControlSelect3">
-                                          <option>8:00 AM - 10:00 AM</option>
-                                          <option>9:00 AM - 11:00 AM</option>
-                                          <option>10:00 AM - 12:00 NOON</option>
-                                          <option>11:00 AM - 1:00 PM</option>
-                                          <option>12:00 NOON - 2:00 PM</option>
-                                          <option>1:00 PM - 3:00 PM</option>
-                                          <option>2:00 PM - 4:00 PM</option>
-                                          <option>3:00 PM - 5:00 PM</option>
-                                          <option>4:00 PM - 6:00 PM</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleFormControlSelect4">Frequency</label>
-                                      <select class="form-control" id="exampleFormControlSelect4">
-                                          <option>Daily</option>
-                                          <option>Weekly</option>
-                                          <option>Monthly</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleFormControlSelect5">Excep. Days</label>
-                                      <select multiple class="form-control" id="exampleFormControlSelect5">
-                                          <option>Sunday</option>
-                                          <option>Monday</option>
-                                          <option>Tuesday</option>
-                                          <option>Wednesday</option>
-                                          <option>Thursday</option>
-                                          <option>Friday</option>
-                                          <option>Saturday</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleFormControlSelect6">Status</label>
-                                      <select class="form-control" id="exampleFormControlSelect6">
-                                          <option>Available</option>
-                                          <option>Busy</option>
-
-                                      </select>
-                                  </div>
-
-                                  <button type="submit" class="btn theme-bgcolor-2 text-white mt-2">
-                                      Add Event
-                                  </button>
-                              </form> -->
-                          </div>
-                      </div>
-
-
-                      <!-- Card end  -->
-                  </div>
-              </div>
-          </div>
-          <!-- Calendar ends -->
-          <div class="card">
-              <div class="card-header" id="headingThree">
-                  <h5 class="mb-0">
-                      <button class="btn btn-link theme-color-5 collapsed" data-toggle="collapse"
-                          data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                          Edit Calendar
-                      </button>
-                  </h5>
-              </div>
-
-              <div id="collapseThree" class="collapse " aria-labelledby="headingThree"
-                  data-parent="#accordion">
-                  <div class="card-body">
-                      <!-- Card Body begin -->
-
-                      <div class="row result-item theme-bgcolor-3 p-2 text-white">
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              From Date
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Time Slot
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Frequency
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Exep. Days
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Status
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              <button disabled class="btn theme-bgcolor-2 text-white search-item-btn">Delete
-                                  Timings</button>
-                          </div>
-
-                      </div>
-
-                      <div class="row result-item theme-bgcolor-3 p-2 text-white">
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              From Date
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Time Slot
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Frequency
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Exep. Days
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              Status
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-10">
-                              <button class="btn theme-bgcolor-2 text-white search-item-btn">Delete
-                                  Timings</button>
-                          </div>
-
-                      </div>
-
-
-                      <!-- Card end  -->
-                  </div>
-              </div>
-          </div>
+          <app-calendar></app-calendar>
 
           <div class="card">
               <div class="card-header" id="headingFour">
@@ -291,46 +142,42 @@
 
 
 
-                      <div class="row">
-                          <div class="col-lg-5 ml-auto mr-auto">
-                              <!-- Credit Card Form -->
-                              <!-- <form>
-                                  <h3 class="theme-color-5">Card Details</h3>
-                                  <div class="form-group">
+                        <div class="row">
+                                <div class="col-lg-5 ml-auto mr-auto">
+                                  <form [formGroup]="cardDetails" (ngSubmit)="saveCardDetails(cardDetails.value)">
+                                    <h3 class="theme-color-5">Card Details</h3>
+                                    <div class="form-group">
                                       <label for="card-number" class="theme-color-5">Card Number</label>
-                                      <input type="text" class="form-control" id="card-number"
-                                          placeholder="Valid Card Number" autocomplete="off">
-                                  </div>
-                                  <div class="form-group">
+                                      <input type="text" class="form-control" id="card-number" formControlName="cardNumber" placeholder="Valid Card Number"
+                                        autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
                                       <div class="row">
-                                          <div class="col-lg-7 col-sm-10 col-xs-8 m-auto">
-                                              <label for="card-month" class="theme-color-5">Expiry
-                                                  Date</label>
-                                              <div class="row ">
-                                                  <input type="number" class="form-control col-lg-4"
-                                                      id="card-month" min="1" max="12" placeholder="MM" />
-                                                  <input type="number" class="form-control col-lg-4"
-                                                      id="card-year" min="01" max="99" placeholder="YY" />
-                                              </div>
+                                        <div class="col-lg-7 col-sm-10 col-xs-8 m-auto">
+                                          <label for="card-month" class="theme-color-5">Expiry
+                                            Date</label>
+                                          <div class="row ">
+                                            <input type="number" formControlName="cardExpM" class="form-control col-lg-4" id="card-month" min="1" max="12"
+                                              placeholder="MM" />
+                                            <input type="number" formControlName="cardExpY" class="form-control col-lg-4" id="card-year" min="01" max="99"
+                                              placeholder="YY" />
                                           </div>
-                                          <div class="col-lg-4 col-sm-10 m-auto">
-                                              <label for="card-cvv" class="theme-color-5">CV Code</label>
-                                              <div class="row">
-                                                  <input type="number" class="form-control mr-2" id="card-cvv"
-                                                      min="1" max="12" placeholder="CV" />
-                                              </div>
+                                        </div>
+                                        <div class="col-lg-4 col-sm-10 m-auto">
+                                          <label for="card-cvv" class="theme-color-5">CV Code</label>
+                                          <div class="row">
+                                            <input type="number" formControlName="cardCV"  class="form-control mr-2" id="card-cvv" min="1" max="12"
+                                              placeholder="CV" />
                                           </div>
+                                        </div>
                                       </div>
-                                  </div>
-                                  <button type="submit" class="btn theme-bgcolor-2 text-white mt-3">
+                                    </div>
+                                    <button type="submit" class="btn theme-bgcolor-2 text-white mt-3">
                                       Save
-                                  </button>
-                              </form> -->
-                              <!-- Credit Card End -->
-                          </div>
-
-
-                      </div>
+                                    </button>
+                                  </form>
+                                </div>
+                              </div>
                   </div>
 
 

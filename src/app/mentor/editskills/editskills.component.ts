@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Technology } from 'src/app/data.model';
-import { MainService } from 'src/app/main.service';
+import { Technology } from '../../data.model';
+import { MainService } from '../../main.service';
 
 @Component({
   selector: 'app-editskills',

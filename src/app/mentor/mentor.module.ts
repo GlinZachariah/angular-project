@@ -7,11 +7,12 @@ import { MprogressComponent } from './mprogress/mprogress.component';
 import { HistoryComponent } from './history/history.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, EditskillsComponent, MprofileComponent, MprogressComponent, HistoryComponent],
+  declarations: [HomeComponent, EditskillsComponent, MprofileComponent, MprogressComponent, HistoryComponent, CalendarComponent],
   imports: [
     CommonModule,
     FormsModule,

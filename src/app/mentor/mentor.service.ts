@@ -7,5 +7,13 @@ export class MentorService {
 
   constructor() { }
 
+  addCourseDetails(CourseDetails,materialType){
+    // TODO send POST request to addCourseDetails 
+  }
+
+  getCardDetails(){
+    // TODO send POST request to getCardDetails 
+  }
+
 
 }

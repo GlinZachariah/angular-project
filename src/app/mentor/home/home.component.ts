@@ -1,8 +1,8 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { MainService } from '../../main.service';
-import { AlertMessage } from '../../data.model';
-
-
+import { AlertMessage, Technology, CourseMaterial } from '../../data.model';
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { MentorService } from "../mentor.service";
 
 @Component({
   selector: 'app-home',
@@ -11,12 +11,44 @@ import { AlertMessage } from '../../data.model';
 })
 export class HomeComponent implements OnInit {
   mentorname:string;
+  mentorSkills: Technology[];
+  addCouseForm;
+  materialType;
+  cardDetails;
   alert:AlertMessage;
   @Output() LoginStatus = new EventEmitter<AlertMessage>();
   constructor(
-    private authService:MainService
+    private authService:MainService,
+    private formBuilder:FormBuilder,
+    private mentorService:MentorService
   ) {
     this.mentorname = authService.LoggedInUsername;
+    this.authService.getTechData().subscribe((data: Technology[]) => {
+      this.mentorSkills = data;
+    });
+    this.addCouseForm =this.formBuilder.group({
+      courseId:'',
+      courseName:'',
+      courseDuration:'',
+      courseTechnology:[],
+      courseCost:''
+    });
+    this.materialType = new FormGroup({
+      video: new FormControl(),
+      blog: new FormControl(),
+      ppt: new FormControl(),
+      demo: new FormControl()
+    });
+    // TODO save the getcardDetails value into the cardDetailsValue property and display if null dont update
+    this.mentorService.getCardDetails();
+
+
+    this.cardDetails = this.formBuilder.group({
+      cardNumber:'',
+      cardExpM:'',
+      cardExpY:'',
+      cardCV:''
+    });
     if(this.authService.isLoggedIn){
       this.alert={
         status:true,
@@ -24,6 +56,14 @@ export class HomeComponent implements OnInit {
       }
       this.LoginStatus.emit(this.alert);
     }
+   }
+
+   addCourse(addCouseForm,materialType){
+    // TODO subscribe to addCourseDetails to view status of update.
+    this.mentorService.addCourseDetails(addCouseForm,materialType);
+    this.materialType.reset();
+    this.addCouseForm.reset();
+    console.log("COurse Added");
    }
 
   ngOnInit() {
