@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   addCouseForm;
   materialType;
   cardDetails;
-  alert:AlertMessage;
+  alertAddCourse:AlertMessage;
+  alertDeleteCourse:AlertMessage;
   @Output() LoginStatus = new EventEmitter<AlertMessage>();
   constructor(
     private authService:MainService,
@@ -49,13 +50,6 @@ export class HomeComponent implements OnInit {
       cardExpY:'',
       cardCV:''
     });
-    if(this.authService.isLoggedIn){
-      this.alert={
-        status:true,
-        message :"Login Success"
-      }
-      this.LoginStatus.emit(this.alert);
-    }
    }
 
    addCourse(addCouseForm,materialType){
@@ -63,7 +57,21 @@ export class HomeComponent implements OnInit {
     this.mentorService.addCourseDetails(addCouseForm,materialType);
     this.materialType.reset();
     this.addCouseForm.reset();
+    this.alertAddCourse={
+      status:true,
+      message :"Course Added Successfully!"
+    }
+    this.LoginStatus.emit(this.alertAddCourse);
     console.log("COurse Added");
+   }
+
+   deleteCourse(){
+     this.alertDeleteCourse={
+      status:false,
+      message :"Course Deleted Successfully!"
+     }
+     this.LoginStatus.emit(this.alertAddCourse);
+    console.log("COurse Deleted");
    }
 
   ngOnInit() {

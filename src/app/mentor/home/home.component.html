@@ -1,6 +1,5 @@
 <div class="container content">
 
-<app-alert [alert]="alert"></app-alert>
   <div class="jumbotron " id="profile-box">
       <h1 class="display-4 theme-color-5">Hello {{mentorname}},</h1>
       <blockquote class="lead theme-color-4 blockquote">
@@ -26,7 +25,9 @@
                   <div class="card-body">
                       <!-- Card Body begin -->
                       <div class="row">
+                            
                           <div class="col-lg-5 ml-auto mr-auto">
+                                <app-alert [alert]="alertAddCourse"></app-alert>
                               <form [formGroup]="addCouseForm" (ngSubmit)="addCourse(addCouseForm.value,materialType.value)">
                                 <div class="form-group">
                                       <label for="course-name" class="theme-color-5">Course Id</label>
@@ -96,7 +97,9 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
                       <!-- Card Body begin -->
+                      <app-alert [alert]="alertDeleteCourse"></app-alert>
                       <div class="row result-item theme-bgcolor-3 p-2 text-white">
+                            
                           <div class="col-lg-2 col-md-2 col-sm-10">
                               Course ID
                           </div>
@@ -113,7 +116,7 @@
                               Course Cost
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              <button class="btn theme-bgcolor-2 text-white search-item-btn">Delete
+                              <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="deleteCourse()">Delete
                                   Course</button>
                           </div>
                       </div>
