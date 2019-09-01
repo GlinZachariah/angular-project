@@ -26,4 +26,8 @@ export class MentorService {
     return this.http.get("assets/mentorHistory.json");
   }
 
+  getMentorProgress(){
+    return this.http.get("assets/mentorProgress.json");
+  }
+
 }

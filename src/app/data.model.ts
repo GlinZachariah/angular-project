@@ -131,3 +131,12 @@ export interface MentorHistory{
   courseProgress:number;
   withdrawCount:number;
 }
+
+export interface MentorProgress{
+  technology:string;
+  courseId:string;
+  totalTraineeCount:number;
+  traineeCompleted:number;
+  traineeInProgress:number;
+  revenueEarned:number;
+}

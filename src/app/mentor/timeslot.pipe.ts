@@ -7,7 +7,6 @@ import { TIMESLOT } from '../data';
 export class TimeslotPipe implements PipeTransform {
   resultText:string;
   transform(value: string): string {
-    console.log("INPUT : "+value);
     for(var Idx=0;Idx<TIMESLOT.length;Idx++){
       if(TIMESLOT[Idx].value == value){
         this.resultText = TIMESLOT[Idx].text;
