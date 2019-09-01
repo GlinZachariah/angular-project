@@ -22,36 +22,17 @@ export class MainService {
     this.isLoggedIn = false;
   }
 
-  performAuth(loginData, route: Router) {
+  performAuth(loginData) {
     //TODO send Credentials with POST request
-    let obs;
+    
     if (loginData.password === 'mentor' && loginData.username === 'mentor') {
-      obs = this.http.get('assets/mentorAuth.json');
+     return  this.http.get('assets/mentorAuth.json');
     } else if (loginData.password === 'user' && loginData.username === 'user') {
-      obs = this.http.get('assets/userAuth.json');
+      return this.http.get('assets/userAuth.json');
     }else{
-      this.flag=1;
+      return this.http.get('assets/failAuth.json');
     }
-    if(this.flag === 0){
-      obs.subscribe((JSONResponse: Login) => {
-        if (JSONResponse[0].auth === true) {
-          this.LoggedInRole = JSONResponse[0].role;
-          this.isLoggedIn = true;
-          this.LoggedInUsername = loginData.username;
-          this.LoggedInFullname = JSONResponse[0].fullname;
-          this.LoggedInPwd = loginData.password;
-          if (this.isLoggedIn && this.LoggedInRole == 'user') {
-            route.navigate([this.LoggedInRole, 'profile']);
-            this.isUserLoggedIn.next(true);
-          } else if (this.isLoggedIn && this.LoggedInRole === 'mentor') {
-            route.navigate([this.LoggedInRole, 'home']);
-            this.isUserLoggedIn.next(true);
-          } else {
-            console.log('LOGIN FAILED' + this.isLoggedIn + this.LoggedInRole);
-          }
-        }
-      });
-    }
+
   }
 
   createUserAccount(loginData: signUpUserForm) {

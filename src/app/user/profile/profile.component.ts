@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/main.service';
 import { UserService } from '../user.service';
 import { FormBuilder } from '@angular/forms';
-
+import { AlertMessage } from "../../data.model";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -14,6 +14,8 @@ export class ProfileComponent implements OnInit {
   cardDetailsValue;
   cardDetails;
   editDetails;
+  alertMessage: AlertMessage;
+  formSaved=false;
   constructor(
     private authService:MainService,
     private userService:UserService,
@@ -36,6 +38,13 @@ export class ProfileComponent implements OnInit {
         fullname:'',
         password:''
       });
+
+        // this.alertMessage={
+        //   status:true,
+        //   message :"Login Success"
+        // }
+        // this.LoginStatus.emit(this.alert);
+      
     }
   }
 
@@ -44,6 +53,11 @@ export class ProfileComponent implements OnInit {
   }
 
   saveCardDetails(){
+    this.formSaved = true;
+    this.alertMessage ={
+      status :true,
+      message:'Details Saved'
+    }
      //TODO send POST request to change username and password and subscribe to obtain status
   }
 

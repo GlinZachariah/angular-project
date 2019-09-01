@@ -15,6 +15,7 @@ import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { MainService } from './main.service';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     SigninComponent,
     MentorSignupComponent,
     UserSignupComponent,
-    HomepageComponent
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     ReactiveFormsModule,
     MentorModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    SharedModule
   ],
   providers: [
     MainService

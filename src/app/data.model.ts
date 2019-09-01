@@ -115,3 +115,8 @@ export interface Mentor{
   linkedInUrl:string;
   experience:number;
 }
+
+export interface AlertMessage{
+  status:boolean;
+  message:string;
+}
