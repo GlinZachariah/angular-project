@@ -52,9 +52,9 @@ export class HomeComponent implements OnInit {
     });
    }
 
-   addCourse(addCouseForm,materialType){
+   addCourse(addCourseForm,materialType){
     // TODO subscribe to addCourseDetails to view status of update.
-    this.mentorService.addCourseDetails(addCouseForm,materialType);
+    this.mentorService.addCourseDetails(addCourseForm,materialType);
     this.materialType.reset();
     this.addCourseForm.reset();
     this.alertAddCourse={

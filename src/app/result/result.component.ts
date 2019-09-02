@@ -22,11 +22,11 @@ export class ResultComponent implements OnInit {
   proposeTraining(Idx, result: SearchTrainingResult) {
     document.getElementById(Idx).click();
     if (!this.mainService.isLoggedIn) {
-      console.log(document.getElementById(Idx));
+      // console.log(document.getElementById(Idx));
       this.route.navigate(['signin']);
     } else {
       // TODO send POST request to and subscribe to get the status
-      console.log('Training Proposed');
+      // console.log('Training Proposed');
     }
   }
 }

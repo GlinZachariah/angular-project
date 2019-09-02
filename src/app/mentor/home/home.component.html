@@ -28,7 +28,7 @@
                             
                           <div class="col-lg-5 ml-auto mr-auto">
                                 <app-alert [alert]="alertAddCourse"></app-alert>
-                              <form *ngIf="addCouseForm" [formGroup]="addCousreForm" (ngSubmit)="addCourse(addCouseForm.value,materialType.value)">
+                              <form *ngIf="addCourseForm" [formGroup]="addCourseForm" (ngSubmit)="addCourse(addCourseForm.value,materialType.value)">
                                 <div class="form-group">
                                       <label for="course-name" class="theme-color-5">Course Id</label>
                                       <input type="text" class="form-control" id="course-id"
