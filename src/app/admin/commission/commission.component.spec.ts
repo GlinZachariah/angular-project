@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommissionComponent } from './commission.component';
+import { FormBuilder, FormsModule, FormGroup, FormControl, ReactiveFormsModule} from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('CommissionComponent', () => {
   let component: CommissionComponent;
@@ -8,7 +10,8 @@ describe('CommissionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommissionComponent ]
+      declarations: [ CommissionComponent ],
+      imports:[ FormsModule , ReactiveFormsModule , HttpClientModule],
     })
     .compileComponents();
   }));

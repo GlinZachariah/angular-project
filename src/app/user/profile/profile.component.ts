@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from 'src/app/main.service';
 import { UserService } from '../user.service';
-import { FormBuilder } from '@angular/forms';
+import { FormsModule,FormBuilder } from '@angular/forms';
 import { AlertMessage } from "../../data.model";
 @Component({
   selector: 'app-profile',

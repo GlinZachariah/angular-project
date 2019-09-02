@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Technology } from 'src/app/data.model';
+import { Technology } from '../../data.model';
 import { FormBuilder } from '@angular/forms';
-import { MainService } from 'src/app/main.service';
+import { MainService } from '../../main.service';
 import { AdminService } from '../admin.service';
 
 @Component({

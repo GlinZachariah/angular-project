@@ -28,7 +28,7 @@
                             
                           <div class="col-lg-5 ml-auto mr-auto">
                                 <app-alert [alert]="alertAddCourse"></app-alert>
-                              <form [formGroup]="addCouseForm" (ngSubmit)="addCourse(addCouseForm.value,materialType.value)">
+                              <form *ngIf="addCouseForm" [formGroup]="addCousreForm" (ngSubmit)="addCourse(addCouseForm.value,materialType.value)">
                                 <div class="form-group">
                                       <label for="course-name" class="theme-color-5">Course Id</label>
                                       <input type="text" class="form-control" id="course-id"
@@ -147,7 +147,7 @@
 
                         <div class="row">
                                 <div class="col-lg-5 ml-auto mr-auto">
-                                  <form [formGroup]="cardDetails" (ngSubmit)="saveCardDetails(cardDetails.value)">
+                                  <form *ngIf="cardDetails" [formGroup]="cardDetails" (ngSubmit)="saveCardDetails(cardDetails.value)">
                                     <h3 class="theme-color-5">Card Details</h3>
                                     <div class="form-group">
                                       <label for="card-number" class="theme-color-5">Card Number</label>

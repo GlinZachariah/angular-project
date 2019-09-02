@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseDetails } from 'src/app/data.model';
+import { CourseDetails } from '../../data.model';
 import { AdminService } from '../admin.service';
 import { FormBuilder } from '@angular/forms';
 

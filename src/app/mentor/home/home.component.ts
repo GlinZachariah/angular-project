@@ -12,7 +12,7 @@ import { MentorService } from "../mentor.service";
 export class HomeComponent implements OnInit {
   mentorname:string;
   mentorSkills: Technology[];
-  addCouseForm;
+  addCourseForm;
   materialType;
   cardDetails;
   alertAddCourse:AlertMessage;
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.authService.getTechData().subscribe((data: Technology[]) => {
       this.mentorSkills = data;
     });
-    this.addCouseForm =this.formBuilder.group({
+    this.addCourseForm =this.formBuilder.group({
       courseId:'',
       courseName:'',
       courseDuration:'',
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     // TODO subscribe to addCourseDetails to view status of update.
     this.mentorService.addCourseDetails(addCouseForm,materialType);
     this.materialType.reset();
-    this.addCouseForm.reset();
+    this.addCourseForm.reset();
     this.alertAddCourse={
       status:true,
       message :"Course Added Successfully!"

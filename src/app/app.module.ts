@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -16,7 +16,20 @@ import { AdminModule } from './admin/admin.module';
 import { MainService } from './main.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule,
+    MentorModule,
+    UserModule,
+    AdminModule,
+    SharedModule
+  ],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -26,17 +39,6 @@ import { SharedModule } from './shared/shared.module';
     MentorSignupComponent,
     UserSignupComponent,
     HomepageComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MentorModule,
-    UserModule,
-    AdminModule,
-    SharedModule
   ],
   providers: [
     MainService
