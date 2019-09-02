@@ -1,5 +1,5 @@
 import { Component, OnInit,Output, EventEmitter } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MainService } from '../main.service';
 import { signIn, AlertMessage, Login } from '../data.model';
@@ -21,8 +21,8 @@ export class SigninComponent implements OnInit {
     private authService: MainService
   ) {
     this.formDataValue = this.formBuilder.group({
-      username: '',
-      password: ''
+      username: ['',[Validators.required,Validators.email]],
+      password: ['',Validators.required]
     });
   }
 

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter } from '@angular/core';
 import { MainService } from '../main.service';
-import { FormBuilder } from '@angular/forms';
-import { signUpUserForm } from '../data.model';
+import { FormBuilder, Validators } from '@angular/forms';
+import { signUpUserForm, AlertMessage } from '../data.model';
+
 
 @Component({
   selector: 'app-user-signup',
@@ -10,23 +11,32 @@ import { signUpUserForm } from '../data.model';
 })
 export class UserSignupComponent implements OnInit {
   signUpForm;
-
+  alertMessage:AlertMessage
+  @Output() SignUpStatus = new EventEmitter<AlertMessage>();
+  displayAlert =false;
   constructor(
     private formBuilder: FormBuilder,
     private signUpService: MainService
   ) {
     this.signUpForm = this.formBuilder.group({
-      username: '',
-      password: '',
-      fullname: '',
+      username: ['',Validators.required],
+      password: ['',Validators.required],
+      fullname: ['',Validators.required],
       role: 'user',
       accountStatus: 'unlocked'
     });
+    
   }
 
   createUser(loginData: signUpUserForm) {
     // TODO subscribe to Service to see result of createUserAccount
     this.signUpService.createUserAccount(loginData);
+    this.alertMessage = {
+      status:true,
+      message:"Sign Up Successful !!"
+    }
+    this.displayAlert = true;
+    this.SignUpStatus.emit(this.alertMessage);
     console.log("CreateUser Function Executed");
   }
 

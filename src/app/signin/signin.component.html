@@ -15,13 +15,19 @@
                       <form [formGroup]="formDataValue" (ngSubmit)="checkUser(formDataValue.value)">
                           <div class="form-group">
                               <label for="username" class="theme-color-5">Username</label>
-                              <input type="email" class="form-control" id="username" placeholder="Enter Email Id"
-                                  autocomplete="off" formControlName="username">
+                              <input [class.is-invalid]="formDataValue.get('username').invalid && formDataValue.get('username').touched" type="email" class="form-control" id="username" placeholder="Enter Email Id"
+                                  autocomplete="off" formControlName="username" required>
+                                  <!-- <small [class.d-none]="formDataValue.get('username').valid || formDataValue.get('username').untouched " class="text-danger">Please Enter a valid Email Id</small> -->
+                                  
+                                  <div *ngIf="formDataValue.get('username').valid || formDataValue.get('username').touched ">
+                                        <small *ngIf="formDataValue.get('username').errors?.required " class="text-danger">Please Enter an Email Id</small>
+                                        <small *ngIf="formDataValue.get('username').errors?.email " class="text-danger">Please Enter a valid Email Id</small>
+                                  </div>
                           </div>
                           <div class="form-group">
                               <label for="exampleInputPassword1" class="theme-color-5">Password</label>
                               <input type="password" class="form-control" id="exampleInputPassword1"
-                                  placeholder="Password" formControlName="password">
+                                  placeholder="Password" formControlName="password" required>
                           </div>
 
 

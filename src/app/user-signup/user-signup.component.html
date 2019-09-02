@@ -1,6 +1,7 @@
 <div class="container content">
   <div class="row">
     <div class="col-lg-5 col-md-8 col-sm-8 mt-5" id="login-box">
+        <app-alert [alert]="alertMessage" *ngIf="displayAlert"></app-alert>
       <div class="card">
         <div class="card-header  theme-bgcolor-2 text-white card-title">
           <h2>User - Sign Up</h2>

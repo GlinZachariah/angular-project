@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { signUpUserForm, Technology } from '../data.model';
+import { signUpUserForm, Technology, AlertMessage } from '../data.model';
 import { MainService } from '../main.service';
 import { TIMEZONE, TIMESLOT } from '../data';
 
@@ -17,6 +17,8 @@ export class MentorSignupComponent implements OnInit {
   timeZones =TIMEZONE;
   timeSlots =TIMESLOT;
   mentorCreateData: signUpUserForm;
+  alertMessage:AlertMessage;
+  @Output() LoginStatus = new EventEmitter<AlertMessage>();
 
 
    constructor(
@@ -54,8 +56,15 @@ export class MentorSignupComponent implements OnInit {
       accountStatus: 'unlocked'
     };
 
+    
+
     // TODO subscribe to Service to see result of createMentorAccount
     this.mainService.createMentorAccount(this.mentorCreateData,signUpData, materialTypeData);
+    this.alertMessage ={
+      status:true,
+      message:'Signed Up Successfully !'
+    }
+    this.LoginStatus.emit(this.alertMessage);
     console.log("CreateMentor Function Executed");
   }
 

@@ -25,9 +25,9 @@ export class MainService {
   performAuth(loginData) {
     //TODO send Credentials with POST request
     
-    if (loginData.password === 'mentor' && loginData.username === 'mentor') {
+    if (loginData.password === 'mentor' && loginData.username === 'mentor@learnapp') {
      return  this.http.get('assets/mentorAuth.json');
-    } else if (loginData.password === 'user' && loginData.username === 'user') {
+    } else if (loginData.password === 'user' && loginData.username === 'user@learnapp') {
       return this.http.get('assets/userAuth.json');
     }else{
       return this.http.get('assets/failAuth.json');
