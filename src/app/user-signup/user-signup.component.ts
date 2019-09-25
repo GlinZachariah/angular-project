@@ -30,6 +30,7 @@ export class UserSignupComponent implements OnInit {
 
   createUser(loginData: signUpUserForm) {
     // TODO subscribe to Service to see result of createUserAccount
+    console.log("CreateUser Function Executed");
     this.signUpService.createUserAccount(loginData);
     this.alertMessage = {
       status:true,
