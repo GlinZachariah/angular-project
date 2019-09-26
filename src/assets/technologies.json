@@ -1,17 +1,17 @@
 [
   {
-      "name":"Git"
+      "skillName":"Git"
   },
   {
-      "name":"Angular"
+      "skillName":"Angular"
   },
   {
-      "name":"Python"
+      "skillName":"Python"
   },
   {
-      "name":"Java"
+      "skillName":"Java"
   },
   {
-      "name":"Spring"
+      "skillName":"Spring"
   }
 ]

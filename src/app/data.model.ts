@@ -40,7 +40,7 @@ export interface TimseSlot {
 }
 
 export interface Technology{
-  name:string;
+  skillName:string;
 }
 
 
@@ -140,3 +140,21 @@ export interface MentorProgress{
   traineeInProgress:number;
   revenueEarned:number;
 }
+
+export interface MentorModel{
+  userName:string;
+  accountStatus:string;
+  fullName:string;
+  userPassword :string,
+	userRole:string,
+  timezone:string,
+  timeslot:number;
+	linkedInURL:string,
+	experience:number,
+	courseTypeBlog:boolean,
+	courseTypePPT:boolean,
+	courseTypeVideo:boolean,
+	courseTypeDemo:boolean,
+  skills:Technology[];
+}
+

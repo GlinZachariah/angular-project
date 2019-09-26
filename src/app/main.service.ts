@@ -1,8 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Login, signUpUserForm, Technology } from './data.model';
+import { Login, signUpUserForm, MentorModel } from './data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,17 +23,8 @@ export class MainService {
     this.isLoggedIn = false;
   }
 
-  performAuth(loginData) {
-    //TODO send Credentials with POST request
-    
-    if (loginData.password === 'mentor' && loginData.username === 'mentor@learnapp') {
-     return  this.http.get('assets/mentorAuth.json');
-    } else if (loginData.password === 'user' && loginData.username === 'user@learnapp') {
-      return this.http.get('assets/userAuth.json');
-    }else{
-      return this.http.get('assets/failAuth.json');
-    }
-
+  performAuth(loginData) :Observable<Login>{
+    return this.http.post<Login>('/api/users/performAuth',loginData)
   }
 
   createUserAccount(loginData: signUpUserForm) {
@@ -48,6 +39,7 @@ export class MainService {
 
     
       let obs= this.http.post<signUpUserForm>('/api/users/signUpUser',this.signUpUserObj);
+      obs.subscribe();
       // obs.subscribe(
       //   val => {
       //       console.log("PUT call successful value returned in body", val);
@@ -59,7 +51,7 @@ export class MainService {
       //       console.log("The PUT observable is now completed.");
       //   }
       // );
-      obs.subscribe();
+      
   }
 
 
@@ -67,7 +59,10 @@ export class MainService {
     return  this.http.get('assets/technologies.json');
   }
 
-  createMentorAccount(mentorCreateData,signUpData, materialTypeData){
+  createMentorAccount(mentorCreateData){
+  
+    this.http.post('/api/mentor/signUp',mentorCreateData).subscribe();
+    console.log("MEntor saved");
     //  TODO send mentorCreateData via HTTP POST and return status; add to createUserAccount table also
   }
 

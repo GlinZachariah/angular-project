@@ -1,14 +1,17 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { signUpUserForm, Technology, AlertMessage } from '../data.model';
+import { signUpUserForm, Technology, AlertMessage, MentorModel } from '../data.model';
 import { MainService } from '../main.service';
 import { TIMEZONE, TIMESLOT } from '../data';
 
+export let technologies :Technology[]=[];
 @Component({
   selector: 'app-mentor-signup',
   templateUrl: './mentor-signup.component.html',
   styleUrls: ['./mentor-signup.component.css']
 })
+
+
 export class MentorSignupComponent implements OnInit {
   formMentor;
   materialTypes: string[];
@@ -16,7 +19,7 @@ export class MentorSignupComponent implements OnInit {
   mentorSkills: Technology[];
   timeZones =TIMEZONE;
   timeSlots =TIMESLOT;
-  mentorCreateData: signUpUserForm;
+  mentorData:MentorModel;
   alertMessage:AlertMessage;
   @Output() LoginStatus = new EventEmitter<AlertMessage>();
 
@@ -48,18 +51,29 @@ export class MentorSignupComponent implements OnInit {
   }
 
   signUpMentor(signUpData, materialTypeData) {
-    this.mentorCreateData = {
-      userName: signUpData.username,
-      userPassword: signUpData.password,
-      fullName: signUpData.fullname,
-      userRole: 'mentor',
-      accountStatus: 'unlocked'
-    };
-
     
+    signUpData.mentorSkillControl.forEach(element => {
+      technologies.push(element);
+    });
 
-    // TODO subscribe to Service to see result of createMentorAccount
-    this.mainService.createMentorAccount(this.mentorCreateData,signUpData, materialTypeData);
+    this.mentorData ={
+      userName:signUpData.username,
+      accountStatus:'unlocked',
+      fullName:signUpData.fullname,
+      userPassword :signUpData.password,
+      userRole:'mentor',
+      timezone:signUpData.timeZoneControl,
+      timeslot: parseInt(signUpData.timeSlotControl),
+      linkedInURL:signUpData.linkedInUrl,
+      experience:signUpData.experience,
+      courseTypeBlog:materialTypeData.blog||false,
+      courseTypePPT:materialTypeData.ppt||false,
+      courseTypeVideo:materialTypeData.video||false,
+      courseTypeDemo:materialTypeData.demo||false,
+      skills:technologies
+    }
+    
+    this.mainService.createMentorAccount(this.mentorData);
     this.alertMessage ={
       status:true,
       message:'Signed Up Successfully !'
