@@ -60,10 +60,7 @@ export class MainService {
   }
 
   createMentorAccount(mentorCreateData){
-  
     this.http.post('/api/mentor/signUp',mentorCreateData).subscribe();
-    console.log("MEntor saved");
-    //  TODO send mentorCreateData via HTTP POST and return status; add to createUserAccount table also
   }
 
   searchTrainings(formData){

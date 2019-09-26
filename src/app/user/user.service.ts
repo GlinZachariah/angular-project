@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CardDetails } from '../data.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -49,7 +51,12 @@ export class UserService {
   //TODO send HTTP post request to deleteCourseProgress by username and return status
   }
 
-  getCardDetails(){
+  getCardDetails(username):Observable<CardDetails>{
     //TODO send HTTP post request to getCardDetails  by username and return status
+    // return this.http.get('/api/users/getCardDetails/'+username);
+    return this.http.get<CardDetails>('/api/users/getCardDetails/'+username);
+  }
+  saveCardDetails(cardData:CardDetails){
+    this.http.put('/api/users/updateCardDetails',cardData).subscribe();
   }
 }

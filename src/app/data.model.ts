@@ -140,7 +140,7 @@ export interface MentorProgress{
   traineeInProgress:number;
   revenueEarned:number;
 }
-
+// success-
 export interface MentorModel{
   userName:string;
   accountStatus:string;
@@ -149,12 +149,19 @@ export interface MentorModel{
 	userRole:string,
   timezone:string,
   timeslot:number;
-	linkedInURL:string,
-	experience:number,
-	courseTypeBlog:boolean,
-	courseTypePPT:boolean,
-	courseTypeVideo:boolean,
-	courseTypeDemo:boolean,
+	linkedInURL:string;
+	experience:number;
+	courseTypeBlog:boolean;
+	courseTypePPT:boolean;
+	courseTypeVideo:boolean;
+	courseTypeDemo:boolean;
   skills:Technology[];
 }
 
+export interface CardDetails{
+  cardNo:string;
+	mM:number;
+	yY:number;
+	cV:number;
+	username:string;
+}
