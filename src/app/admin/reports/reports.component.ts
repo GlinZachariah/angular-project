@@ -24,7 +24,7 @@ export class ReportsComponent implements OnInit {
     if(this.adminService.adminLoggedIn){
     this.adminService.getMentorList().subscribe((data:Mentor[])=>{
       data.forEach(mentor => {
-        this.mentorList.push(mentor.details.username);
+        this.mentorList.push(mentor.details.userName);
       });
     });
     }

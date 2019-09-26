@@ -37,13 +37,6 @@ export class MainService {
   }
 
   createUserAccount(loginData: signUpUserForm) {
-    let httpHeaders = new HttpHeaders()
-    .set('Content-Type', 'application/json')
-    .set('Cache-Control', 'no-cache');
-    let options = {
-      headers: httpHeaders,
-      mode:'no-cors'
-    }; 
 
     this.signUpUserObj = {
       fullName: loginData.fullName,
@@ -52,36 +45,21 @@ export class MainService {
       userName: loginData.userName,
       userPassword: loginData.userPassword
     };
-    console.log("===================>Executed here");
-    // this.http.post("http://localhost:8081/users/signUpUser",this.signUpUserObj,options);
+
     
-      this.http.post('/api/users/signUpUser',this.signUpUserObj)
-    .subscribe(
-      val => {
-          console.log("PUT call successful value returned in body", 
-                      val);
-      },
-      response => {
-          console.log("PUT call in error", response );
-      },
-      () => {
-          console.log("The PUT observable is now completed.");
-      }
-  );
-    //  TODO send signUpUSerObject via HTTP POST and return status;
-    // this.http.get('/api/users/getUserCount')
-    // .subscribe(
-    //       val => {
-    //           console.log("PUT call successful value returned in body", 
-    //                       val);
-    //       },
-    //       response => {
-    //           console.log("PUT call in error", response );
-    //       },
-    //       () => {
-    //           console.log("The PUT observable is now completed.");
-    //       }
-    //   );
+      let obs= this.http.post<signUpUserForm>('/api/users/signUpUser',this.signUpUserObj);
+      // obs.subscribe(
+      //   val => {
+      //       console.log("PUT call successful value returned in body", val);
+      //   },
+      //   response => {
+      //       console.log("PUT call in error", response );
+      //   },
+      //   () => {
+      //       console.log("The PUT observable is now completed.");
+      //   }
+      // );
+      obs.subscribe();
   }
 
 

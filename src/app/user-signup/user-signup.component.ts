@@ -19,10 +19,10 @@ export class UserSignupComponent implements OnInit {
     private signUpService: MainService
   ) {
     this.signUpForm = this.formBuilder.group({
-      username: ['',Validators.required],
-      password: ['',Validators.required],
-      fullname: ['',Validators.required],
-      role: 'user',
+      userName: ['',Validators.required],
+      userPassword: ['',Validators.required],
+      fullName: ['',Validators.required],
+      userRole: 'user',
       accountStatus: 'unlocked'
     });
     
