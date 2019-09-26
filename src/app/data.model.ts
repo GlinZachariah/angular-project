@@ -10,10 +10,10 @@ export interface signIn {
 }
 
 export interface signUpUserForm {
-  fullname: string;
-  role: string;
-  username: string;
-  password: string;
+  fullName: string;
+  userRole: string;
+  userName: string;
+  userPassword: string;
   accountStatus: string,
 }
 

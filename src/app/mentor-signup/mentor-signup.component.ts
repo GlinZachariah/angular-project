@@ -49,10 +49,10 @@ export class MentorSignupComponent implements OnInit {
 
   signUpMentor(signUpData, materialTypeData) {
     this.mentorCreateData = {
-      username: signUpData.username,
-      password: signUpData.password,
-      fullname: signUpData.fullname,
-      role: 'mentor',
+      userName: signUpData.username,
+      userPassword: signUpData.password,
+      fullName: signUpData.fullname,
+      userRole: 'mentor',
       accountStatus: 'unlocked'
     };
 
