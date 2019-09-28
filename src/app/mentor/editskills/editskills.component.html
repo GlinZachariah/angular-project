@@ -18,9 +18,8 @@
               <div *ngIf="isLoaded">
               <select multiple class="form-control" id="exampleFormControlSelect2"  >
                 <!-- <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill">{{mentorSkill.skillName}}</option> -->
-                <div *ngFor="let mentorSkill of mentorSkills;let i=index">
-                  <option  [class.selected]="selectedSkills[i] == mentorSkills" [value]="mentorSkill.skillName">{{mentorSkill.skillName}}</option>
-                </div>
+                  <option *ngFor="let mentorSkill of mentorList"  [selected]="mentorSkill.isMentorSkill" [value]="mentorSkill.skills.skillName">{{mentorSkill.skills.skillName}}</option>
+                
               </select>
             </div>
             </div>

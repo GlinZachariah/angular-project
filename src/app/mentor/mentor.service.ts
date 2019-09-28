@@ -29,8 +29,8 @@ export class MentorService {
     // TODO send POST request to updateMentorDetails 
   }
 
-  getMentorDetails():Observable<MentorModel>{
-    return  this.http.get<MentorModel>('/api/mentor/getMentorDetails/'+this.loggedinUser);
+  getMentorDetails(username):Observable<MentorModel>{
+    return  this.http.get<MentorModel>('/api/mentor/getMentorDetails/'+username);
   }
 
   getMentorSkills(username):Observable<Technology[]>{

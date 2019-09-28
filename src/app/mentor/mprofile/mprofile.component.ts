@@ -53,7 +53,7 @@ export class MprofileComponent implements OnInit {
   }
 
   ngOnInit() {
-    let obs = this.mentorService.getMentorDetails();
+    let obs = this.mentorService.getMentorDetails(this.mainService.LoggedInUsername);
     obs.subscribe((result:MentorModel)=>{
       this.formMentor = this.formBuilder.group({
         username: result.userName,
