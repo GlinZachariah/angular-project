@@ -13,10 +13,16 @@
           <form action="mentor/home.html">
 
             <div class="form-group">
+              
               <label for="exampleFormControlSelect2">Select Skills</label>
-              <select multiple class="form-control" id="exampleFormControlSelect2">
-                <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill">{{mentorSkill.name}}</option>
+              <div *ngIf="isLoaded">
+              <select multiple class="form-control" id="exampleFormControlSelect2"  >
+                <!-- <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill">{{mentorSkill.skillName}}</option> -->
+                <div *ngFor="let mentorSkill of mentorSkills;let i=index">
+                  <option  [class.selected]="selectedSkills[i] == mentorSkills" [value]="mentorSkill.skillName">{{mentorSkill.skillName}}</option>
+                </div>
               </select>
+            </div>
             </div>
 
             <button type="submit" class="btn theme-bgcolor-2 text-white mt-2">Save</button>

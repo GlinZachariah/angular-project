@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { Technology, signUpUserForm } from '../../data.model';
+import { Technology, signUpUserForm, MentorModel } from '../../data.model';
 import { TIMEZONE, TIMESLOT } from '../../data';
 import { MainService } from '../../main.service';
 import { MentorService } from "../mentor.service";
@@ -21,11 +21,10 @@ export class MprofileComponent implements OnInit {
 
    constructor(
     private mainService : MainService,
-    private mentorServie:MentorService,
+    private mentorService:MentorService,
     private formBuilder: FormBuilder
   ) {
 
-    
     this.formMentor = this.formBuilder.group({
       username: '',
       fullname: '',
@@ -38,19 +37,42 @@ export class MprofileComponent implements OnInit {
     });
 
     this.materialType = new FormGroup({
-      video: new FormControl(),
-      blog: new FormControl(),
-      ppt: new FormControl(),
-      demo: new FormControl()
+      video: new FormControl(''),
+      blog: new FormControl(''),
+      ppt: new FormControl(''),
+      demo: new FormControl('')
     });
+    
+
+    
   }
 
   saveMentorDetails(formData,materialType){
     // TODO subscribe to the service to view the status of update
-    this.mentorServie.updateMentorDetails(formData,materialType);
+    this.mentorService.updateMentorDetails(formData,materialType);
   }
 
   ngOnInit() {
+    let obs = this.mentorService.getMentorDetails();
+    obs.subscribe((result:MentorModel)=>{
+      this.formMentor = this.formBuilder.group({
+        username: result.userName,
+        fullname: result.fullName,
+        linkedInUrl: result.linkedInURL,
+        experience: result.experience,
+        password: result.userPassword,
+        timeSlotControl: result.timeslot,
+        timeZoneControl: result.timezone,
+        mentorSkillControl: result.skills
+      });
+
+      this.materialType = new FormGroup({
+        video: new FormControl(result.courseTypeVideo),
+        blog: new FormControl(result.courseTypeBlog),
+        ppt: new FormControl(result.courseTypePPT),
+        demo: new FormControl(result.courseTypeDemo)
+      });
+    });
   }
 
 }

@@ -47,8 +47,8 @@
                                   </div>
                                   <div class="form-group">
                                       <label for="select-skill-list">Select Technology</label>
-                                      <select multiple class="form-control" id="select-skill-list" formControlName="courseTechnology">
-                                            <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill" >{{mentorSkill.name}}</option>
+                                      <select class="form-control" id="select-skill-list" formControlName="courseTechnology">
+                                            <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill" >{{mentorSkill.skillName}}</option>
                                       </select>
                                   </div>
                                   <div class="form-group" id="matrial-type" [formGroup]="materialType">

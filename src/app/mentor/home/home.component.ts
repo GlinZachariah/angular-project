@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     private mentorService:MentorService
   ) {
     this.mentorname = authService.LoggedInUsername;
-    this.authService.getTechData().subscribe((data: Technology[]) => {
+    this.mentorService.getMentorSkills(this.mentorname).subscribe((data: Technology[]) => {
       this.mentorSkills = data;
     });
     this.addCourseForm =this.formBuilder.group({
