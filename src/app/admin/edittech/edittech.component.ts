@@ -32,15 +32,18 @@ export class EdittechComponent implements OnInit {
 
   addTechnology(data:string) {
     // TODO subscribe to Service to see result of addTech
-    this.tech={
-      skillName:data
+    if(data.trim()!=''){
+      this.tech={
+        skillName:data
+      }
+      this.technologyList.push(this.tech);
+      this.adminService.addTech(data);
+      this.technologyForm.reset();
     }
-    this.technologyList.push(this.tech);
-    this.adminService.addTech(data);
   }
 
   deleteTechnology(data,index) {
-    this.technologyList.splice(index,index+1);
+    this.technologyList.splice(index,1);
     this.adminService.deleteTech(data);
   }
 
