@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserForm } from 'src/app/data.model';
+import { UserForm, signUpUserForm } from 'src/app/data.model';
 import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
 
@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./permission.component.css']
 })
 export class PermissionComponent implements OnInit {
-  UserData: UserForm[]=[];
-  MentorData: UserForm[]=[];
+  UserData: signUpUserForm[]=[];
+  MentorData: signUpUserForm[]=[];
   custIndx;
   data: UserForm;
   role:string;
@@ -20,9 +20,9 @@ export class PermissionComponent implements OnInit {
   ) {
 
     if(this.adminService.adminLoggedIn){
-      this.adminService.getUserPermission().subscribe((dataItem:UserForm[])=>{
+      this.adminService.getUserPermission().subscribe((dataItem:signUpUserForm[])=>{
         dataItem.forEach(user => {
-          if(user.role=='user'){
+          if(user.userRole=='user'){
             this.UserData.push(user);
           }else{
             this.MentorData.push(user);

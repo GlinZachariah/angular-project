@@ -6,7 +6,7 @@
 
     <div class="conatiner ">
       <div class="row result-item theme-bgcolor-3 p-2 text-white">
-        <form [formGroup]="technologyForm" (ngSubmit)="addTechnology(technologyForm.value)">
+        <form [formGroup]="technologyForm" (ngSubmit)="addTechnology(technologyForm.value.newTechnology)">
         <div class="col-lg-6 col-md-4 col-sm-10 m-auto">
           <input type="text" placeholder="Enter New Technology" formControlName="newTechnology">
         </div>
@@ -15,12 +15,12 @@
         </div>
       </form>
       </div>
-      <div class="row result-item theme-bgcolor-3 p-2 text-white" *ngFor="let tech of technologyList">
+      <div class="row result-item theme-bgcolor-3 p-2 text-white" *ngFor="let tech of technologyList;let i=index">
         <div class="col-lg-6 col-md-4 col-sm-10">
-          {{tech.name}}
+          {{tech.skillName}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-10">
-          <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="deleteTechnology(tech.name)">Delete</button>
+          <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="deleteTechnology(tech.skillName,i)">Delete</button>
         </div>
       </div>
     </div>

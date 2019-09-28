@@ -12,6 +12,7 @@ import { AdminService } from '../admin.service';
 export class EdittechComponent implements OnInit {
   technologyForm;
   technologyList: Technology[];
+  tech:Technology;
   constructor(
     private mainSerive: MainService,
     private adminService: AdminService,
@@ -29,12 +30,17 @@ export class EdittechComponent implements OnInit {
     }
   }
 
-  addTechnology(data) {
+  addTechnology(data:string) {
     // TODO subscribe to Service to see result of addTech
+    this.tech={
+      skillName:data
+    }
+    this.technologyList.push(this.tech);
     this.adminService.addTech(data);
   }
 
-  deleteTechnology(data) {
+  deleteTechnology(data,index) {
+    this.technologyList.splice(index,index+1);
     this.adminService.deleteTech(data);
   }
 

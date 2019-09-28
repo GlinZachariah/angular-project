@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Login, signUpUserForm, MentorModel } from './data.model';
+import { Login, signUpUserForm, MentorModel, Technology } from './data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -55,8 +55,8 @@ export class MainService {
   }
 
 
-  getTechData(){
-    return  this.http.get('assets/technologies.json');
+  getTechData():Observable<Technology[]>{
+    return  this.http.get<Technology[]>('/api/admin/getTechnologies');
   }
 
   createMentorAccount(mentorCreateData){

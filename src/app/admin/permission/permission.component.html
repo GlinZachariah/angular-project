@@ -7,10 +7,10 @@
     <div class="conatiner " *ngFor="let user of UserData">
       <div class="row result-item theme-bgcolor-3 p-2 text-white">
         <div class="col-lg-4 col-md-4 col-sm-10">
-          {{user.username}}
+          {{user.userName}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-10">
-          {{user.fullname}}
+          {{user.fullName}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-10">
           <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="updatePermission(user)" >{{user.accountStatus|uppercase}}</button>
@@ -23,10 +23,10 @@
     <div class="conatiner " *ngFor="let user of MentorData">
       <div class="row result-item theme-bgcolor-3 p-2 text-white">
         <div class="col-lg-4 col-md-4 col-sm-10">
-          {{user.username}}
+          {{user.userName}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-10">
-          {{user.fullname}}
+          {{user.fullName}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-10">
           <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="updatePermission(user)">{{user.accountStatus|uppercase}}</button>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Technology } from '../data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ export class AdminService {
   adminLoggedIn = false;
   isAdminLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   dataGen;
+  tech:Technology;
   constructor(private http: HttpClient) {}
 
   performAuth(username, password, route) {
@@ -29,15 +31,23 @@ export class AdminService {
 
   getUserPermission(){
     //TODO send POST to getUserPermission and return the status
-    return this.http.get("assets/permission.json");
+    return this.http.get("/api/admin/getUsers");
   }
 
-  addTech(data){
+  addTech(data:string){
     //TODO send POST request to addTech based on courseid and new value;
+    // console.log(data +" =====================> This is technology name");
+    this.tech={
+      skillName:data
+    }
+
+    this.http.put('/api/admin/addTechnology',this.tech).subscribe();
  }
 
  deleteTech(data){
     //TODO send POST request to deleteTech based on courseid and new value;
+    let obs =this.http.delete('/api/admin/deleteTechnology/'+data);
+    obs.subscribe();
  }
 
  getCurrentCourse(){
