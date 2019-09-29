@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
           cardExpY:this.val3,
           cardCV:this.val4
         });
-      } )
+      });
      
       // console.log("CardNumber =>"+ this.val1);
       this.editDetails = this.formBuilder.group({

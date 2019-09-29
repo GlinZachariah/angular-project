@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { MainService } from '../main.service';
 import { TIMESLOT } from '../data';
-import { Technology } from '../data.model';
+import { Technology, SearchResponseModel } from '../data.model';
 
 @Component({
   selector: 'app-search',
@@ -22,15 +22,17 @@ export class SearchComponent implements OnInit {
       this.mentorSkills = data;
     });
     this.SearchForm = this.formBuilder.group({
-      SearchTech: '',
-      SearchDate: '',
-      SearchTimeSlot: ''
+      technology: '',
+      startDate: '',
+      timeSlot: ''
     });
    }
 
    SearchTrainer(formData){
-      this.searchService.searchTrainings(formData).subscribe((data)=>{
+      this.searchService.searchTrainings(formData).subscribe((data:SearchResponseModel[])=>{
         this.searchResult =data;
+        console.log("This is the data ");
+        console.log(data);
       });
    }
 

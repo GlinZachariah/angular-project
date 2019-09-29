@@ -72,11 +72,12 @@ export interface TrainingCompleted {
 
 export interface CourseDetails {
   courseid: string;
-  coursename: string;
-  trainername: string;
-  technology: string;
+  courseName: string;
+  trainerName: string;
+  technology: Technology;
   charges: number;
   commission:number;
+  totalTime:number;
 }
 
 export interface TrainingProgress {
@@ -164,4 +165,36 @@ export interface CardDetails{
 	yY:number;
 	cV:number;
 	username:string;
+}
+
+export interface CalendarModel{
+  fromDate:string;
+  tillDate:string;
+  timeSlot:number;
+  status:string;
+  mentorName:string;
+}
+
+export interface SearchRequestModel{
+  technology:string;
+  startDate:string;
+  timeslot:number;
+}
+
+export interface SearchResponseModel{
+  courseId: String ;
+	courseName :String ;
+	trainerName: String ;
+	technology: String ;
+	materialVideo: boolean ;
+	materialDemo: boolean ;
+	materialPPT: boolean ;
+	materialBlog: boolean ;
+	experience: number ;
+	trainingCharges: number ;
+	serviceCharges: number ;
+  totalTime :number ;
+  totalCount: number ;
+	activeCount: number ;
+	completedCount: number ;
 }

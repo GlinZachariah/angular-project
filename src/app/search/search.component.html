@@ -9,17 +9,17 @@
           <form [formGroup]="SearchForm" (ngSubmit)="SearchTrainer(SearchForm.value)">
             <div class="form-group ">
               <label for="search-input" class="ml-2">Search Technology</label><br />
-              <select class="form-control" id="search-input" formControlName="SearchTech" >
-                  <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill" >{{mentorSkill.name}}</option>
+              <select class="form-control" id="search-input" formControlName="technology" >
+                  <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill.skillName" >{{mentorSkill.skillName}}</option>
               </select>
             </div>
             <div class="form-group ">
               <label for="from-input" class="ml-2">Date</label><br />
-              <input type="date" id="from-input" class="form-control " formControlName="SearchDate" />
+              <input type="date" id="from-input" class="form-control " formControlName="startDate" />
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect3">Time Slot (Preferred*)</label>
-              <select class="form-control " id="exampleFormControlSelect3"  formControlName="SearchTimeSlot">
+              <select class="form-control " id="exampleFormControlSelect3"  formControlName="timeSlot">
                   <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.value">{{timeSlot.text}}</option>
               </select>
 

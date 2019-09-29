@@ -15,59 +15,36 @@
                 <!-- Card Body begin -->
                 <div class="row">
                     <div class="col-lg-5 ml-auto mr-auto">
-                        <!-- <form>
+                        <form [formGroup]="calendarForm" (ngSubmit)="saveCalendar(calendarForm.value)">
 
                             <div class="form-group">
                                 <label for="from-date" class="theme-color-5">From date</label>
-                                <input type="date" class="form-control" id="from-date">
+                                <input type="date" class="form-control" id="from-date" formControlName="fromDate">
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="from-date" class="theme-color-5">Till date</label>
+                                <input type="date" class="form-control" id="till-date" formControlName="tillDate">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect3">Time Slot </label>
-                                <select class="form-control" id="exampleFormControlSelect3">
-                                    <option>8:00 AM - 10:00 AM</option>
-                                    <option>9:00 AM - 11:00 AM</option>
-                                    <option>10:00 AM - 12:00 NOON</option>
-                                    <option>11:00 AM - 1:00 PM</option>
-                                    <option>12:00 NOON - 2:00 PM</option>
-                                    <option>1:00 PM - 3:00 PM</option>
-                                    <option>2:00 PM - 4:00 PM</option>
-                                    <option>3:00 PM - 5:00 PM</option>
-                                    <option>4:00 PM - 6:00 PM</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect4">Frequency</label>
-                                <select class="form-control" id="exampleFormControlSelect4">
-                                    <option>Daily</option>
-                                    <option>Weekly</option>
-                                    <option>Monthly</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect5">Excep. Days</label>
-                                <select multiple class="form-control" id="exampleFormControlSelect5">
-                                    <option>Sunday</option>
-                                    <option>Monday</option>
-                                    <option>Tuesday</option>
-                                    <option>Wednesday</option>
-                                    <option>Thursday</option>
-                                    <option>Friday</option>
-                                    <option>Saturday</option>
+                                <select class="form-control" id="exampleFormControlSelect3" formControlName="timeSlot">
+                                        <option *ngFor="let timeSlot of timeSlots" [value]="timeSlot.value">{{timeSlot.text}}</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect6">Status</label>
-                                <select class="form-control" id="exampleFormControlSelect6">
+                                <select class="form-control" id="exampleFormControlSelect6" formControlName="status">
                                     <option>Available</option>
                                     <option>Busy</option>
 
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn theme-bgcolor-2 text-white mt-2">
-                                Add Event
-                            </button>
-                        </form> -->
+                            <button type="submit" class="btn theme-bgcolor-2 text-white mt-2">Add Schedule</button>
+
+                            
+                        </form>
                     </div>
                 </div>
 
@@ -92,47 +69,23 @@
             <div class="card-body">
                 <!-- Card Body begin -->
 
-                <div class="row result-item theme-bgcolor-3 p-2 text-white">
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        From Date
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Time Slot
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Frequency
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Exep. Days
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Status
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        <button disabled class="btn theme-bgcolor-2 text-white search-item-btn">Delete
-                            Timings</button>
-                    </div>
 
-                </div>
 
-                <div class="row result-item theme-bgcolor-3 p-2 text-white">
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        From Date
+                <div class="row result-item theme-bgcolor-3 mb-2 p-2 text-white" *ngFor="let calendar of calendarList;let i= index">
+                    <div class="col-lg-2 col-md-2 col-sm-10 ">
+                        {{calendar.fromDate}}
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Time Slot
+                    <div class="col-lg-2 col-md-2 col-sm-10 ">
+                        {{calendar.tillDate}}
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Frequency
+                    <div class="col-lg-2 col-md-2 col-sm-10 ">
+                        {{calendar.timeSlot | timeslot}}
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Exep. Days
+                    <div class="col-lg-2 col-md-2 col-sm-10 ">
+                        {{calendar.status}}
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        Status
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-10">
-                        <button class="btn theme-bgcolor-2 text-white search-item-btn">Delete
+                    <div class="col-lg-4 col-md-4 col-sm-10 ">
+                        <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="deleteCalendar(calendar,i)" >Delete
                             Timings</button>
                     </div>
 
@@ -143,3 +96,7 @@
             </div>
         </div>
     </div>
+
+    <script>
+            $( "#from-date" ).datepicker({ minDate: 0});
+    </script>

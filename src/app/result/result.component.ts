@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { SearchTrainingResult } from '../data.model';
+import { SearchTrainingResult, SearchResponseModel } from '../data.model';
 import { MainService } from '../main.service';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent implements OnInit {
-  @Input() resultData: SearchTrainingResult[];
+  @Input() resultData: SearchResponseModel[];
   results;
   constructor(private mainService: MainService, private route: Router) {}
 
@@ -19,7 +19,7 @@ export class ResultComponent implements OnInit {
     this.results = changes['resultData'].currentValue;
   }
 
-  proposeTraining(Idx, result: SearchTrainingResult) {
+  proposeTraining(Idx, result: SearchResponseModel) {
     document.getElementById(Idx).click();
     if (!this.mainService.isLoggedIn) {
       // console.log(document.getElementById(Idx));

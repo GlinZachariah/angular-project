@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Login, signUpUserForm, MentorModel, Technology } from './data.model';
+import { Login, signUpUserForm, MentorModel, Technology, SearchRequestModel } from './data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,7 @@ export class MainService {
   LoggedInRole: string;
   LoggedInPwd: string;
   signUpUserObj: signUpUserForm;
+
   
   flag= 0;
   constructor(private http: HttpClient) {
@@ -65,7 +66,8 @@ export class MainService {
 
   searchTrainings(formData){
     //  TODO send mentorCreateData via HTTP POST and return status;
-    return this.http.get("assets/search-result.json");
+    
+    return this.http.post('/api/users/searchCourse',formData);
   }
 
 

@@ -28,7 +28,7 @@
                             
                           <div class="col-lg-5 ml-auto mr-auto">
                                 <app-alert [alert]="alertAddCourse"></app-alert>
-                              <form *ngIf="addCourseForm" [formGroup]="addCourseForm" (ngSubmit)="addCourse(addCourseForm.value,materialType.value)">
+                              <form *ngIf="addCourseForm" [formGroup]="addCourseForm" (ngSubmit)="addCourse(addCourseForm.value)">
                                 <div class="form-group">
                                       <label for="course-name" class="theme-color-5">Course Id</label>
                                       <input type="text" class="form-control" id="course-id"
@@ -48,20 +48,10 @@
                                   <div class="form-group">
                                       <label for="select-skill-list">Select Technology</label>
                                       <select class="form-control" id="select-skill-list" formControlName="courseTechnology">
-                                            <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill" >{{mentorSkill.skillName}}</option>
+                                            <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill.skillName" >{{mentorSkill.skillName}}</option>
                                       </select>
                                   </div>
-                                  <div class="form-group" id="matrial-type" [formGroup]="materialType">
-                                        <label class="theme-color-5">Material Type</label> <br>
-                                        <input type="checkbox" id="matrial-type-video" formControlName="video" class=" form-check-inline mr-2 ml-2">
-                                        <label for="matrial-type-video">Videos</label>
-                                        <input type="checkbox" id="matrial-type-blog"formControlName="blog" class=" form-check-inline mr-2 ml-2">
-                                        <label for="matrial-type-blog">Blog</label>
-                                        <input type="checkbox" id="matrial-type-ppt" formControlName="ppt" class=" form-check-inline mr-2 ml-2">
-                                        <label for="matrial-type-ppt">PPTs</label>
-                                        <input type="checkbox" id="matrial-type-demo" formControlName="demo" class=" form-check-inline mr-2 ml-2">
-                                        <label for="matrial-type-demo">Demos</label>
-                                    </div>
+
                                   <div class="form-group ">
                                       <label for="course-cost" class="theme-color-5">Course Cost</label>
                                       <div class="input-group">
@@ -98,25 +88,25 @@
                   <div class="card-body">
                       <!-- Card Body begin -->
                       <app-alert [alert]="alertDeleteCourse"></app-alert>
-                      <div class="row result-item theme-bgcolor-3 p-2 text-white">
+                      <div class="row result-item theme-bgcolor-3 p-2 mb-2 text-white" *ngFor="let course of coursesList;let i= index">
                             
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              Course ID
+                              {{course.courseid}}
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              Course Name
+                              {{course.courseName}}
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              Course Duration
+                              {{course.totalTime}} hrs.
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              Course Technology
+                              {{course.technology.skillName}}
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              Course Cost
+                              {{course.charges | currency:"INR"}}
                           </div>
                           <div class="col-lg-2 col-md-2 col-sm-10">
-                              <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="deleteCourse()">Delete
+                              <button class="btn theme-bgcolor-2 text-white search-item-btn" (click)="deleteCourse(course.courseid,i)">Delete
                                   Course</button>
                           </div>
                       </div>
