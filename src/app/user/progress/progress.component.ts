@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainingProgress } from 'src/app/data.model';
+import { TrainingProgress, UserProgress } from 'src/app/data.model';
 import { UserService } from '../user.service';
 import { MainService } from 'src/app/main.service';
 
@@ -11,7 +11,7 @@ import { MainService } from 'src/app/main.service';
 
 export class ProgressComponent implements OnInit {
   loggedUser: string;
-  traingingProgressData: TrainingProgress[];
+  traingingProgressData: UserProgress[];
   rating: number[];
   constructor(
     private updateService: UserService,
@@ -19,7 +19,7 @@ export class ProgressComponent implements OnInit {
   ) {
     this.rating = [1,2,3,4,5];
     if(this.authService.isLoggedIn) {
-     this.updateService.getUserTrainingsInProgress(this.authService.LoggedInUsername).subscribe((data:TrainingProgress[])=>{
+     this.updateService.getUserTrainingsInProgress(this.authService.LoggedInUsername).subscribe((data:UserProgress[])=>{
       this.traingingProgressData=data;
      });
 

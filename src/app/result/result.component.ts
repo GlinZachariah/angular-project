@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { SearchTrainingResult, SearchResponseModel } from '../data.model';
+import { SearchTrainingResult, SearchResponseModel, UserProgress } from '../data.model';
 import { MainService } from '../main.service';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ResultComponent implements OnInit {
   @Input() resultData: SearchResponseModel[];
   results;
+  userTraining:UserProgress;
   constructor(private mainService: MainService, private route: Router) {}
 
   ngOnInit() {}
@@ -25,8 +26,20 @@ export class ResultComponent implements OnInit {
       // console.log(document.getElementById(Idx));
       this.route.navigate(['signin']);
     } else {
-      // TODO send POST request to and subscribe to get the status
-      // console.log('Training Proposed');
+      this.userTraining={
+        courseId:result.courseId,
+        userName: this.mainService.LoggedInUsername ,
+        progress: 0,
+        rating:0,
+        paymentStatus: 'NA',
+        courseStatus: 'Under Review' ,
+        timeSlot: result.timeSlot,
+        startDate: result.startDate,
+        courseName:null,
+        technology:null,
+        trainerName:null
+      }
+      this.mainService.updateTraining(this.userTraining);
     }
   }
 }

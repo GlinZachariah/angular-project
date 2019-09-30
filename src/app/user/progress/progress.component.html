@@ -7,7 +7,7 @@
             <hr class="my-3" />
             <div *ngFor="let data of traingingProgressData">
 
-                <div *ngIf="data.status=='on going'">
+                <div *ngIf="data.courseStatus=='on going'">
                     <div class="row result-item theme-bgcolor-3 text-white">
                         <div class="col-lg-3 col-md-3 col-sm-10">
                             <img src="../../../assets/course-img.png" class="progress-result-item-img mt-3"
@@ -17,8 +17,8 @@
                             <div class="card theme-color-5 flex">
 
                                 <div class="card-body ml-0 progress-panel ">
-                                    <h4>{{data.coursedetail.coursename}}</h4>
-                                    <h5>{{data.coursedetail.trainername}}
+                                    <h4>{{data.courseName}}</h4>
+                                    <h5>{{data.trainerName}}
 
                                         <span class="progress-status theme-color-2">
                                             <span *ngFor="let star of rating"
@@ -29,8 +29,8 @@
                                                 <ng-template #Block2><i class="fa fa-star-o"></i></ng-template>
                                             </span>
                                         </span></h5>
-                                    <h6>{{data.coursedetail.technology}} <span class="progress-status">
-                                            <span class="badge theme-bgcolor-2 p-2 text-white">{{data.status}}</span>
+                                    <h6>{{data.technology}} <span class="progress-status">
+                                            <span class="badge theme-bgcolor-2 p-2 text-white">{{data.courseStatus}}</span>
                                         </span></h6>
                                     <label for="formControlRange">Update Progress</label>
                                     <input type="range" class="form-control-range" id="formControlRange" min="0"
@@ -54,7 +54,7 @@
                     </div>
                 </div>
 
-                <div *ngIf="data.status=='rejected'">
+                <div *ngIf="data.courseStatus=='Rejected'">
                     <div class="row result-item theme-bgcolor-3 text-white">
                         <div class="col-lg-3 col-md-3 col-sm-10">
                             <img src="../../../assets/course-img.png" class="progress-result-item-img mt-3"
@@ -64,10 +64,10 @@
                             <div class="card theme-color-5 flex">
 
                                 <div class="card-body ml-0 progress-panel ">
-                                    <h4>{{data.coursedetail.coursename}}</h4>
-                                    <h5>{{data.coursedetail.trainername}}</h5>
-                                    <h6>{{data.coursedetail.technology}} <span class="progress-status">
-                                            <span class="badge badge-danger p-2 text-white">{{data.status}}</span>
+                                    <h4>{{data.courseName}}</h4>
+                                    <h5>{{data.trainerName}}</h5>
+                                    <h6>{{data.technology}} <span class="progress-status">
+                                            <span class="badge badge-danger p-2 text-white">{{data.courseStatus}}</span>
                                         </span></h6>
                                 </div>
                                 <div class="card-footer row flex progress-panel-footer">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="data.status=='proposal pending'">
+                <div *ngIf="data.courseStatus=='Under Review'">
                     <div class="row result-item theme-bgcolor-3 text-white">
                         <div class="col-lg-3 col-md-3 col-sm-10">
                             <img src="../../../assets/course-img.png" class="progress-result-item-img mt-3"
@@ -90,10 +90,10 @@
                             <div class="card theme-color-5 flex">
 
                                 <div class="card-body ml-0 progress-panel ">
-                                    <h4>{{data.coursedetail.coursename}}</h4>
-                                    <h5>{{data.coursedetail.trainername}}</h5>
-                                    <h6>{{data.coursedetail.technology}} <span class="progress-status">
-                                            <span class="badge badge-warning p-2 text-white">{{data.status}}</span>
+                                    <h4>{{data.courseName}}</h4>
+                                    <h5>{{data.trainerName}}</h5>
+                                    <h6>{{data.technology}} <span class="progress-status">
+                                            <span class="badge badge-warning p-2 text-white">{{data.courseStatus}}</span>
                                         </span></h6>
                                 </div>
                                 <div class="card-footer row flex progress-panel-footer">
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="data.status=='approved'">
+                <div *ngIf="data.courseStatus=='Approved'">
                     <div class="row result-item theme-bgcolor-3 text-white">
                         <div class="col-lg-3 col-md-3 col-sm-10">
                             <img src="../../../assets/course-img.png" class="progress-result-item-img mt-3"
@@ -116,10 +116,10 @@
                             <div class="card theme-color-5 flex">
 
                                 <div class="card-body ml-0 progress-panel ">
-                                    <h4>{{data.coursedetail.coursename}}</h4>
-                                    <h5>{{data.coursedetail.trainername}}</h5>
-                                    <h6>{{data.coursedetail.technology}} <span class="progress-status">
-                                            <span class="badge badge-success p-2 text-white">{{data.status}}</span>
+                                    <h4>{{data.courseName}}</h4>
+                                    <h5>{{data.trainerName}}</h5>
+                                    <h6>{{data.technology}} <span class="progress-status">
+                                            <span class="badge badge-success p-2 text-white">{{data.courseStatus}}</span>
                                         </span></h6>
                                 </div>
                                 <div class="card-footer row flex progress-panel-footer">

@@ -15,13 +15,27 @@ export class HistoryComponent implements OnInit {
     private mentorService:MentorService
   ) { 
     if(this.authService.isLoggedIn){
-      this.mentorService.getCourseHistory().subscribe((data:MentorHistory[])=>{
+      this.mentorService.getCourseHistory(this.authService.LoggedInUsername).subscribe((data:MentorHistory[])=>{
         this.mentorHistoryData = data;
       })
     }
   }
 
   ngOnInit() {
+  }
+
+  approveCourse(data,i){
+    let obs = this.mentorService.approveCourse(data);
+    obs.subscribe();
+    this.mentorHistoryData.splice(i,1);
+    this.mentorHistoryData.push(data);
+  }
+
+  rejectCourse(data,i){
+    let obs =this.mentorService.rejectCourse(data);
+    obs.subscribe();
+    this.mentorHistoryData.splice(i,1);
+    this.mentorHistoryData.push(data);
   }
 
 }

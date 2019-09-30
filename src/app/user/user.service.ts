@@ -18,7 +18,7 @@ export class UserService {
 
   getUserTrainingsInProgress(usern){
     //TODO send HTTP post request to getTrainingsInProgress by username and return status
-    return this.http.get("assets/userProgressTraining.json");
+    return this.http.get("/api/users/getProgressTraining/"+usern);
   }
 
   updateCourseProgress(username,courseid,progress,rating){

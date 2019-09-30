@@ -4,9 +4,9 @@
 
   <hr class="my-4">
 
-    <div *ngFor="let data of mentorHistoryData">
+    <div *ngFor="let data of mentorHistoryData;let i=index">
 
-            <div *ngIf="data.approvalStatus == 'approved'; then block1 else block2" ></div>
+            <div *ngIf="data.courseStatus == 'Approved'; then block1 else block2" ></div>
             <ng-template #block1>
                     <div class="row result-item theme-bgcolor-3 p-3 text-white" >
                             <div class="col-lg-1 col-md-1 col-sm-10">
@@ -19,13 +19,13 @@
                                 {{data.courseId}}
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
-                                {{data.approvalStatus}}
+                                {{data.courseStatus}}
                             </div>
                             <div class="col-lg-2 col-md-1 col-sm-10">
                                 {{data.timeslot | timeslot}}
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-10">
-                               Progress: {{data.courseProgress | percent}}
+                               Progress: {{data.progress | percent}}
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
                                 <button class="btn theme-bgcolor-2 text-white search-item-btn">Withdraw Amount <span class="badge badge-pill badge-warning p-1">{{data.withdrawCount}}</span></button>
@@ -44,14 +44,14 @@
                                     {{data.courseId}}
                                 </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
-                                <button class="btn btn-success text-white search-item-btn">Approve Course</button>
-                                <button class="btn btn-danger text-white search-item-btn">Decline Course</button>
+                                <button class="btn btn-success text-white search-item-btn" (click)="approveCourse(data,i)">Approve Course</button>
+                                <button class="btn btn-danger text-white search-item-btn" (click)="rejectCourse(data,i)">Decline Course</button>
                             </div>
                             <div class="col-lg-2 col-md-1 col-sm-10">
                                     {{data.timeslot | timeslot}}
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-10">
-                                    {{data.courseProgress | percent}}
+                                    {{data.progress | percent}}
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-10">
                                     <button class="btn theme-bgcolor-2 text-white search-item-btn" [disabled]="true">Withdraw Amount</button>

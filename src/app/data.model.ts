@@ -122,16 +122,7 @@ export interface AlertMessage{
   message:string;
 }
 
-export interface MentorHistory{
-  timestamp : string;
-  username :string;
-  courseId :string;
-  approvalStatus:string;
-  paymentStatus:string;
-  timeslot:string;
-  courseProgress:number;
-  withdrawCount:number;
-}
+
 
 export interface MentorProgress{
   technology:string;
@@ -182,10 +173,10 @@ export interface SearchRequestModel{
 }
 
 export interface SearchResponseModel{
-  courseId: String ;
-	courseName :String ;
-	trainerName: String ;
-	technology: String ;
+  courseId: string ;
+	courseName :string ;
+	trainerName: string ;
+	technology: string ;
 	materialVideo: boolean ;
 	materialDemo: boolean ;
 	materialPPT: boolean ;
@@ -196,5 +187,32 @@ export interface SearchResponseModel{
   totalTime :number ;
   totalCount: number ;
 	activeCount: number ;
-	completedCount: number ;
+  completedCount: number ;
+  timeSlot:number;
+  startDate: string ;
+}
+
+export interface UserProgress{
+  courseId: string ;
+  courseName:string;
+  trainerName:string;
+  technology:string;
+	userName: string ;
+	progress: number ;
+	rating: number ;
+	paymentStatus: string ;
+	courseStatus: string ;
+	timeSlot: number ;
+	startDate: string ;
+}
+
+export interface MentorHistory{
+  timestamp : string;
+  username :string;
+  courseId :string;
+  courseStatus:string;
+  paymentStatus:string;
+  timeSlot:string;
+  progress:number;
+  withdrawCount:number;
 }

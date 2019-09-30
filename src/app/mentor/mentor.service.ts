@@ -69,12 +69,22 @@ export class MentorService {
     return this.http.get<Technology[]>('/api/mentor/getMentorSkills/'+username);
   }
 
-  getCourseHistory(){
-    return this.http.get("assets/mentorHistory.json");
+  getCourseHistory(username){
+    return this.http.get("/api/mentor/viewMentorProgress/"+username);
   }
 
   getMentorProgress(){
     return this.http.get("assets/mentorProgress.json");
+  }
+
+  approveCourse(data){
+    data.courseStatus = 'Approved';
+   return this.http.put('/api/mentor/updateMentorProgress/',data);
+  }
+
+  rejectCourse(data){
+    data.courseStatus = 'Rejected';
+    return this.http.put('/api/mentor/updateMentorProgress/',data);
   }
 
 }

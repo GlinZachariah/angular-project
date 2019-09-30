@@ -70,5 +70,10 @@ export class MainService {
     return this.http.post('/api/users/searchCourse',formData);
   }
 
+  updateTraining(progressData){
+    let obs= this.http.put('/api/users/updateProgressTraining',progressData);
+    obs.subscribe();
+  }
+
 
 }
