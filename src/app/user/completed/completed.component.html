@@ -11,12 +11,12 @@
             <div class="card">
               <img src="../../../assets/course-img.png" class="card-img-top" alt="technology-name">
               <div class="card-body">
-                <h4>{{trainingCompletedData[i].coursedetail.coursename}}</h4>
-                <h5>{{trainingCompletedData[i].coursedetail.trainername}}</h5>
-                <h6>{{trainingCompletedData[i].coursedetail.technology}}</h6>
-                <h6>{{trainingCompletedData[i].coursedetail.charges}}</h6>
-                <h6>{{trainingCompletedData[i].startdate}}</h6>
-
+                <h4>Course Id: {{trainingCompletedData[i].courseId | uppercase}}</h4>
+                <h5>Trainer Name : {{trainingCompletedData[i].trainerName | titlecase}}</h5>
+                <h6>Technology: {{trainingCompletedData[i].technology}}</h6>
+                <h6>Charges: {{trainingCompletedData[i].charges | currency:"INR"}}</h6>
+                <h6>Started Date : {{trainingCompletedData[i].startDate}}</h6>
+                <h6>Ended Date : {{trainingCompletedData[i].endDate}}</h6>
               </div>
             </div>
 
@@ -27,11 +27,12 @@
               <div class="card">
                 <img src="../../../assets/course-img.png" class="card-img-top" alt="technology-name">
                 <div class="card-body">
-                  <h4>{{trainingCompletedData[i+1].coursedetail.coursename}}</h4>
-                  <h5>{{trainingCompletedData[i+1].coursedetail.trainername}}</h5>
-                  <h6>{{trainingCompletedData[i+1].coursedetail.technology}}</h6>
-                  <h6>{{trainingCompletedData[i+1].coursedetail.charges}}</h6>
-                  <h6>{{trainingCompletedData[i+1].startdate}}</h6>
+                  <h4>Course Id: {{trainingCompletedData[i+1].courseId | uppercase}}</h4>
+                <h5>Trainer Name : {{trainingCompletedData[i+1].trainerName | titlecase}}</h5>
+                <h6>Technology: {{trainingCompletedData[i+1].technology}}</h6>
+                <h6>Charges: {{trainingCompletedData[i+1].charges | currency:"INR"}}</h6>
+                <h6>Started Date : {{trainingCompletedData[i+1].startDate}}</h6>
+                <h6>Ended Date : {{trainingCompletedData[i+1].endDate}}</h6>
 
                 </div>
               </div>
@@ -43,11 +44,12 @@
                 <div class="card">
                   <img src="../../../assets/course-img.png  " class="card-img-top" alt="technology-name">
                   <div class="card-body">
-                    <h4>{{trainingCompletedData[i+2].coursedetail.coursename}}</h4>
-                    <h5>{{trainingCompletedData[i+2].coursedetail.trainername}}</h5>
-                    <h6>{{trainingCompletedData[i+2].coursedetail.technology}}</h6>
-                    <h6>{{trainingCompletedData[i+2].coursedetail.charges}}</h6>
-                    <h6>{{trainingCompletedData[i+2].startdate}}</h6>
+                    <<h4>Course Id: {{trainingCompletedData[i+2].courseId | uppercase}}</h4>
+                    <h5>Trainer Name : {{trainingCompletedData[i+2].trainerName | titlecase}}</h5>
+                    <h6>Technology: {{trainingCompletedData[i+2].technology}}</h6>
+                    <h6>Charges: {{trainingCompletedData[i+2].charges | currency:"INR"}}</h6>
+                    <h6>Started Date : {{trainingCompletedData[i+2].startDate}}</h6>
+                    <h6>Ended Date : {{trainingCompletedData[i+2].endDate}}</h6>
 
                   </div>
                 </div>

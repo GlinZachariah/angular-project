@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainingProgress, UserProgress } from 'src/app/data.model';
+import { TrainingProgress, UserProgress, UserCompleted } from 'src/app/data.model';
 import { UserService } from '../user.service';
 import { MainService } from 'src/app/main.service';
+import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-progress',
@@ -13,9 +14,11 @@ export class ProgressComponent implements OnInit {
   loggedUser: string;
   traingingProgressData: UserProgress[];
   rating: number[];
+  userCompleted:UserCompleted;
+
   constructor(
     private updateService: UserService,
-    private authService : MainService
+    private authService : MainService,
   ) {
     this.rating = [1,2,3,4,5];
     if(this.authService.isLoggedIn) {
@@ -36,26 +39,42 @@ export class ProgressComponent implements OnInit {
    return e.target.value;
   }
 
-  saveData(data,progress,rating){
-   if(progress<100){
-     // TODO subscribe to Service to see result of updateCourseProgress
-     this.updateService.updateCourseProgress(this.authService.LoggedInUsername,data.coursedetail.courseid,progress,rating);
-   }else{
+  saveData(data,i){
+   if(data.progress == 100){
      // TODO subscribe to Service to see result of addCompletedTraining and deleteCourseProgress
-     this.updateService.addCompletedTraining(data);
-
+     var endDate = formatDate(new Date(), 'yyyy-MM-dd', 'en').toString();
+     this.userCompleted ={
+       courseId:data.courseId,
+       userName: data.userName,
+       timeSlot: data.timeSlot,
+       startDate: data.startDate,
+       endDate: endDate ,
+       rating: data.rating,
+       charges:null,
+       trainerName:null,
+       technology:null
+     }
+     let obs1 =this.updateService.addCompletedTraining(this.userCompleted);
+     obs1.subscribe();
+     this.traingingProgressData.splice(i,1);
    }
-
+   let obs=this.updateService.updateCourseProgress(data);
+   obs.subscribe();
   }
 
-  updatePayment(data){
+  updatePayment(data,i){
    // TODO subscribe to Service to see result of updateCoursePayment
-    this.updateService.updateCoursePayment(this.authService.LoggedInUsername,data);
+   data.courseStatus='On Going';
+   data.paymentStatues='Paid';
+   let obs= this.updateService.updateCoursePayment(data);
+   obs.subscribe();
+   this.traingingProgressData.splice(i,1);
+   this.traingingProgressData.push(data);
   }
 
   deleteCourse(courseid){
     // TODO subscribe to Service to see result of deleteCourseProgress
-    this.updateService.deleteCourseProgress(this.authService.LoggedInUsername,courseid);
+    this.updateService.deleteCourseProgress(courseid);
   }
 
   ngOnInit() {

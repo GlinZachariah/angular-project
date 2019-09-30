@@ -13,7 +13,7 @@ export class UserService {
 
   getTrainingsCompleted(username){
     //TODO send HTTP post request to getTrainingsCompleted by username and return status
-    return this.http.get("assets/completedTraining.json");
+    return this.http.get("/api/users/getCompletedTrainingDetails/"+username);
   }
 
   getUserTrainingsInProgress(usern){
@@ -21,34 +21,23 @@ export class UserService {
     return this.http.get("/api/users/getProgressTraining/"+usern);
   }
 
-  updateCourseProgress(username,courseid,progress,rating){
-    //TODO send HTTP post request to  by username and return status
+  updateCourseProgress(courseData){
+    return this.http.put('/api/users/updateProgressTraining',courseData);
   }
 
   addCompletedTraining(data){
-    let custData =  {
-      coursedetail:{
-        courseid: data.coursedetail.courseid,
-        coursename:data.coursedetail.coursename,
-        technology:data.coursedetail.technology,
-        trainername:data.coursedetail.trainername,
-        charges:data.coursedetail.charges,
-        commission:data.coursedetail.commission
-      },
-      username: data.username,
-      timeslot: data.timeslot,
-      startdate: data.startdate
-    }
-
     //TODO send HTTP post request to  by username and return status
+    return this.http.post('/api/users/addCompletedTrainingDetails',data);
   }
 
-  updateCoursePayment(username,courseid){
+  updateCoursePayment(courseData){
    //TODO send HTTP post request to updateCoursePayment by username and return status
+   return this.http.put('/api/users/updateProgressTraining',courseData);
   }
 
-  deleteCourseProgress(username,courseid){
+  deleteCourseProgress(courseData){
   //TODO send HTTP post request to deleteCourseProgress by username and return status
+
   }
 
   getCardDetails(username):Observable<CardDetails>{

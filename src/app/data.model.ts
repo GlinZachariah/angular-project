@@ -216,3 +216,15 @@ export interface MentorHistory{
   progress:number;
   withdrawCount:number;
 }
+
+export interface UserCompleted{
+  courseId: string ;
+	userName: string ;
+	timeSlot: number ;
+	startDate: string ;
+	endDate: string ;
+  rating: number ;
+  trainerName:string;
+  charges:number;
+  technology:string; 
+}

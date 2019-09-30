@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainingCompleted } from 'src/app/data.model';
+import { TrainingCompleted, UserCompleted } from 'src/app/data.model';
 import { MainService } from 'src/app/main.service';
 import { UserService } from '../user.service';
 
@@ -9,14 +9,14 @@ import { UserService } from '../user.service';
   styleUrls: ['./completed.component.css']
 })
 export class CompletedComponent implements OnInit {
-  trainingCompletedData:TrainingCompleted[];
+  trainingCompletedData:UserCompleted[];
   loggedUser:string;
   constructor(
     private updateService:UserService,
     private authService :MainService
   ) {
     if(this.authService.isLoggedIn){
-      this.updateService.getTrainingsCompleted(this.authService.LoggedInUsername).subscribe((data:TrainingCompleted[]) =>{
+      this.updateService.getTrainingsCompleted(this.authService.LoggedInUsername).subscribe((data:UserCompleted[]) =>{
         this.trainingCompletedData = data;
       });
     }

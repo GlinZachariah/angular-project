@@ -6,7 +6,7 @@
 
     <div *ngFor="let data of mentorHistoryData;let i=index">
 
-            <div *ngIf="data.courseStatus == 'Approved'; then block1 else block2" ></div>
+            <div *ngIf="data.courseStatus != 'Under Review'; then block1 else block2" ></div>
             <ng-template #block1>
                     <div class="row result-item theme-bgcolor-3 p-3 text-white" >
                             <div class="col-lg-1 col-md-1 col-sm-10">
@@ -22,7 +22,7 @@
                                 {{data.courseStatus}}
                             </div>
                             <div class="col-lg-2 col-md-1 col-sm-10">
-                                {{data.timeslot | timeslot}}
+                                {{data.timeSlot | timeslot}}
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-10">
                                Progress: {{data.progress | percent}}
@@ -48,7 +48,7 @@
                                 <button class="btn btn-danger text-white search-item-btn" (click)="rejectCourse(data,i)">Decline Course</button>
                             </div>
                             <div class="col-lg-2 col-md-1 col-sm-10">
-                                    {{data.timeslot | timeslot}}
+                                    {{data.timeSlot | timeslot}}
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-10">
                                     {{data.progress | percent}}
