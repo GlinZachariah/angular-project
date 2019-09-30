@@ -128,9 +128,11 @@ export interface MentorProgress{
   technology:string;
   courseId:string;
   totalTraineeCount:number;
-  traineeCompleted:number;
-  traineeInProgress:number;
+  courseCompleted:number;
+  courseActive:number;
   revenueEarned:number;
+  courseRating:number;
+  mentorEarned:number;
 }
 // success-
 export interface MentorModel{

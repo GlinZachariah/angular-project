@@ -6,26 +6,26 @@
 
     <div *ngFor="let data of mentorHistoryData;let i=index">
 
-            <div *ngIf="data.courseStatus != 'Under Review'; then block1 else block2" ></div>
+            <div *ngIf="data.courseStatus != 'Under Review' ; then block1 else block2" ></div>
             <ng-template #block1>
                     <div class="row result-item theme-bgcolor-3 p-3 text-white" >
                             <div class="col-lg-1 col-md-1 col-sm-10">
-                                {{data.timestamp}}
+                                Date of Enrollment : {{data.timestamp}}
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
-                                {{data.username}}
+                                Username : {{data.username}}
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
-                                {{data.courseId}}
+                                CourseId : {{data.courseId}}
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
-                                {{data.courseStatus}}
+                                Course Status : {{data.courseStatus}}
                             </div>
                             <div class="col-lg-2 col-md-1 col-sm-10">
-                                {{data.timeSlot | timeslot}}
+                                Time Slot : {{data.timeSlot | timeslot}}
                             </div>
                             <div class="col-lg-1 col-md-1 col-sm-10">
-                               Progress: {{data.progress | percent}}
+                               Progress: {{data.progress}} %
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
                                 <button class="btn theme-bgcolor-2 text-white search-item-btn">Withdraw Amount <span class="badge badge-pill badge-warning p-1">{{data.withdrawCount}}</span></button>
@@ -35,23 +35,23 @@
             <ng-template #block2>
                     <div class="row result-item theme-bgcolor-3 p-2 text-white" #block2>
                             <div class="col-lg-1 col-md-1 col-sm-10">
-                                    {{data.timestamp}}
+                                Date of Enrollment : {{data.timestamp}}
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-10">
-                                    {{data.username}}
+                                    Username : {{data.username}}
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-10">
-                                    {{data.courseId}}
+                                    CourseId : {{data.courseId}}
                                 </div>
                             <div class="col-lg-2 col-md-2 col-sm-10">
                                 <button class="btn btn-success text-white search-item-btn" (click)="approveCourse(data,i)">Approve Course</button>
                                 <button class="btn btn-danger text-white search-item-btn" (click)="rejectCourse(data,i)">Decline Course</button>
                             </div>
                             <div class="col-lg-2 col-md-1 col-sm-10">
-                                    {{data.timeSlot | timeslot}}
+                                Time Slot : {{data.timeSlot | timeslot}}
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-sm-10">
-                                    {{data.progress | percent}}
+                                Progress: {{data.progress}} %
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-10">
                                     <button class="btn theme-bgcolor-2 text-white search-item-btn" [disabled]="true">Withdraw Amount</button>

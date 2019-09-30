@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
       message :"Course Deleted Successfully!"
      }
      this.LoginStatus.emit(this.alertAddCourse);
-    console.log("COurse Deleted");
+    console.log("Course Deleted");
    }
 
    saveCardDetails(cardDetail){

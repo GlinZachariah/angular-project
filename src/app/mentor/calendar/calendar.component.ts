@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { TIMESLOT } from "../../data";
 import { MentorService } from '../mentor.service';
 import { CalendarModel } from 'src/app/data.model';
+import { MainService } from 'src/app/main.service';
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -15,9 +16,10 @@ export class CalendarComponent implements OnInit {
   calendarList:CalendarModel[];
   constructor(
     private formBuilder:FormBuilder,
-    private mentorService :MentorService
+    private mentorService :MentorService,
+    private mainService:MainService
   ) { 
-      this.mentorService.getCalendarData().subscribe((data:CalendarModel[])=>{
+      this.mentorService.getCalendarData(this.mainService.LoggedInUsername).subscribe((data:CalendarModel[])=>{
         this.calendarList = data;
       });
     

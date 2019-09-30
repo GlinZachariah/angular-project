@@ -25,7 +25,7 @@ export class MainService {
   }
 
   performAuth(loginData) :Observable<Login>{
-    return this.http.post<Login>('/api/users/performAuth',loginData)
+    return this.http.post<Login>('/api/users/performAuth',loginData);
   }
 
   createUserAccount(loginData: signUpUserForm) {

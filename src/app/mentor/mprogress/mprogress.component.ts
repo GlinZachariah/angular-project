@@ -9,15 +9,16 @@ import { MainService } from "../../main.service";
   styleUrls: ['./mprogress.component.css']
 })
 export class MprogressComponent implements OnInit {
-  progressData;
+  progressData:MentorProgress[];
   constructor(
     private authService:MainService,
     private mentorService:MentorService,
 
   ) {
     if(this.authService.isLoggedIn){
-      this.mentorService.getMentorProgress().subscribe((data:MentorProgress)=>{
-        this.progressData = data;
+     let obs = this.mentorService.getMentorProgress(this.authService.LoggedInUsername);
+     obs.subscribe((data:MentorProgress[])=>{
+         this.progressData = data;
       });
     }
    }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MainService } from '../main.service';
 import { Observable } from 'rxjs';
-import { MentorModel, Technology, CalendarModel } from '../data.model';
+import { MentorModel, Technology, CalendarModel, MentorProgress } from '../data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -45,16 +45,12 @@ export class MentorService {
     return this.calendar;
   }
 
-  getCalendarData(){
-    return this.http.get('/api/mentor/findCalendar/'+this.loggedinUser);
+  getCalendarData(username){
+    return this.http.get('/api/mentor/findCalendar/'+username);
   }
 
   deleteCalendar(data:CalendarModel){
     return this.http.put('/api/mentor/deleteCalendar/',data);
-  }
-
-  getCardDetails(){
-    // TODO send POST request to getCardDetails 
   }
 
   updateMentorDetails(formData,materialType){
@@ -73,8 +69,8 @@ export class MentorService {
     return this.http.get("/api/mentor/viewMentorProgress/"+username);
   }
 
-  getMentorProgress(){
-    return this.http.get("assets/mentorProgress.json");
+  getMentorProgress(username){
+    return this.http.get('/api/mentor/viewMentorHistory/'+username);
   }
 
   approveCourse(data){

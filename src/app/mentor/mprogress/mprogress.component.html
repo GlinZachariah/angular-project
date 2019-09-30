@@ -10,19 +10,19 @@
                 {{data.technology}}
             </div>
             <div class="col-lg-2 col-md-2 col-sm-10">
-                {{data.courseId}}
+                {{data.courseId | uppercase }}
             </div>
             <div class="col-lg-2 col-md-2 col-sm-10">
                   Total Trainee:  <span class="badge badge-pill badge-warning p-1">{{data.totalTraineeCount}}</span>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-10">
-                  Completed Trainee(s):  <span class="badge badge-pill badge-warning p-1">{{data.traineeCompleted}}</span>
+                  Completed Trainee(s):  <span class="badge badge-pill badge-warning p-1">{{data.courseCompleted}}</span>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-10">
-                   In Progress Trainee(s):  <span class="badge badge-pill badge-warning p-1">{{data.traineeInProgress}}</span>
+                   In Progress Trainee(s):  <span class="badge badge-pill badge-warning p-1">{{data.courseActive}}</span>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-10">
-                Total Revenue : {{data.revenueEarned| currency:"INR"}}
+                Total Revenue : {{data.mentorEarned | currency:"INR"}}
             </div>
         </div>
 
