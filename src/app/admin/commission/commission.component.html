@@ -6,19 +6,19 @@
     <hr class="my-4">
     <div class="row result-item theme-bgcolor-3 p-4 text-white" *ngFor="let course of currentCourses">
       <div class="col-lg-2 col-md-2 col-sm-10">
-        {{course.courseid}}
+        {{course.courseId}}
       </div>
 
       <div class="col-lg-2 col-md-2 col-sm-10">
-        {{course.trainername}}
+        {{course.trainerName}}
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
-        {{course.charges | currency:"INR"}}
+        {{course.courseCharge | currency:"INR"}}
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
         Current Commission: {{course.commission| percent}}
       </div>
-      <form [formGroup]="updateCommission" (ngSubmit)="course.commission = newCommission(course.courseid,updateCommission.value.newcoursecomm)">
+      <form [formGroup]="updateCommission" (ngSubmit)="course.commission = newCommission(course.courseId,updateCommission.value.newcoursecomm)">
       <div class="col-lg-2 col-md-2 col-sm-10" >
         <input type="number" min="0" max="100" placeholder="New Percent" formControlName="newcoursecomm">
       </div>

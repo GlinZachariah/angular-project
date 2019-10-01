@@ -92,19 +92,21 @@ export interface TrainingProgress {
 }
 
 export interface Payment{
-    timestamp:string,
-    username:string,
-    courseid:string,
-    trainername:string,
-    paymentamount:number,
-    commission:number
+    paymentDate:string,
+    userName:string,
+    courseId:string,
+    trainerName:string,
+    paymentAmount:number,
+    commissionAmount:number
 }
 
 export class Report{
-  username:string;
-  courseid:string;
-  progress:number;
-  cost:number;
+  paymentDate:string;
+  userName:string;
+  trainerName:string;
+  courseId:string;
+  paymentAmount:number;
+  commissionAmount:number;
 }
 
 export interface Mentor{
@@ -229,4 +231,12 @@ export interface UserCompleted{
   trainerName:string;
   charges:number;
   technology:string; 
+}
+
+export interface CommissionModel{
+  courseId: string ;
+	mentorId: number ;
+	trainerName :string ;
+	courseCharge :number ;
+	commission :number ;
 }

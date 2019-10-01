@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseDetails } from '../../data.model';
+import { CourseDetails, CommissionModel } from '../../data.model';
 import { AdminService } from '../admin.service';
 import { FormBuilder } from '@angular/forms';
 
@@ -9,16 +9,15 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./commission.component.css']
 })
 export class CommissionComponent implements OnInit {
-  currentCourses:CourseDetails[];
+  currentCourses:CommissionModel[];
   updateCommission;
   constructor(
     private adminService:AdminService,
     private formBuilder:FormBuilder
   ) {
     if(this.adminService.adminLoggedIn){
-      this.adminService.getCurrentCourse().subscribe((data:CourseDetails[])=>{
+      this.adminService.getCurrentCourse().subscribe((data:CommissionModel[])=>{
         this.currentCourses = data;
-        console.log(this.currentCourses);
       });
       this.updateCommission =  this.formBuilder.group({
       newcoursecomm:''
@@ -29,7 +28,9 @@ export class CommissionComponent implements OnInit {
   newCommission(courseid,newCommissionValue){
     this.updateCommission.reset();
     // TODO subscribe to Service to see result of updateCourseCommission and return result
-    return this.adminService.updateCourseCommission(courseid,newCommissionValue);
+    let obs= this.adminService.updateCourseCommission(courseid,newCommissionValue/100);
+    obs.subscribe();
+    return newCommissionValue/100;
   }
 
   ngOnInit() {

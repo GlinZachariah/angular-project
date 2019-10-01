@@ -20,20 +20,20 @@
           <tr>
             <th scope="col">Username</th>
             <th scope="col">Course ID</th>
-            <th scope="col">Progress</th>
+            <th scope="col">Commission % </th>
             <th scope="col">Cost</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let report of reportData">
-            <td>{{report.username}}</td>
-            <td>{{report.courseid}}</td>
-            <td>{{report.progress| percent}}</td>
-            <td>{{report.cost}}</td>
+            <td>{{report.userName}}</td>
+            <td>{{report.courseId}}</td>
+            <td>{{report.commissionAmount | percent}}</td>
+            <td>{{report.paymentAmount | currency:"INR"}}</td>
           </tr>
           <tr>
             <td colspan="3">Total Revenue</td>
-            <td>{{totalAmount| currency:"INR"}} /- </td>
+            <td>{{totalAmount | currency:"INR"}} /- </td>
           </tr>
         </tbody>
       </table>

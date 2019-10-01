@@ -6,22 +6,22 @@
     <hr class="my-4">
     <div class="row result-item theme-bgcolor-3 p-4 text-white" *ngFor="let log of PaymentData">
       <div class="col-lg-2 col-md-2 col-sm-10">
-        {{log.timestamp}}
+        {{log.paymentDate}}
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
-        {{log.username}}
+        {{log.userName}}
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
-        {{log.courseid}}
+        {{log.courseId}}
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
-        [M] {{log.trainername}}
+        [Mentor] {{log.trainerName}}
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
-        {{log.paymentamount| currency:"INR"}}
+        {{log.paymentAmount| currency:"INR"}}
       </div>
       <div class="col-lg-2 col-md-2 col-sm-10">
-        Commission: {{log.commission| percent}}
+        Commission: {{log.commissionAmount|  currency:"INR"}}
       </div>
 
     </div>

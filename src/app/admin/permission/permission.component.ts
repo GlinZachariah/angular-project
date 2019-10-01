@@ -34,7 +34,14 @@ export class PermissionComponent implements OnInit {
 
    updatePermission(data){
     // TODO update with new permission value
-    this.adminService.updateUserPermission(data,this.route);
+    // data.accountStatus= 
+    let obs= this.adminService.updateUserPermission(data);
+    obs.subscribe();
+    if(data.accountStatus == 'locked'){
+      data.accountStatus ='unlocked';
+    }else{
+      data.accountStatus ='locked';
+    }
    }
 
   ngOnInit() {

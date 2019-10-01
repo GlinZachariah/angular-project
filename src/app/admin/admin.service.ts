@@ -51,25 +51,26 @@ export class AdminService {
  }
 
  getCurrentCourse(){
-  return this.http.get("assets/currentCourses.json");
+  return this.http.get("/api/admin/getCommissionList");
 }
 
 updateCourseCommission(courseid,newCommissionValue){
   //TODO send POST request to updateCourseCommission based on courseid and new value;
-  return (newCommissionValue/100);
+  return this.http.get("/api/admin/updateCommission/"+courseid+"/"+newCommissionValue);
 }
 
 getPaymentLog(){
-  return this.http.get("assets/paymentLog.json");
+  return this.http.get("/api/admin/getPaymentLog");
 }
 
-updateUserPermission(data,route){
+updateUserPermission(data){
  //TODO send POST request to updateUserPermission based on userdetails and return new value;
+ return this.http.get('/api/admin/updateUser/'+data.userName);
 }
 
 getMentorList(){
   //TODO send POST request to getMentorList
-  return this.http.get("assets/mentorList.json");
+  return this.http.get("/api/admin/getUsers");
 }
 
 getMentorReport(trainername){
@@ -99,6 +100,6 @@ getMentorReport(trainername){
 //   });
 //   return resultData;
 // }
-  return this.http.get("assets/mentorReport.json");
+  return this.http.get("/api/admin/getReport/"+trainername);
 }
 }

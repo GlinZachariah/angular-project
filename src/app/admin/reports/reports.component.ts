@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Report, Mentor } from 'src/app/data.model';
+import { Report, Mentor, signUpUserForm } from 'src/app/data.model';
 import { AdminService } from '../admin.service';
 import { FormBuilder } from '@angular/forms';
 
@@ -22,9 +22,11 @@ export class ReportsComponent implements OnInit {
       username:''
     });
     if(this.adminService.adminLoggedIn){
-    this.adminService.getMentorList().subscribe((data:Mentor[])=>{
-      data.forEach(mentor => {
-        this.mentorList.push(mentor.details.userName);
+    this.adminService.getMentorList().subscribe((data:signUpUserForm[])=>{
+      data.forEach(user => {
+        if(user.userRole=='mentor'){
+          this.mentorList.push(user.userName);
+        }
       });
     });
     }
@@ -38,9 +40,10 @@ export class ReportsComponent implements OnInit {
     this.adminService.getMentorReport(trainername).subscribe((data:Report[])=>{
       this.reportData= data;
       this.reportData.forEach(data => {
-        this.totalAmount =this.totalAmount+ data.cost;
+        this.totalAmount =this.totalAmount+ data.paymentAmount;
       });
     });
+    console.log(this.totalAmount);
     this.isReportGen =true;
   }
 
