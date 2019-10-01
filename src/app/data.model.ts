@@ -219,6 +219,7 @@ export interface MentorHistory{
   timeSlot:string;
   progress:number;
   withdrawCount:number;
+  totalCount:number;
 }
 
 export interface UserCompleted{

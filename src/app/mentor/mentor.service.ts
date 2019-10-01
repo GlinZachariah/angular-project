@@ -83,4 +83,8 @@ export class MentorService {
     return this.http.put('/api/mentor/updateMentorProgress/',data);
   }
 
+  withdraw(data){
+    return this.http.put('/api/mentor/withdrawAmount',data);
+  }
+
 }

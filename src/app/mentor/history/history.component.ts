@@ -38,8 +38,13 @@ export class HistoryComponent implements OnInit {
     this.mentorHistoryData.push(data);
   }
 
-  withdrawAmount(data){
-    
+  withdrawAmount(data,i){
+    if(data.totalCount >0){
+      let  obs  =this.mentorService.withdraw(data);
+      obs.subscribe((data:MentorHistory)=>{
+        this.mentorHistoryData[i].totalCount = data.totalCount;
+      });
+    }
   }
 
 }
