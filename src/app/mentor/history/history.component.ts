@@ -38,4 +38,8 @@ export class HistoryComponent implements OnInit {
     this.mentorHistoryData.push(data);
   }
 
+  withdrawAmount(data){
+    
+  }
+
 }
