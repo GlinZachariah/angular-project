@@ -20,12 +20,17 @@ export class MainService {
 
   
   flag= 0;
+  baseUrl ="http://localhost:8081"
   constructor(private http: HttpClient) {
     this.isLoggedIn = false;
   }
 
-  performAuth(loginData) :Observable<Login>{
-    return this.http.post<Login>('/api/users/performAuth',loginData);
+  // performAuth(loginData) :Observable<Login>{
+  //   return this.http.post<Login>('/api/users/performAuth',loginData);
+  // }
+
+  performAuth(loginData){
+    return this.http.post(`${this.baseUrl}`+'/users/performAuth',loginData);
   }
 
   createUserAccount(loginData: signUpUserForm) {
