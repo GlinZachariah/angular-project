@@ -1,38 +1,39 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CardDetails } from '../data.model';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', localStorage.getItem("token"));
   constructor(private http:HttpClient){
   }
 
   getTrainingsCompleted(username){
     //TODO send HTTP post request to getTrainingsCompleted by username and return status
-    return this.http.get("/api/users/getCompletedTrainingDetails/"+username);
+    return this.http.get("/api/users/getCompletedTrainingDetails/"+username,{headers:this.headers});
   }
 
   getUserTrainingsInProgress(usern){
     //TODO send HTTP post request to getTrainingsInProgress by username and return status
-    return this.http.get("/api/users/getProgressTraining/"+usern);
+    return this.http.get("/api/users/getProgressTraining/"+usern,{headers:this.headers});
   }
 
   updateCourseProgress(courseData){
-    return this.http.put('/api/users/updateProgressTraining',courseData);
+    return this.http.put('/api/users/updateProgressTraining',courseData,{headers:this.headers});
   }
 
   addCompletedTraining(data){
     //TODO send HTTP post request to  by username and return status
-    return this.http.post('/api/users/addCompletedTrainingDetails',data);
+    return this.http.post('/api/users/addCompletedTrainingDetails',data,{headers:this.headers});
   }
 
   updateCoursePayment(courseData){
    //TODO send HTTP post request to updateCoursePayment by username and return status
-   return this.http.put('/api/users/updateProgressTraining',courseData);
+   return this.http.put('/api/users/updateProgressTraining',courseData,{headers:this.headers});
   }
 
   deleteCourseProgress(courseData){
@@ -43,9 +44,9 @@ export class UserService {
   getCardDetails(username):Observable<CardDetails>{
     //TODO send HTTP post request to getCardDetails  by username and return status
     // return this.http.get('/api/users/getCardDetails/'+username);
-    return this.http.get<CardDetails>('/api/users/getCardDetails/'+username);
+    return this.http.get<CardDetails>('/api/users/getCardDetails/'+username,{headers:this.headers});
   }
   saveCardDetails(cardData:CardDetails){
-    this.http.put('/api/users/updateCardDetails',cardData).subscribe();
+    this.http.put('/api/users/updateCardDetails',cardData,{headers:this.headers}).subscribe();
   }
 }

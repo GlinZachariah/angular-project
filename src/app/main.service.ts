@@ -23,33 +23,15 @@ export class MainService {
   LoggedInPwd: string;
   signUpUserObj: signUpUserForm;
 
-  
+  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', localStorage.getItem("token"));
   flag= 0;
   // baseUrl ="http://localhost:8081"
   constructor(private http: HttpClient) {
     this.isLoggedIn = false;
   }
 
-  performAuth(loginData:signIn) :string{
-    let obs= this.http.post<token>('/api/users/performAuth',loginData);
-    obs.subscribe((JSONResponse:token)=>{
-      console.log("PUT call in success", JSONResponse.token );
-      // success user save token response in local storage
-      // getUserRole
-      let headers = new HttpHeaders().set('Content-Type', 'application/json');
-          headers = headers.set('authorization', 'Bearer ' + JSONResponse.token);
-      let newobs = this.http.get('/api/users/getRole/'+loginData.username,{headers,responseType: 'text'});
-      newobs.subscribe((role:string)=>{return role;});
-    },
-    response => {
-          console.log("PUT call in error", response );
-          return 'invalid';
-      },
-      () => {
-          console.log("The PUT observable is now completed.");
-      }
-    );
-    return 'undefined';
+  performAuth(loginData:signIn):Observable<token> {
+    return this.http.post<token>('/api/users/performAuth',loginData);
   }
 
   // performAuth(loginData) :Observable<Login>{
@@ -71,7 +53,7 @@ export class MainService {
     };
 
     
-      let obs= this.http.post<signUpUserForm>('/api/users/signUpUser',this.signUpUserObj);
+      let obs= this.http.post<signUpUserForm>('/api/users/signUpUser',this.signUpUserObj,{headers:this.headers});
       obs.subscribe();
       // obs.subscribe(
       //   val => {
@@ -89,21 +71,21 @@ export class MainService {
 
 
   getTechData():Observable<Technology[]>{
-    return  this.http.get<Technology[]>('/api/admin/getTechnologies');
+    return  this.http.get<Technology[]>('/api/admin/getTechnologies',{headers:this.headers});
   }
 
   createMentorAccount(mentorCreateData){
-    this.http.post('/api/mentor/signUp',mentorCreateData).subscribe();
+    this.http.post('/api/mentor/signUp',mentorCreateData,{headers:this.headers}).subscribe();
   }
 
   searchTrainings(formData){
     //  TODO send mentorCreateData via HTTP POST and return status;
     
-    return this.http.post('/api/users/searchCourse',formData);
+    return this.http.post('/api/users/searchCourse',formData,{headers:this.headers});
   }
 
   updateTraining(progressData){
-    let obs= this.http.put('/api/users/updateProgressTraining',progressData);
+    let obs= this.http.put('/api/users/updateProgressTraining',progressData,{headers:this.headers});
     obs.subscribe();
   }
 

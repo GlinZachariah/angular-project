@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Technology } from '../data.model';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class AdminService {
   isAdminLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   dataGen;
   tech:Technology;
+  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', localStorage.getItem("token"));
   constructor(private http: HttpClient) {}
 
   performAuth(username, password, route) {
@@ -31,7 +32,7 @@ export class AdminService {
 
   getUserPermission(){
     //TODO send POST to getUserPermission and return the status
-    return this.http.get("/api/admin/getUsers");
+    return this.http.get("/api/admin/getUsers",{headers:this.headers});
   }
 
   addTech(data:string){
@@ -41,36 +42,36 @@ export class AdminService {
       skillName:data
     }
 
-    this.http.put('/api/admin/addTechnology',this.tech).subscribe();
+    this.http.put('/api/admin/addTechnology',this.tech,{headers:this.headers}).subscribe();
  }
 
  deleteTech(data){
     //TODO send POST request to deleteTech based on courseid and new value;
-    let obs =this.http.delete('/api/admin/deleteTechnology/'+data);
+    let obs =this.http.delete('/api/admin/deleteTechnology/'+data,{headers:this.headers});
     obs.subscribe();
  }
 
  getCurrentCourse(){
-  return this.http.get("/api/admin/getCommissionList");
+  return this.http.get("/api/admin/getCommissionList",{headers:this.headers});
 }
 
 updateCourseCommission(courseid,newCommissionValue){
   //TODO send POST request to updateCourseCommission based on courseid and new value;
-  return this.http.get("/api/admin/updateCommission/"+courseid+"/"+newCommissionValue);
+  return this.http.get("/api/admin/updateCommission/"+courseid+"/"+newCommissionValue,{headers:this.headers});
 }
 
 getPaymentLog(){
-  return this.http.get("/api/admin/getPaymentLog");
+  return this.http.get("/api/admin/getPaymentLog",{headers:this.headers});
 }
 
 updateUserPermission(data){
  //TODO send POST request to updateUserPermission based on userdetails and return new value;
- return this.http.get('/api/admin/updateUser/'+data.userName);
+ return this.http.get('/api/admin/updateUser/'+data.userName,{headers:this.headers});
 }
 
 getMentorList(){
   //TODO send POST request to getMentorList
-  return this.http.get("/api/admin/getUsers");
+  return this.http.get("/api/admin/getUsers",{headers:this.headers});
 }
 
 getMentorReport(trainername){
@@ -100,6 +101,6 @@ getMentorReport(trainername){
 //   });
 //   return resultData;
 // }
-  return this.http.get("/api/admin/getReport/"+trainername);
+  return this.http.get("/api/admin/getReport/"+trainername,{headers:this.headers});
 }
 }

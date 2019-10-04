@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MainService } from '../main.service';
 import { Observable } from 'rxjs';
 import { MentorModel, Technology, CalendarModel, MentorProgress } from '../data.model';
@@ -8,7 +8,7 @@ import { MentorModel, Technology, CalendarModel, MentorProgress } from '../data.
   providedIn: 'root'
 })
 export class MentorService {
-  
+  headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', localStorage.getItem("token"));
   loggedinUser;
   calendar:CalendarModel
   constructor(
@@ -19,17 +19,17 @@ export class MentorService {
    }
 
    getMentorCourses(mentorname: string) {
-    return this.http.get('/api/mentor/getCoursesList/'+mentorname);
+    return this.http.get('/api/mentor/getCoursesList/'+mentorname,{headers:this.headers});
   }
 
   addCourseDetails(CourseDetails){
     // TODO send POST request to addCourseDetails 
-    let obs = this.http.post('/api/mentor/addCourse',CourseDetails);
+    let obs = this.http.post('/api/mentor/addCourse',CourseDetails,{headers:this.headers});
     obs.subscribe();
   }
 
   deleteCourse(courseid){
-    return this.http.delete('/api/mentor/deleteCourse/'+courseid);
+    return this.http.delete('/api/mentor/deleteCourse/'+courseid,{headers:this.headers});
   }
 
   saveCalendar(calendarData){
@@ -40,17 +40,17 @@ export class MentorService {
       mentorName:this.loggedinUser,
       status:calendarData.status
     }
-    let obs = this.http.post('/api/mentor/addCalendar',this.calendar);
+    let obs = this.http.post('/api/mentor/addCalendar',this.calendar,{headers:this.headers});
     obs.subscribe();
     return this.calendar;
   }
 
   getCalendarData(username){
-    return this.http.get('/api/mentor/findCalendar/'+username);
+    return this.http.get('/api/mentor/findCalendar/'+username,{headers:this.headers});
   }
 
   deleteCalendar(data:CalendarModel){
-    return this.http.put('/api/mentor/deleteCalendar/',data);
+    return this.http.put('/api/mentor/deleteCalendar/',data,{headers:this.headers});
   }
 
   updateMentorDetails(formData,materialType){
@@ -58,33 +58,33 @@ export class MentorService {
   }
 
   getMentorDetails(username):Observable<MentorModel>{
-    return  this.http.get<MentorModel>('/api/mentor/getMentorDetails/'+username);
+    return  this.http.get<MentorModel>('/api/mentor/getMentorDetails/'+username,{headers:this.headers});
   }
 
   getMentorSkills(username):Observable<Technology[]>{
-    return this.http.get<Technology[]>('/api/mentor/getMentorSkills/'+username);
+    return this.http.get<Technology[]>('/api/mentor/getMentorSkills/'+username,{headers:this.headers});
   }
 
   getCourseHistory(username){
-    return this.http.get("/api/mentor/viewMentorProgress/"+username);
+    return this.http.get("/api/mentor/viewMentorProgress/"+username,{headers:this.headers});
   }
 
   getMentorProgress(username){
-    return this.http.get('/api/mentor/viewMentorHistory/'+username);
+    return this.http.get('/api/mentor/viewMentorHistory/'+username,{headers:this.headers});
   }
 
   approveCourse(data){
     data.courseStatus = 'Approved';
-   return this.http.put('/api/mentor/updateMentorProgress/',data);
+   return this.http.put('/api/mentor/updateMentorProgress/',data,{headers:this.headers});
   }
 
   rejectCourse(data){
     data.courseStatus = 'Rejected';
-    return this.http.put('/api/mentor/updateMentorProgress/',data);
+    return this.http.put('/api/mentor/updateMentorProgress/',data,{headers:this.headers});
   }
 
   withdraw(data){
-    return this.http.put('/api/mentor/withdrawAmount',data);
+    return this.http.put('/api/mentor/withdrawAmount',data,{headers:this.headers});
   }
 
 }
