@@ -2,7 +2,12 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Login, signUpUserForm, MentorModel, Technology, SearchRequestModel } from './data.model';
+import { Login, signUpUserForm, MentorModel, Technology, SearchRequestModel, signIn } from './data.model';
+
+
+export interface token{
+  token:string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -20,18 +25,40 @@ export class MainService {
 
   
   flag= 0;
-  baseUrl ="http://localhost:8081"
+  // baseUrl ="http://localhost:8081"
   constructor(private http: HttpClient) {
     this.isLoggedIn = false;
+  }
+
+  performAuth(loginData:signIn) :string{
+    let obs= this.http.post<token>('/api/users/performAuth',loginData);
+    obs.subscribe((JSONResponse:token)=>{
+      console.log("PUT call in success", JSONResponse.token );
+      // success user save token response in local storage
+      // getUserRole
+      let headers = new HttpHeaders().set('Content-Type', 'application/json');
+          headers = headers.set('authorization', 'Bearer ' + JSONResponse.token);
+      let newobs = this.http.get('/api/users/getRole/'+loginData.username,{headers,responseType: 'text'});
+      newobs.subscribe((role:string)=>{return role;});
+    },
+    response => {
+          console.log("PUT call in error", response );
+          return 'invalid';
+      },
+      () => {
+          console.log("The PUT observable is now completed.");
+      }
+    );
+    return 'undefined';
   }
 
   // performAuth(loginData) :Observable<Login>{
   //   return this.http.post<Login>('/api/users/performAuth',loginData);
   // }
 
-  performAuth(loginData){
-    return this.http.post(`${this.baseUrl}`+'/users/performAuth',loginData);
-  }
+  // performAuth(loginData){
+  //   return this.http.post(`${this.baseUrl}`+'/users/performAuth',loginData);
+  // }
 
   createUserAccount(loginData: signUpUserForm) {
 
