@@ -31,7 +31,7 @@ export class AdminService {
 
   getUserPermission(){
     //TODO send POST to getUserPermission and return the status
-    return this.http.get("/api/admin/getUsers");
+    return this.http.get("/api/users/getUsers");
   }
 
   addTech(data:string){
@@ -51,26 +51,26 @@ export class AdminService {
  }
 
  getCurrentCourse(){
-  return this.http.get("/api/admin/getCommissionList");
+  return this.http.get("/api/mentor/getCommissionList");
 }
 
 updateCourseCommission(courseid,newCommissionValue){
   //TODO send POST request to updateCourseCommission based on courseid and new value;
-  return this.http.get("/api/admin/updateCommission/"+courseid+"/"+newCommissionValue);
+  return this.http.get("/api/mentor/updateCommission/"+courseid+"/"+newCommissionValue);
 }
 
 getPaymentLog(){
-  return this.http.get("/api/admin/getPaymentLog");
+  return this.http.get("/api/users/getPaymentLog");
 }
 
 updateUserPermission(data){
  //TODO send POST request to updateUserPermission based on userdetails and return new value;
- return this.http.get('/api/admin/updateUser/'+data.userName);
+ return this.http.get('/api/users/updateUser/'+data.userName);
 }
 
 getMentorList(){
   //TODO send POST request to getMentorList
-  return this.http.get("/api/admin/getUsers");
+  return this.http.get("/api/users/getUsers");
 }
 
 getMentorReport(trainername){
@@ -100,6 +100,6 @@ getMentorReport(trainername){
 //   });
 //   return resultData;
 // }
-  return this.http.get("/api/admin/getReport/"+trainername);
+  return this.http.get("/api/mentor/getReport/"+trainername);
 }
 }
