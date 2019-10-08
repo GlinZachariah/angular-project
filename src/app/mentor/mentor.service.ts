@@ -66,7 +66,7 @@ export class MentorService {
   }
 
   getCourseHistory(username){
-    return this.http.get("/api/mentor/viewMentorProgress/"+username);
+    return this.http.get("/api/users/getMentorCourseDetails/"+username);
   }
 
   getMentorProgress(username){
@@ -75,12 +75,12 @@ export class MentorService {
 
   approveCourse(data){
     data.courseStatus = 'Approved';
-   return this.http.put('/api/mentor/updateMentorProgress/',data);
+   return this.http.put('/api/users/updateMentorCourseDetails',data);
   }
 
   rejectCourse(data){
     data.courseStatus = 'Rejected';
-    return this.http.put('/api/mentor/updateMentorProgress/',data);
+    return this.http.put('/api/users/updateMentorCourseDetails',data);
   }
 
   withdraw(data){
