@@ -67,7 +67,7 @@ export class MainService {
   searchTrainings(formData){
     //  TODO send mentorCreateData via HTTP POST and return status;
     
-    return this.http.post('/api/users/searchCourse',formData);
+    return this.http.post('/api/mentor/searchCourse',formData);
   }
 
   updateTraining(progressData){
