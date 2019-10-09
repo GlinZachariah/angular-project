@@ -48,4 +48,8 @@ export class UserService {
   saveCardDetails(cardData:CardDetails){
     this.http.put('/api/users/updateCardDetails',cardData).subscribe();
   }
+
+  changeUserPwd(loggedUser,newPassword){
+    return this.http.post('/api/users/newValue/'+loggedUser,newPassword)
+  }
 }

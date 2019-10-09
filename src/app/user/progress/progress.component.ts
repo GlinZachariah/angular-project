@@ -67,6 +67,7 @@ export class ProgressComponent implements OnInit {
    data.paymentStatus='Paid';
    let obs= this.updateService.updateCoursePayment(data);
    obs.subscribe();
+   data.courseStatus='On Going'
    this.traingingProgressData.splice(i,1);
    this.traingingProgressData.push(data);
   }

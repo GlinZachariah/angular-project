@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Technology } from '../data.model';
+import { Technology,signIn,Login } from '../data.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +11,19 @@ export class AdminService {
   isAdminLogged: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   dataGen;
   tech:Technology;
+  credentials:signIn;
   constructor(private http: HttpClient) {}
 
   performAuth(username, password, route) {
     //TODO send POST to performAuth and return the status
+    this.credentials={
+      username:username,
+      password:password
+    }
     let obs;
-    obs = this.http.get('assets/admin.json');
-    obs.subscribe(data => {
-      if (data[0].auth == true) {
+    obs = this.http.post('/api/admin/performAuth',this.credentials);
+    obs.subscribe((data:Login) => {
+      if (data.auth == true) {
         this.adminLoggedIn = true;
         route.navigate(['admin', 'permission']);
         this.isAdminLogged.next(true);

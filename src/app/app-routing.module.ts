@@ -56,11 +56,11 @@ const routes: Routes = [
   },
   {
     path: 'mentor/viewHistory',
-    component: HistoryComponent
+    component: MprogressComponent 
   },
   {
     path: 'mentor/progress',
-    component: MprogressComponent
+    component: HistoryComponent
   },
   {
     path: 'trainings/browse',

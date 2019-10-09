@@ -62,8 +62,11 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  updateProfile(){
+  updateProfile(newPassword){
     //TODO send POST request to change username and password and subscribe to obtain status
+    let obs =this.userService.changeUserPwd(this.loggedUser,newPassword);
+    obs.subscribe();
+
   }
 
   saveCardDetails(cardDetail){
