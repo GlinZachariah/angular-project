@@ -10,15 +10,15 @@
 
       <div class="card-body theme-color-5">
         <div class="card-text">
-          <form action="mentor/home.html">
+          <form [formGroup]="skillForm" action="mentor/home.html" (ngSubmit)="updateSkills(skillForm.value.skills)">
 
             <div class="form-group">
               
               <label for="exampleFormControlSelect2">Select Skills</label>
               <div *ngIf="isLoaded">
-              <select multiple class="form-control" id="exampleFormControlSelect2"  >
+              <select formControlName="skills" multiple class="form-control" id="exampleFormControlSelect2"  >
                 <!-- <option *ngFor="let mentorSkill of mentorSkills" [value]="mentorSkill">{{mentorSkill.skillName}}</option> -->
-                  <option *ngFor="let mentorSkill of mentorList"  [selected]="mentorSkill.isMentorSkill" [value]="mentorSkill.skills.skillName">{{mentorSkill.skills.skillName}}</option>
+                  <option *ngFor="let mentorSkill of mentorList"  [attr.selected]="mentorSkill.isMentorSkill == true ? true:null " [attr.value]="mentorSkill.skills.skillName">{{mentorSkill.skills.skillName}}</option>
                 
               </select>
             </div>

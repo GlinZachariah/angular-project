@@ -87,4 +87,8 @@ export class MentorService {
     return this.http.put('/api/mentor/withdrawAmount',data);
   }
 
+  updateMentorSkills(skills,username){
+    return this.http.post('/api/mentor/updateMentorSkill/'+username,skills);
+  }
+
 }
