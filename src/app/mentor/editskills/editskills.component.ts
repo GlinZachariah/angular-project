@@ -23,7 +23,7 @@ export class EditskillsComponent implements OnInit {
   isLoaded:boolean;
   skillForm;
   skill:Technology;
-  result:Technology[];
+  result:Technology[]=[];
   constructor(
     private mainService : MainService,
     private mentorService : MentorService,

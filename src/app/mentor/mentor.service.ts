@@ -53,8 +53,9 @@ export class MentorService {
     return this.http.put('/api/mentor/deleteCalendar/',data);
   }
 
-  updateMentorDetails(formData,materialType){
+  updateMentorDetails(formData,mentorUsername){
     // TODO send POST request to updateMentorDetails 
+    this.http.post('/api/users/newValue/'+mentorUsername,formData).subscribe();
   }
 
   getMentorDetails(username):Observable<MentorModel>{

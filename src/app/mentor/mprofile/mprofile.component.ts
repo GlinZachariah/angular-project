@@ -26,8 +26,6 @@ export class MprofileComponent implements OnInit {
   ) {
 
     this.formMentor = this.formBuilder.group({
-      username: '',
-      fullname: '',
       linkedInUrl: '',
       experience: '',
       password: '',
@@ -49,15 +47,13 @@ export class MprofileComponent implements OnInit {
 
   saveMentorDetails(formData,materialType){
     // TODO subscribe to the service to view the status of update
-    this.mentorService.updateMentorDetails(formData,materialType);
+    this.mentorService.updateMentorDetails(formData.password,this.mainService.LoggedInUsername);
   }
 
   ngOnInit() {
     let obs = this.mentorService.getMentorDetails(this.mainService.LoggedInUsername);
     obs.subscribe((result:MentorModel)=>{
       this.formMentor = this.formBuilder.group({
-        username: result.userName,
-        fullname: result.fullName,
         linkedInUrl: result.linkedInURL,
         experience: result.experience,
         password: result.userPassword,
